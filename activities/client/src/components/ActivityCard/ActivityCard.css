@@ -1,0 +1,26 @@
+.activity-card-container {
+  border: solid black 1px;
+  width: 2em;
+  height: 4em;
+}
+
+.activity-card-container:hover {
+  border: dashed red 1px;
+}
+
+.event-activity {
+  border: solid black 1px;
+}
+
+.event-activity:hover {
+  border: dashed red 1px;
+}
+
+.profile-picture {
+  border-radius: 50%;
+}
+
+.event-info {
+  height: 40% ;
+  width: 75%;
+}
