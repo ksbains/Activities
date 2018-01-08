@@ -2,7 +2,9 @@ import React from "react";
 import "./ActivityCard.css";
 
 
-// TODO: /* CHANGE THE CSS FOR THE HOVER EVENT in ActivityCard.CSS*/
+// TODO: CHANGE CSS FOR LINKS & LINKS HOVER ...ect
+
+// TODO: USER ABLE TO CHOOSE BACKGROUND COLOR FOR .USER-CREATOR-INFO
 
 class ActivityCard extends React.Component {
 render () {
@@ -12,13 +14,13 @@ render () {
         <div className="col-sm-8 col-md-8 col-lg-8">
           <div className="event-substance">
             <div className="event-activity">
-              <strong>[ACTIVITY]</strong>
+              <strong><a href="#">[ACTIVITY]</a></strong>
             </div>
             <div className="event-info">
               <p className="card-text">
               <ul>
                 <li>[Date]</li>
-                <li>[Location]</li>
+                <li><a href="#">[Location]</a></li>
                 <li>[Family Friendly]</li>
                 <li>[Description]<br/>lorus ipsum who carejawouidhawjfwlifugahli  ia hbfwiefb </li>
               </ul>
