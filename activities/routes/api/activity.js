@@ -10,7 +10,7 @@ router
     .route("/:id")
     .get(activitiesController.findById)
     .put(activitiesController.update)
-    .delete(activitiesController.remove);
+    .delete(activitiesController.delete);
 
 module.exports = router;
 
