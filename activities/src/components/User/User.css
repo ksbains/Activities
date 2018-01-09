@@ -5,7 +5,7 @@
 
 .profile {
     display: inline-block;
-    width: 20%;
+    width: 18%;
     height: 200px;
     margin: 15px;
     float:left;
@@ -13,7 +13,7 @@
 
 .info {
     display: inline-block;
-    width: 12.5%;
+    width: 15%;
     height: 200px;
     margin: 15px;
     float:left;
@@ -21,26 +21,30 @@
 
 .aboutme {
     display: inline-block;
-    width: 30%;
+    width: 35%;
     height: 200px;
     margin: 15px;
     float:left;
+    font-family: 'Open Sans', sans-serif;
+    text-align: justify;
 }
 
 .flakescore {
     display: inline-block;
-    width: 20%;
+    width: 18%;
     height: 200px;
     margin: 15px;
     float:left;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-size: 80px;
 }
 
-.username {
-    display: block;
-}
-
-.location {
-    display: block;
+.userloc {
+    padding-bottom: 4px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
 }
 
 .wrapper {

@@ -11,19 +11,19 @@ const User = props => {
                 </div>
             </div>
             <div className="info">
-                <div className="username">
-                    Username
+                <div className="userloc">
+                    aaaaMatt
                 </div>
-                <div className="location">
-                    Location
+                <div className="userloc">
+                    San Marcos, California
                 </div>
 
             </div>
             <div className="aboutme">
-                Description
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam turpis quis nisl dapibus, nec tincidunt ante finibus. Integer at ante et libero convallis posuere eu vitae nisi. Quisque metus odio, faucibus ac ultrices id, sodales ac lorem. Nam vel posuere magna. Aliquam pretium nisi a sollicitudin posuere. Nulla nec justo orci. Duis dapibus, nisi at semper egestas, risus enim ornare mi, vitae pharetra nunc nisi vestibulum ipsum. Praesent eu sollicitudin massa.
             </div>
             <div className="flakescore">
-                Flake Score
+                98
             </div>
         </div>
     </div>;
