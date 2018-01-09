@@ -1,5 +1,16 @@
-.description{
-	float: left;
-	text-decoration-color: #dddddd;
-	color: #337AB7;
+.card-title{
+	background-color: #cccccc;
+	height: 10%;
+	padding: 2%;
+}
+.card{
+	margin:1%;
+	background-color: #f1f1f1;
+	height: Auto;
+	max-width: 300px
+}
+.card-footer{
+	background-color: #cccccc;
+	height: 10%;
+	padding: 2%;
 }

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import logo from './logo.svg';
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/Navbar/Navbar.js';
 import ActivityCard from "./components/ActivityCard";
-
-
-import Homepage from "./pages/Homepage";
-
+import EventDescription from "./components/EventDescription";
+import GoogleMap from "./components/GoogleMap";
 
 
 class App extends Component {
@@ -15,9 +12,15 @@ class App extends Component {
      <div className="App">
      <Navbar/>
      <ActivityCard/>
+     <EventDescription/>
+     <GoogleMap/>
+    
      </div>
    );
  }
 }
+
+
+
 
 export default App;
