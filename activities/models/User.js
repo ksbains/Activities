@@ -11,7 +11,7 @@ const UserSchema = new Schema({
     flakeScore: { type: String, required: true},
     bio: { type: String, required: true},
     lastLogin: {type: Date},
-    status: {type:ENUM('active', 'inacive')}
+    status: {type:ENUM('active', 'inactive')}
 });
 
 const User = mongoose.model("User", UserSchema);
