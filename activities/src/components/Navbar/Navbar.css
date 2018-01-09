@@ -1,0 +1,10 @@
+.navbar-nav>li>a.profile-image {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.createEvent{
+	background-color: #d61152;
+	color: #848182;
+	
+}

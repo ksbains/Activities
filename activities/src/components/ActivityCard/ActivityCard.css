@@ -1,0 +1,32 @@
+.activity-card-container {
+	padding-top: .5rem;
+    width: 40rem;
+    height: 20rem;
+}
+
+.activity-card-container:hover {
+    border: dashed red 1px;
+}
+
+.event-activity {
+	padding: 1rem;
+}
+
+.event-activity:hover {
+    border: dashed red 1px;
+}
+
+.user-created {
+}
+
+
+.profile-picture {
+	width: 7rem;
+	height: 7rem;
+    float: right;
+}
+
+.event-info {
+    height: 100%;
+    width: 75%;
+}
