@@ -1,22 +1,3 @@
-// import React from "react";
-// import "./GoogleMap.css";
-
-
-// class MyMapComponent extends React.Component{
-
-
-// 	render(){
-// 		return(
-// 			<div>Hi</div>
-				
-// 		)
-// 	}
-
-// };
-
-// export default MyMapComponent;
-
-
 import React from "react";
 import ReactDOM from "react-dom";
 import { compose, withProps } from "recompose";
@@ -35,16 +16,15 @@ const MyMapComponent = compose(
 
 
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `300px`, width:`50%`, float:`right` }} />,
+    containerElement: <div style={{ height: `300px`, width:`40%`, float:`right` }} />,
     mapElement: <div style={{ height: `100%` }} />
   }),
   withScriptjs,
   withGoogleMap
 )(props => (
   <GoogleMap defaultZoom={3} defaultCenter={{ lat: 32.715736, lng: -117.161087 }}>
-    {props.isMarkerShown && ( 
       <Marker position={{ lat: 32.715736, lng: -117.161087 }} />
-    )}
+    
   </GoogleMap>
 ));
 

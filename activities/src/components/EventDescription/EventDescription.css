@@ -1,4 +1,4 @@
-.card-title{
+/*.card-title{
 	background-color: #cccccc;
 	height: 10%;
 	padding: 2%;
@@ -7,10 +7,63 @@
 	margin:1%;
 	background-color: #f1f1f1;
 	height: Auto;
-	max-width: 300px
+	max-width: 300px;
+
 }
 .card-footer{
 	background-color: #cccccc;
 	height: 10%;
 	padding: 2%;
 }
+*/
+
+.container {
+  margin-top: 10px;
+
+}
+
+.panel.panel-pink {
+  border-radius: 0px;
+  box-shadow: 0px 0px 10px #888;
+  border-color: #EF5160;
+}
+.panel.panel-pink .panel-heading {
+  border-radius: 0px;
+  color: #FFF;
+  background-color: #EF5160;
+}
+.panel.panel-pink .panel-body {
+  background-color: #F2F2F2;
+  color: #4D4D4D;
+}
+
+.panel.panel-blue {
+  border-radius: 0px;
+  box-shadow: 0px 0px 10px #888;
+  border-color: #266590; 
+}
+.panel.panel-blue .panel-heading {
+  border-radius: 0px;
+  color: #FFF;
+  background-color: #266590;
+}
+.panel.panel-blue .panel-body {
+  background-color: #F2F2F2;
+  color: #4D4D4D;
+}
+
+.panel.panel-yellow {
+  border-radius: 0px;
+  box-shadow: 0px 0px 10px #888;
+  border-color: #EFA13D;
+}
+.panel.panel-yellow .panel-heading {
+  border-radius: 0px;
+  color: #FFF;
+  background-color: #EFA13D;
+}
+.panel.panel-yellow .panel-body {
+  background-color: #F2F2F2;
+  color: #4D4D4D;
+}
+
