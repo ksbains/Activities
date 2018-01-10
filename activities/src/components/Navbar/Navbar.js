@@ -10,7 +10,7 @@ class Navbar extends React.Component {
 		return (
 			<nav className="navbar ">
 			    <ul class="nav nav-pills">
-			        <li className="active"><a href="#">Create an Activity!</a></li>
+			        <li className="active"> <a href="#">Create an Activity!</a> </li>
 			        <li className="dropdown">
 			            <a href="#" data-toggle="dropdown" className="dropdown-toggle">Activities <b className="caret"></b></a>
 			            <ul className="dropdown-menu">

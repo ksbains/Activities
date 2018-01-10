@@ -3,7 +3,8 @@
     padding-bottom: 10px;
 }
 
-#createEvent{
-	background-color: red;
-	color: black;
+.createEvent{
+	background-color: #d61152;
+	color: #848182;
+	
 }
