@@ -1,6 +1,5 @@
 const router = require("express").Router();
 
-
 const activitiesRoutes = require("./activity");
 const userRoutes = require('./user');
 

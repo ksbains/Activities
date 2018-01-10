@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const activitiesController = require("../../controllers/activitiesController");
+
 //Matches with "api/activities"
 router.route("")
     .get(activitiesController.findAll)
