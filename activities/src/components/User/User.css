@@ -38,6 +38,9 @@
     font-family: 'Open Sans', sans-serif;
     text-align: center;
     font-size: 80px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
 }
 
 .userloc {

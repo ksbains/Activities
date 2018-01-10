@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
+  <link rel="stylesheet" href="./Navbar.css">
+</head>
+<body>
+	<nav className="navbar ">
+	    <ul class="nav nav-pills">
+	        <li class="active" id="createEvent"><a href="#">Create an Activity!</a></li>
+	        <li class="dropdown">
+	            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Activities <b class="caret"></b></a>
+	            <ul class="dropdown-menu">
+	                <li><a href="#">Basketball</a></li>
+	                <li><a href="#">Beer Die</a></li>
+	                <li><a href="#">Slosh Ball</a></li>
+	                <li><a href="#">Spike Ball</a></li>
+	                <li><a href="#">Soccer</a></li>
+	                <li class="divider"></li>
+	                <li><a href="#">Create new Category!</a></li>
+	            </ul>
+	        </li>
+
+	        <li class="dropdown pull-right">
+	            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><img src="http://placehold.it/18x18" class="profile-image img-circle"> UserName <b class="caret"></b></a>
+	            <ul class="dropdown-menu">
+	                <li><a href="#">Profile</a></li>
+	                <li><a href="#">Upcoming events</a></li>
+	                <li class="divider"></li>
+	                <li><a href="#">Settings</a></li>
+	            </ul>
+	        </li>
+	    </ul>
+	</nav>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
