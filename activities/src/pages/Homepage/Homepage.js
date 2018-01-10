@@ -3,6 +3,7 @@ import "./Homepage.css";
 import Navbar from "../../components/Navbar/Navbar.js";
 import ActivityCard from "../../components/ActivityCard";
 
+
 // TODO: CHANGE LOOP LENGTH TO NUBER OF EVENTS IN DATABASE. 
 // USE .MAP HIGH FUNCTIONS
 
@@ -20,7 +21,7 @@ class Homepage extends Component {
 		return(
 			<div>
 				<Navbar/>
-				{ generateCards() }
+				{generateCards()}
 			</div>
 			)
 	}
