@@ -18,7 +18,7 @@ function generateCards() {
 	.then(res => {
 		console.log('response',res.data);
 		this.setState({
-			cards: cardBank
+			cards: res.data
 		});
 		// var cardBank = [];
 		// res.data.map(x => {
@@ -36,7 +36,7 @@ class Homepage extends Component {
 		return(
 			<div>
 				<Navbar/>
-				<ActivityCard items={this.state.cards}
+				<ActivityCard items={this.state.cards}/>
 				{ generateCards() }
 			</div>
 			)

@@ -4,8 +4,6 @@ var Activites = require("./Activity");
 var Users = require("./User");
 //var db = goosestrap("mongodb://localhost/Activities", path.resolve("../models/*"));
 
-//var Activity = db.model('Activity', Activites);
-
 var toReturn = {
 	User: Users,
 	Activity: Activites
