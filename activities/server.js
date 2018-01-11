@@ -11,7 +11,7 @@ var axios = require("axios");
 
 // Require all models
 var db = require("./models");
-var apiRoutes = require('./routes');
+var routes = require('./routes');
 
 var PORT = 3000;
 
@@ -26,7 +26,7 @@ app.use(logger("dev"));
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({ extended: false }));
 // Use express.static to serve the public folder as a static directory
-//app.use(express.static("public"));
+app.use(express.static("build"));
 
 app.use("/fake", function(req, res){
 	res.send({
@@ -35,7 +35,7 @@ app.use("/fake", function(req, res){
 });
 
 console.log('Loading the API Routes');
-app.use(apiRoutes);
+app.use(routes);
 
 
 // Set mongoose to leverage built in JavaScript ES6 Promises

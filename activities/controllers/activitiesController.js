@@ -4,9 +4,9 @@ const db = require("../models");
 // Defining methods for the activitiesController
 module.exports = {
   findAll: function(req, res) {
-    console.log("this is the start of the findAll Controller function");
+    console.log('FINDALL')
     db.Activity
-      .find(req.query)
+      .find()
       .sort({ date: -1 })
       .then(dbModel => {
         console.log('Data', dbModel);

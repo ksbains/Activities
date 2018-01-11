@@ -2,19 +2,33 @@ import React, { Component } from "react";
 import "./Homepage.css";
 import Navbar from "../../components/Navbar/Navbar.js";
 import ActivityCard from "../../components/ActivityCard";
-import db from "../../providers/ActivityService.js";
+import ActivityService from "../../providers/ActivityService.js";
 // TODO: CHANGE LOOP LENGTH TO NUBER OF EVENTS IN DATABASE. 
 // USE .MAP HIGH FUNCTIONS
 
-function generateCards() {
-	let temp = db.getActivities()
-	console.log("this is the response ", temp);
-	var cardBank = [];
 
-	for (let i = 0; i < 3; i++) {
-		cardBank.push(<ActivityCard/>);
-	}
-	return cardBank
+// Create a state to hold the list of cards (state.cards)
+// Pass this state as a pop to a Card container
+
+
+
+
+function generateCards() {
+	ActivityService.getActivities()
+	.then(res => {
+		console.log('response',res.data);
+		this.setState({
+			cards: cardBank
+		});
+		// var cardBank = [];
+		// res.data.map(x => {
+		// 	cardBank.push(<ActivityCard descrition={x.name}/>);
+		// })
+	})
+	.catch(e => {
+		console.log('error',e);
+	});
+	return '';
 }
 
 class Homepage extends Component {
@@ -22,6 +36,7 @@ class Homepage extends Component {
 		return(
 			<div>
 				<Navbar/>
+				<ActivityCard items={this.state.cards}
 				{ generateCards() }
 			</div>
 			)
