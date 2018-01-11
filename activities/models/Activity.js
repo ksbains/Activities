@@ -9,7 +9,14 @@ const activitySchema = new Schema({
     fam: { type: Boolean, required: true },
     maxPeople: { type: Number, required: true },
     description: {type: String, required: true},
-    reoccuring: { type: Boolean, required: true }
+    reoccuring: { type: Boolean, required: true },
+    creator: { type: Schema.Types.ObjectId, ref: "User"},
+    usersJoined: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ]
 });
 
 const Activity = mongoose.model("Activity", activitySchema);
