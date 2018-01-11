@@ -10,8 +10,8 @@ const UserSchema = new Schema({
     phoneNumber: { type: String, required: true},
     flakeScore: { type: String, required: true},
     bio: { type: String, required: true},
-    lastLogin: {type: Date},
-    status: {type:ENUM('active', 'inactive')}
+    lastLogin: {type: String, required: true},
+    //status: {type:ENUM('active', 'inactive')}
 });
 
 const User = mongoose.model("User", UserSchema);

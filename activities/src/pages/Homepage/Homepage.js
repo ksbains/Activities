@@ -8,7 +8,7 @@ import db from "../../providers/ActivityService.js";
 
 function generateCards() {
 	let temp = db.getActivities()
-	console.log(temp);
+	console.log("this is the response ", temp);
 	var cardBank = [];
 
 	for (let i = 0; i < 3; i++) {

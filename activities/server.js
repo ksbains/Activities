@@ -11,6 +11,7 @@ var axios = require("axios");
 
 // Require all models
 var db = require("./models");
+var apiRoutes = require('./routes');
 
 var PORT = 3000;
 
@@ -19,16 +20,34 @@ var app = express();
 
 // Configure middleware
 
+
 // Use morgan logger for logging requests
 app.use(logger("dev"));
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({ extended: false }));
 // Use express.static to serve the public folder as a static directory
-app.use(express.static("public"));
+//app.use(express.static("public"));
+
+app.use("/fake", function(req, res){
+	res.send({
+		message: "WE got here!"
+	});
+});
+
+console.log('Loading the API Routes');
+app.use(apiRoutes);
+
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost:Activities", {
+mongoose.connect("mongodb://localhost/Activities", {
   useMongoClient: true
+}).then(function(){
+	console.log("connected to mongo");
+	app.listen(PORT, function() {
+		console.log("API Server Started");
+	});
+}).catch(function (err){
+	console.log("error connecting to mongo", err);
 }); 

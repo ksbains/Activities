@@ -1,6 +1,16 @@
 var goosestrap = require('goosestrap');
 var path = require('path');
+var Activites = require("./Activity");
+var Users = require("./User");
+//var db = goosestrap("mongodb://localhost/Activities", path.resolve("../models/*"));
 
-var db = goosestrap("mongodb://localhost/Activities", path.resolve("../models/*"));
+//var Activity = db.model('Activity', Activites);
 
-module.exports = db;
+var toReturn = {
+	User: Users,
+	Activity: Activites
+};
+console.log('toReturn', toReturn);
+
+
+module.exports = toReturn;
