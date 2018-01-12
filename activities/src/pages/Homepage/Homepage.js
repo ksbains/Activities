@@ -11,37 +11,38 @@ import ActivityService from "../../providers/ActivityService.js";
 // Pass this state as a pop to a Card container
 
 
-
-
-function generateCards() {
-	ActivityService.getActivities()
-	.then(res => {
-		console.log('response',res.data);
-		this.setState({
-			cards: res.data
-		});
-		// var cardBank = [];
-		// res.data.map(x => {
-		// 	cardBank.push(<ActivityCard descrition={x.name}/>);
-		// })
-	})
-	.catch(e => {
-		console.log('error',e);
-	});
-	return '';
-}
-
 class Homepage extends Component {
-	render() {
-		return(
-			<div>
-				<Navbar/>
-				<ActivityCard items={this.state.cards}/>
-				{ generateCards() }
-			</div>
-			)
+
+	state = {
+		activities: []
+	};
+
+	componentDidMount => {
+		this.loadEvents();
+	};
+
+	loadEvents = () => {
+		ActivityService.getActivities()
+			.then(res => this.setState({ activities: res.data }))
+			.catch(err => console.log(err));
+	};
+
+		render() {
+			return(
+				<div>
+					<Navbar/>
+					{this.state.activities.map(activity => {
+						return(
+							<ActivityCard
+							activityType = {activity.activityType}
+							description = {activity.description}
+							/>
+						);
+					})}
+				</div>
+			);
+		}
 	}
-}
 
 
 export default Homepage;

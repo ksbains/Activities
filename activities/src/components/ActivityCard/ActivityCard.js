@@ -8,21 +8,6 @@ import "./ActivityCard.css";
 
 // TODO: INCREASE FONT SIZE FLAKE SCORE NUMBER/DECREASE FONT SIZE "FLAKE SCORE" TEXT
 
-const props = {
-  time: "12",
-  location: 12,
-  fam: true
-}
-
-function activityCardEventInfo(props) {
-  console.log("props", props);
-  <ul>
-    <li>{props.time}</li>
-    <li>{props.location}</li>
-    <li>{props.fam}</li>
-    <li>{props.descrition}</li>
-  </ul>
-}
 
 const ActivityCard = props => {
   return(
@@ -34,11 +19,7 @@ const ActivityCard = props => {
               <strong><a href="#"> {props.activityType} </a></strong>
             </div>
             <div className="event-info">
-              <p className="card-text">
-              <ul>
-              <activityCardEventInfo/>
-              </ul>
-              </p>
+              <p className="card-text">{props.description}</p>
             </div>
           </div>
         </div>
