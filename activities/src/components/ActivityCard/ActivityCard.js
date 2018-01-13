@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from "react";
 import "./ActivityCard.css";
 
 
@@ -9,20 +9,23 @@ import "./ActivityCard.css";
 // TODO: INCREASE FONT SIZE FLAKE SCORE NUMBER/DECREASE FONT SIZE "FLAKE SCORE" TEXT
 
 
-export const ActivityCard = props => {
+ class ActivityCard extends React.Component{
+  
   return(
     <div className="activity-card-container container">
       <div className="row">
+        
         <div className="col-sm-8 col-md-8 col-lg-8">
           <div className="event-substance">
             <div className="event-activity">
-              <strong><a href="#"> {props.location} </a></strong>
+              <strong><a href="#"> {this.props.location} </a></strong>
             </div>
             <div className="event-info">
-              <p className="card-text">{props.description}</p>
+              <p className="card-text">{this.props.description}</p>
             </div>
           </div>
         </div>
+        
         <div className="col-sm-4 col-md-4 col-lg-4 user-creator-info">
             <div className="user-created">
               <strong>[USERNAME]</strong>
@@ -36,6 +39,8 @@ export const ActivityCard = props => {
         </div>
       </div>
     </div>
-    )
+  )
 }
+
+export default ActivityCard;
 

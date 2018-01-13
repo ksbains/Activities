@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "./Setting.css";
 import Navbar from "../../components/Navbar/Navbar.js";
 
+function submit(){
+	console.log("bro this is the submit function fam");
+}
+
 class Setting extends Component {
 render() {
 	return(
@@ -92,7 +96,7 @@ render() {
 
 					<div className="row formQuestion">
 						<div className="col-md-12 mt-5">
-							<button type="submit" className="btn btn-success btn-lg mb-2 mr-2 ml-2 pill-btn">Set-up Account</button>
+							<button onClick="submit()" className="btn btn-success btn-lg mb-2 mr-2 ml-2 pill-btn">Set-up Account</button>
 						</div> 
 					</div>
 				</form>
