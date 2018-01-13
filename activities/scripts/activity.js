@@ -12,21 +12,18 @@ var activitySeeder = seeder.connect('mongodb://localhost/activities', () => {
     });
 });
 
-var activitySeed = [
-		{
-			    'model': 'Activity',
-			    'documents': [
-			    		{
-						        location: "Egypt",
-						        time: "March 24, 2002",
-						        duration: "40days",
-						        activityType: "Plane Crashing",
-						        fam: true,
-						        maxPeople: 6,
-						        description: "We're going to egypt to kill a Vampire",
-						        reoccuring: true 
-			    		}
-			    ]
+var activitySeed = [{
+    'model': 'Activity',
+    'documents': [{
+        location: "Petco Park",
+        time: "March 24, 2018",
+        duration: "1 hour",
+        activityType: "Plane Crashing",
+        fam: true,
+        maxPeople: 6,
+        description: "Bring the heat!",
+        reoccuring: true
+    }]
 }];
 
 module.exports = activitySeeder;

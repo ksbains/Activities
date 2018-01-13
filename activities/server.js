@@ -3,6 +3,8 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 var activitySeeder = require("./scripts/activity.js")
+var commentSeeder = require("./scripts/comment.js")
+var userSeeder = require("./scripts/user.js")
 var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
 
@@ -57,9 +59,9 @@ mongoose.connect("mongodb://localhost/activities", {
   useMongoClient: true
 }).then(function(){
 	console.log("connected to mongo");
-
-	activitySeeder
-
+	activitySeeder;
+	commentSeeder;
+	userSeeder;
 	app.listen(PORT, function() {
 		console.log("API Server Started on port:" + PORT);
 	});
