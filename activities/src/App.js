@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navbar from './components/Navbar/Navbar.js';
-import ActivityCard from "./components/ActivityCard";
-import EventDescription from "./components/EventDescription";
-import GoogleMap from "./components/GoogleMap";
+import { Switch, Route } from 'react-router-dom';
+import Homepage from "./pages/Homepage";
+import ActivityForm from "./pages/Activity";
 import Setting from "./pages/Setting";
+import UserPage from "./pages/User";
+import LoginPage from "./pages/Login";
 
 
 class App extends Component {
  render() {
    return (
-     <div className="App">
-        <Navbar/>
-        <ActivityCard/>
-        <EventDescription/>
-         <GoogleMap/>
-  		 <Setting/>
-     </div>
+
+       <div>
+           <Switch>
+               <Route exact path='/' component={Homepage} />
+               <Route exact path='/activity' component={ActivityForm} />
+               <Route exact path='/settings' component={Setting} />
+               <Route exact path='/user' component={UserPage} />
+               <Route exact path='/login' component={LoginPage} />
+           </Switch>
+       </div>
+
    );
  }
 }

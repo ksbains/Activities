@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.css";
+import { Link } from 'react-router-dom';
 
 // By importing the Header.css file, it is added to the DOM whenever this component loads
 //acces props via this.props
@@ -9,13 +10,9 @@ class Navbar extends React.Component {
 	render () {
 		return (
 			<nav className="navbar ">
-<<<<<<< HEAD
-			    <ul className="nav nav-pills">
-			        <li className="active"><a href="#">Create an Activity!</a></li>
-=======
-			    <ul class="nav nav-pills">
-			        <li className="active"> <a href="#">Create an Activity!</a> </li>
->>>>>>> e982719b1648cb5924c9ef3c07d88097e949238e
+				<ul>
+			        <li className="active"> <Link to='/activity'>Create an Activity!</Link> </li>
+
 			        <li className="dropdown">
 			            <a href="#" data-toggle="dropdown" className="dropdown-toggle">Activities <b className="caret"></b></a>
 			            <ul className="dropdown-menu">
@@ -31,10 +28,10 @@ class Navbar extends React.Component {
 			        <li className="dropdown pull-right">
 			            <a href="#" data-toggle="dropdown" className="dropdown-toggle"><img src="http://placehold.it/18x18" className="profile-image img-circle"/> UserName <b className="caret"></b></a>
 			            <ul className="dropdown-menu">
-			                <li><a href="#">Profile</a></li>
+			                <li><Link to='/user'>Profile</Link></li>
 			                <li><a href="#">Upcoming events</a></li>
 			                <li className="divider"></li>
-			                <li><a href="#">Settings</a></li>
+			                <li><Link to='/settings'>Settings</Link></li>
 			            </ul>
 			        </li>
 			    </ul>
