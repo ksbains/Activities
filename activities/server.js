@@ -2,6 +2,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var passport = require("passport");
+var LocalStrategy = require('passport-local').Strategy;
 
 // Our scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
@@ -37,6 +39,15 @@ app.use("/fake", function(req, res){
 console.log('Loading the API Routes');
 app.use(routes);
 
+// Use passport to set up authentication
+app.use(require('express-session')({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
@@ -50,4 +61,9 @@ mongoose.connect("mongodb://localhost/Activities", {
 	});
 }).catch(function (err){
 	console.log("error connecting to mongo", err);
-}); 
+});
+
+var User = require('./models/User');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
