@@ -26,7 +26,6 @@ class SimpleAutocomplete extends React.Component {
         return (
             <form onSubmit={this.handleFormSubmit}>
                 <PlacesAutocomplete inputProps={inputProps} />
-                <button type="submit">Submit</button>
             </form>
         )
     }
