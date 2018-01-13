@@ -9,7 +9,7 @@ class Navbar extends React.Component {
 	render () {
 		return (
 			<nav className="navbar ">
-			    <ul class="nav nav-pills">
+			    <ul className="nav nav-pills">
 			        <li className="active"><a href="#">Create an Activity!</a></li>
 			        <li className="dropdown">
 			            <a href="#" data-toggle="dropdown" className="dropdown-toggle">Activities <b className="caret"></b></a>
