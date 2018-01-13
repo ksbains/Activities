@@ -41,12 +41,12 @@ app.use(routes);
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/Activities", {
+mongoose.connect("mongodb://localhost/activities", {
   useMongoClient: true
 }).then(function(){
 	console.log("connected to mongo");
 	app.listen(PORT, function() {
-		console.log("API Server Started");
+		console.log("API Server Started on port:" + PORT);
 	});
 }).catch(function (err){
 	console.log("error connecting to mongo", err);

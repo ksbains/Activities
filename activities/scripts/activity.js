@@ -1,13 +1,5 @@
-const mongoose = require("mongoose");
-const db = require("./models");
-mongoose.Promise = global.Promise;
+const mongoose = require("mongoose").model("Activity");
 
-mongoose.connect(
-	process.env.MONGODB_URI || "mongodb://localhost/activites",
-	{
-		useMongoClient: true
-	}
-);
 
 const activitySeed = [
 {

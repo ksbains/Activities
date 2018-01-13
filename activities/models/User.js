@@ -23,8 +23,8 @@ const UserSchema = new Schema({
             ref: "Activity"
         }
     ],
-    lastLogin: {type: Date},
-    status: {type:ENUM('active', 'inactive')}
+    lastLogin: {type: Date}
+    // status: {type:ENUM('active', 'inactive')}
 });
 
 const User = mongoose.model("User", UserSchema);
