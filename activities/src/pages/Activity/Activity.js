@@ -9,57 +9,66 @@ import Navbar from "../../components/Navbar/Navbar.js";
 // 	// Create a state to hold the list of cards (state.cards)
 // 	// Pass this state as a pop to a Card container
 // 	// FUNCTIONS
-// 	var placeSearch, autocomplete;
+/*<script type="text/javascript">
+	 $(function () {
+			 $('#datetimepicker1').datetimepicker()
+	});
+	var placeSearch, autocomplete;
 
-// 	function initAutocomplete() {
-//         // Create the autocomplete object, restricting the search to geographical
-//         // location types.
-//         autocomplete = new google.maps.places.Autocomplete(
-//             /** @type {!HTMLInputElement} */(document.getElementById('address')),
-//             {types: ['geocode']});
+	function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+        
+        (document.getElementById('address')),
+        {types: ['geocode']});
 
-//         // When the user selects an address from the dropdown, populate the address
-//         // fields in the form.
-//         autocomplete.addListener('place_changed', fillInAddress);
-//     }
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+    }
 
-//     function fillInAddress() {
-//         // Get the place details from the autocomplete object.
-//         var place = autocomplete.getPlace();
+    function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace()
 
-//         for (var component in componentForm) {
-//           document.getElementById(component).value = '';
-//           document.getElementById(component).disabled = false;
-//     }
+        for (var component in componentForm) {
+          document.getElementById(component).value = ''
+          document.getElementById(component).disabled = false
+    }
 
-//         // Get each component of the address from the place details
-//         // and fill the corresponding field on the form.
-//     for (var i = 0; i < place.address_components.length; i++) {
-//           var addressType = place.address_components[i].types[0];
-//           if (componentForm[addressType]) {
-//             var val = place.address_components[i][componentForm[addressType]];
-//             document.getElementById(addressType).value = val;
-//           }
-//         }
-//     }
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+    for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+    }
 
-//       // Bias the autocomplete object to the user's geographical location,
-//       // as supplied by the browser's 'navigator.geolocation' object.
-//     function geolocate() {
-// 	    if (navigator.geolocation) {
-// 	      navigator.geolocation.getCurrentPosition(function(position) {
-// 	        var geolocation = {
-// 	          lat: position.coords.latitude,
-// 	          lng: position.coords.longitude
-// 	        };
-// 	        var circle = new google.maps.Circle({
-// 	          left: geolocation,
-// 	          radius: position.coords.accuracy
-// 	        });
-// 	        autocomplete.setBounds(circle.getBounds());
-// 	      });
-// 	    }
-// }
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+    function geolocate() {
+	    if (navigator.geolocation) {
+	      navigator.geolocation.getCurrentPosition(function(position) {
+	        var geolocation = {
+	          lat: position.coords.latitude,
+	          lng: position.coords.longitude
+	        };
+	        var circle = new google.maps.Circle({
+	          left: geolocation,
+	          radius: position.coords.accuracy
+	        });
+	        autocomplete.setBounds(circle.getBounds());
+	      });
+	    }
+}*/
+	function date(){
+		console.log("The date picker has been clicked");
+		this.datetimepicker();
+	}
 
 class ActivitySignUp extends Component {
 render() {
@@ -86,6 +95,19 @@ render() {
 						</div>
 						</div>
 					</div>
+
+					<div className="row formQuestion">
+						<div className="col-md-12">
+							<div class="form-group">
+				                <div class='input-group date' id='datetimepicker1'>
+				                    <input type='text' class="form-control" />
+				                    <span class="input-group-addon">
+				                        <span class="glyphicon glyphicon-calendar" onClick="date()"></span>
+				                    </span>
+				                </div>
+			            	</div>
+			            </div>
+			        </div>
 					
 					<div className="row formQuestion">
 						<div className="col-md-12">
@@ -175,7 +197,6 @@ render() {
 								<p>Is this Activity reoccuring?</p>
 								<input type="radio" name="reoccur" value="true"/> Yes<br/>
 								<input type="radio" name="reoccur" value="false"/> No<br/>
-								
 							</div>
 						</div>
 					</div>
