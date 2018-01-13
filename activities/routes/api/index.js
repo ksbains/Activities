@@ -2,13 +2,11 @@ const router = require("express").Router();
 
 const activitiesRoutes = require("./activity");
 const userRoutes = require('./user');
+const commentRoutes = require('./comments')
 
-console.log('This is the Router Entry Point');
-
-
-//Article R)outes
 router.use ("/activities", activitiesRoutes);
 router.use('/users', userRoutes);
+router.use('/comments', commentRoutes);
 
 
 module.exports = router;

@@ -1,2 +1,1 @@
-export * from "./ActivityCard";
-export * from "./ActivityCardWrapper";
+export { default } from "./ActivityCard.js";

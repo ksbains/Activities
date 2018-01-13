@@ -28,6 +28,7 @@ class Homepage extends Component {
 				this.setState({ activities: res.data })
 				console.log("load events", res.data) 	
 			} )
+
 			.catch(err => console.log(err));
 	};
 		render() {

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Activity = require("./Activity");
+var passportLocalMongoose = require('passport-local-mongoose');
 
 const UserSchema = new Schema({
     first: { type: String, required: true },
@@ -24,8 +25,11 @@ const UserSchema = new Schema({
         }
     ],
     lastLogin: {type: Date}
+    // lastLogin: {type: Date},
     // status: {type:ENUM('active', 'inactive')}
 });
+
+UserSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model("User", UserSchema);
 
