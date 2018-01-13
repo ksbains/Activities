@@ -90,10 +90,10 @@ render() {
 					<div className="row formQuestion">
 						<div className="col-md-12">
 							<div className="text-left">
-				      	<label for="location">Location:</label>
-				      	<br/>
+							<label for="location">Location:</label>
+							<br/>
 								<SimpleAutocomplete />
-						</div>
+							</div>
 						</div>
 					</div>
 
