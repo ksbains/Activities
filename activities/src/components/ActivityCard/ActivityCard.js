@@ -9,26 +9,17 @@ import "./ActivityCard.css";
 // TODO: INCREASE FONT SIZE FLAKE SCORE NUMBER/DECREASE FONT SIZE "FLAKE SCORE" TEXT
 
 
-
-class ActivityCard extends React.Component {
-render () {
-  return (
+export const ActivityCard = props => {
+  return(
     <div className="activity-card-container container">
       <div className="row">
         <div className="col-sm-8 col-md-8 col-lg-8">
           <div className="event-substance">
             <div className="event-activity">
-              <strong><a href="#">[ACTIVITY]</a></strong>
+              <strong><a href="#"> {props.location} </a></strong>
             </div>
             <div className="event-info">
-              <p className="card-text">
-              <ul>
-                <li>[Date]</li>
-                <li><a href="#">[Location]</a></li>
-                <li>[Family Friendly]</li>
-                <li>[Description]<br/>lorus ipsum who carejawouidhawjfwlifugahli  ia hbfwiefb </li>
-              </ul>
-              </p>
+              <p className="card-text">{props.description}</p>
             </div>
           </div>
         </div>
@@ -45,8 +36,6 @@ render () {
         </div>
       </div>
     </div>
-  )
-}
+    )
 }
 
-export default ActivityCard;
