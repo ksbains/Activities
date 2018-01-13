@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Activity.css";
 import Navbar from "../../components/Navbar/Navbar.js";
+import SimpleAutocomplete from "../../components/PlacesAutocomplete/PlacesAutocomplete";
 
 // // TODO: CHANGE LOOP LENGTH TO NUBER OF EVENTS IN DATABASE. 
 // // USE .MAP HIGH FUNCTIONS
@@ -91,7 +92,7 @@ render() {
 							<div className="text-left">
 				      	<label for="location">Location:</label>
 				      	<br/>
-							<input type="text" className="form-control-custom mb-4" id="address" placeholder="Enter Address" onfocus="geoLocate()"/>
+								<SimpleAutocomplete />
 						</div>
 						</div>
 					</div>

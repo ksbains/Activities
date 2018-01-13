@@ -4,14 +4,19 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
-    "cheerio": "^1.0.0-rc.2",
     "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
     "goosestrap": "^1.0.0",
     "mongoose": "^5.0.0-rc1",
     "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.4.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-places-autocomplete": "^5.4.3",
     "react-scripts": "1.0.17"
   },
   "scripts": {
