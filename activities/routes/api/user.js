@@ -6,7 +6,7 @@ router.get("", usersController.findAll)
 		.post('', usersController.create)
 		.get('/:id', usersController.findById)
 		.put('/:id', usersController.update)
-		.delete('/:id', userController.delete)
+		.delete('/:id', usersController.remove)
 
 module.exports = router; 
 

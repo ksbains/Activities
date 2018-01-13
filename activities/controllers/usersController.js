@@ -1,37 +1,41 @@
 const db = require("../models");
 // Defining methods for the usersController
-// .User refers to the User collection within the Activities Database. 
 module.exports = {
   findAll: function(req, res) {
-    db.Users
-      .find(req.query)
+    console.log("this is the start of the findAll Controller function");
+    db.User
+      .find()
       .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  }, 
+      .then(dbModel => {
+        console.log('Data', dbModel);
+        res.json(dbModel);
+      })
+      .catch(err => res.status(420).json(err));
+  },
   findById: function(req, res) {
-    db.Users
+    db.User
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  }, 
+      .catch(err => res.status(420).json(err));
+  },
   create: function(req, res) {
-    db.Users
+    db.User
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .then(dbModel => res.json(dbModel)) 
+      .catch(err => res.status(420).json(err));
   },
   update: function(req, res) {
-    db.Users
+    db.User
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => res.status(420).json(err));
   },
-  delete: function(req, res) {
-    db.Users
+  remove: function(req, res) {
+    db.User
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => res.status(420).json(err));
+
   }
 };

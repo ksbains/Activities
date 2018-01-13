@@ -1,13 +1,18 @@
 const db = require("../models");
+//const db = require("../models/Activity");
 
 // Defining methods for the activitiesController
 // .Activity refers to the Activity collection within the Activities Database. 
 module.exports = {
   findAll: function(req, res) {
+    console.log('FINDALL')
     db.Activity
-      .find(req.query)
+      .find()
       .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        console.log('Data', dbModel);
+        res.json(dbModel);
+      })
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
@@ -19,7 +24,7 @@ module.exports = {
   create: function(req, res) {
     db.Activity
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => res.json(dbModel)) 
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
@@ -28,7 +33,7 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  delete: function(req, res) {
+  remove: function(req, res) {
     db.Activity
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())

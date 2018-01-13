@@ -1,35 +1,42 @@
-import React from "react";
+import React from 'react';
 import "./ActivityCard.css";
 
 
-// TODO: /* CHANGE THE CSS FOR THE HOVER EVENT in ActivityCard.CSS*/
+// TODO: CHANGE CSS FOR LINKS & LINKS HOVER ...ect
 
-class ActivityCard extends React.Component {
-render () {
-  return (
-    <div
-      className="activity-card-container container"
-    >
+// TODO: USER ABLE TO CHOOSE BACKGROUND COLOR FOR .USER-CREATOR-INFO
+
+// TODO: INCREASE FONT SIZE FLAKE SCORE NUMBER/DECREASE FONT SIZE "FLAKE SCORE" TEXT
+
+
+const ActivityCard = props => {
+  return(
+    <div className="activity-card-container container">
       <div className="row">
-        <div className="event-activity col-md-5 col-sm-5 col-lg-5">
-        <strong>Horse Golf</strong>
+        <div className="col-sm-8 col-md-8 col-lg-8">
+          <div className="event-substance">
+            <div className="event-activity">
+              <strong><a href="#"> {props.activityType} </a></strong>
+            </div>
+            <div className="event-info">
+              <p className="card-text">{props.description}</p>
+            </div>
+          </div>
         </div>
-        <div className="user-created col-md-5 col-sm-5 col-lg-5">
-        <span>Created By [USERNAME]</span>
-        </div>
-        <div className="profile-picture col-md-5 col-sm-5 col-lg-5">
-        <img src="https://thumbs.dreamstime.com/b/little-female-pomeranian-pet-show-dog-22237703.jpg" className="profile-picture img-circle"></img>
-        </div>
-      </div>
-      <div className="row">
-        <div className="event-info col-md-12 col-sm-12 col-lg-12">
-        <span>EVENT INFO LORUS IPSOM SHIGGY DIGGY LATIN</span>
+        <div className="col-sm-4 col-md-4 col-lg-4 user-creator-info">
+            <div className="user-created">
+              <strong>[USERNAME]</strong>
+            </div>
+            <div className="user-profile-picture">
+              <img src="https://thumbs.dreamstime.com/b/little-female-pomeranian-pet-show-dog-22237703.jpg" className="user-profile-picture img-circle"></img>
+            </div>
+            <div className="user-flake-score">
+              <strong>FLAKE SCORE [0.00]</strong>
+            </div>
         </div>
       </div>
     </div>
-
-  )
-}
+    )
 }
 
 export default ActivityCard;
