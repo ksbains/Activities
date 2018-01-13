@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-
+var activitySeeder = require("./scripts/activity.js")
 // Our scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
 // It works on the client and on the server
@@ -45,6 +45,9 @@ mongoose.connect("mongodb://localhost/activities", {
   useMongoClient: true
 }).then(function(){
 	console.log("connected to mongo");
+
+	activitySeeder
+
 	app.listen(PORT, function() {
 		console.log("API Server Started on port:" + PORT);
 	});

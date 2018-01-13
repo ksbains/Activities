@@ -4,19 +4,20 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
-    "cheerio": "^1.0.0-rc.2",
     "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.2",
     "goosestrap": "^1.0.0",
     "mongoose": "^5.0.0-rc1",
+    "mongoose-seed": "^0.4.1",
     "morgan": "^1.9.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17"
   },
-  "scripts": { 
-    "start": "node server.js", 
-    "build": "react-scripts build", 
+  "scripts": {
+    "start": "node server.js",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
