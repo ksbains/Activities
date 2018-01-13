@@ -24,6 +24,7 @@ const UserSchema = new Schema({
             ref: "Activity"
         }
     ],
+    lastLogin: {type: Date}
     // lastLogin: {type: Date},
     // status: {type:ENUM('active', 'inactive')}
 });

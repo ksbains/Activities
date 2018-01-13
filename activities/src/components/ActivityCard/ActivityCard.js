@@ -9,14 +9,14 @@ import "./ActivityCard.css";
 // TODO: INCREASE FONT SIZE FLAKE SCORE NUMBER/DECREASE FONT SIZE "FLAKE SCORE" TEXT
 
 
-const ActivityCard = props => {
+export const ActivityCard = props => {
   return(
     <div className="activity-card-container container">
       <div className="row">
         <div className="col-sm-8 col-md-8 col-lg-8">
           <div className="event-substance">
             <div className="event-activity">
-              <strong><a href="#"> {props.activityType} </a></strong>
+              <strong><a href="#"> {props.location} </a></strong>
             </div>
             <div className="event-info">
               <p className="card-text">{props.description}</p>
@@ -39,4 +39,3 @@ const ActivityCard = props => {
     )
 }
 
-export default ActivityCard;

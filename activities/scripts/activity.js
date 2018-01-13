@@ -1,23 +1,29 @@
-const mongoose = require("mongoose");
-const db = require("./models");
-mongoose.Promise = global.Promise;
+var seeder = require('mongoose-seed');
 
-mongoose.connect(
-	process.env.MONGODB_URI || "mongodb://localhost/activites",
-	{
-		useMongoClient: true
-	}
-);
+var activitySeeder = seeder.connect('mongodb://localhost/activities', () => {
+    seeder.loadModels([
+        './models/Activity.js'
+    ]);
 
-const activitySeed = [
-{
-	location: "Egypt",
-	time: "March 24, 2002",
-	duration: "40days",
-	activityType: "Plane Crashing",
-	fam: true,
-	maxPeople: 6,
-	description: "We're going to egypt to kill a Vampire",
-	reocurring: false
-}
-]
+    seeder.clearModels(['Activity'], () => {
+        seeder.populateModels(activitySeed, () => {
+            seeder.disconnect();
+        });
+    });
+});
+
+var activitySeed = [{
+    'model': 'Activity',
+    'documents': [{
+        location: "Petco Park",
+        time: "March 24, 2018",
+        duration: "1 hour",
+        activityType: "Plane Crashing",
+        fam: true,
+        maxPeople: 6,
+        description: "Bring the heat!",
+        reoccuring: true
+    }]
+}];
+
+module.exports = activitySeeder;

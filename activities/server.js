@@ -2,6 +2,9 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var activitySeeder = require("./scripts/activity.js")
+var commentSeeder = require("./scripts/comment.js")
+var userSeeder = require("./scripts/user.js")
 var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
 
@@ -52,12 +55,15 @@ app.use(passport.session());
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/Activities", {
+mongoose.connect("mongodb://localhost/activities", {
   useMongoClient: true
 }).then(function(){
 	console.log("connected to mongo");
+	activitySeeder;
+	commentSeeder;
+	userSeeder;
 	app.listen(PORT, function() {
-		console.log("API Server Started");
+		console.log("API Server Started on port:" + PORT);
 	});
 }).catch(function (err){
 	console.log("error connecting to mongo", err);

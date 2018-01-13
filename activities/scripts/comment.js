@@ -1,18 +1,24 @@
-const mongoose = require("mongoose");
-const db = require("./models");
-mongoose.Promise = global.Promise;
+var seeder = require('mongoose-seed');
 
-mongoose.connect(
-	process.env.MONGODB_URI || "mongodb://localhost/activites",
-	{
-		useMongoClient: true
-	}
-);
+var commentSeeder = seeder.connect('mongodb://localhost/activities', () => {
+    seeder.loadModels([
+        './models/Comment.js'
+    ]);
 
-const commentSeed = [
-{
-	author: "Dio Brando",
-	message: "How many loaves of bread have you eaten in your life?",
-	timeStamp: "10:10"
-}
-]
+    seeder.clearModels(['Comment'], () => {
+        seeder.populateModels(commentSeed, () => {
+            seeder.disconnect();
+        });
+    });
+});
+
+const commentSeed = [{
+    'model': 'Comment',
+    'documents': [{
+        author: "Dio Brando",
+        message: "How many loaves of bread have you eaten in your life?",
+        timeStamp: "10:10"
+    }]
+}];
+
+module.exports = commentSeeder;
