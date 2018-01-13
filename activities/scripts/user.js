@@ -1,5 +1,6 @@
 var seeder = require('mongoose-seed');
 
+
 var userSeeder = seeder.connect('mongodb://localhost/activities', () => {
     seeder.loadModels([
         './models/User.js'
@@ -23,8 +24,10 @@ const userSeed = [{
             phoneNumber: "1234567",
             flakeScore: "0.01",
             bio: "test",
+            activitiesCreated: [],
+            activitiesJoined: [],
             lastLogin: "",
-            status: ""
+            status: "test"
         },
         {
             first: "Polnareff",
@@ -35,8 +38,10 @@ const userSeed = [{
             phoneNumber: "1234567",
             flakeScore: "0.2",
             bio: "test",
+            activitiesCreated: [],
+            activitiesJoined: [],
             lastLogin: "",
-            status: ""
+            status: "test"
         },
         {
             first: "Kakyoin",
@@ -47,8 +52,10 @@ const userSeed = [{
             phoneNumber: "1234567",
             flakeScore: "0.03",
             bio: "test",
+            activitiesCreated: [],
+            activitiesJoined: [],
             lastLogin: "",
-            status: ""
+            status: "test"
         },
         {
             first: "Joseph",
@@ -59,8 +66,10 @@ const userSeed = [{
             phoneNumber: "1234567",
             flakeScore: "0.04",
             bio: "test",
+            activitiesCreated: [],
+            activitiesJoined: [],
             lastLogin: "",
-            status: ""
+            status: "test"
         }, {
             first: "Jotaro",
             last: "Joestar",
@@ -70,8 +79,10 @@ const userSeed = [{
             phoneNumber: "1234567",
             flakeScore: "0.05",
             bio: "test",
+            activitiesCreated: [],
+            activitiesJoined: [],
             lastLogin: "",
-            status: ""
+            status: "test"
         }, {
             first: "Iggy",
             last: "Dog",
@@ -81,8 +92,10 @@ const userSeed = [{
             phoneNumber: "1234567",
             flakeScore: "0.06",
             bio: "test",
+            activitiesCreated: [],
+            activitiesJoined: [],
             lastLogin: "",
-            status: ""
+            status: "test"
         }]
 }];
 

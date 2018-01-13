@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Homepage.css";
 import Navbar from "../../components/Navbar/Navbar.js";
-import { ActivityCard, ActivityCardWrapper } from "../../components/ActivityCard";
+import ActivityCard from "../../components/ActivityCard";
 import ActivityService from "../../providers/ActivityService.js";
 
 // TODO: CHANGE LOOP LENGTH TO NUBER OF EVENTS IN DATABASE. 
@@ -18,27 +18,31 @@ class Homepage extends Component {
 	};
 
 	componentDidMount = () => {
-		this.loadEvents();
 		console.log("Load Homepage")
+		this.loadEvents();
 	};
 
 	loadEvents = () => {
+		// let state = { activities: [] };
+		console.log("Load Events");
 		ActivityService.getActivities()
 			.then(res => {
-				this.setState({ activities: res.data })
-				console.log("load events", res.data) 	
+				console.log("After find()", res.data) 	
+				this.loadEvents.setState({ activities: res.data })
 			} )
-
 			.catch(err => console.log(err));
+			// console.log(this.loadEvents.state)
 	};
+
 		render() {
 			return(
 				<div>
 					<Navbar/>
 					{this.state.activities.map(activity => {
+						console.log(activity)
 						return(
 							<ActivityCard
-							activityType = {activity.location}
+							activityType = {activity.activityType}
 							description = {activity.description}
 							/>
 						);

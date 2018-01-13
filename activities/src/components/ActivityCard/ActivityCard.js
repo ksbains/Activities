@@ -39,3 +39,4 @@ export const ActivityCard = props => {
     )
 }
 
+export default ActivityCard;

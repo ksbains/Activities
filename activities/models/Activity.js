@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const User = require("./User");
 
 const activitySchema = new Schema({
     location: {type: String, required: true},
@@ -12,10 +13,7 @@ const activitySchema = new Schema({
     reoccuring: { type: Boolean, required: true },
     creator: { type: Schema.Types.ObjectId, ref: "User"},
     usersJoined: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "User"
-        }
+    { type: Schema.Types.ObjectId, ref: "User"}
     ]
 });
 
