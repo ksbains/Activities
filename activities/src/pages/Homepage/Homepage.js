@@ -17,7 +17,7 @@ class Homepage extends Component {
 		activities: []
 	};
 
-	componentDidMount => {
+	componentDidMount = () => {
 		this.loadEvents();
 	};
 
