@@ -1,6 +1,6 @@
 var seeder = require('mongoose-seed');
 
-var commentSeeder = seeder.connect('mongodb://localhost/activities', () => {
+var commentSeeder = seeder.connect('mongodb://localhost/activitiesdb', () => {
     seeder.loadModels([
         './models/Comment.js'
     ]);
