@@ -14,16 +14,28 @@ var activitySeeder = seeder.connect('mongodb://localhost/activities', () => {
 
 var activitySeed = [{
     'model': 'Activity',
-    'documents': [{
+    'documents': [
+    {
         location: "Petco Park",
         time: "March 24, 2018",
         duration: "1 hour",
-        activityType: "Plane Crashing",
+        activityType: "Padres Game",
         fam: true,
         maxPeople: 6,
-        description: "Bring the heat!",
+        description: "Bring the heat! Go Padres!!",
         reoccuring: true
-    }]
+    },
+    {
+        location: "Yo Mama's House",
+        time: "April 20, 2018",
+        duration: "1 hour",
+        activityType: "Super bowl",
+        fam: true,
+        maxPeople: 2,
+        description: "Yo mama so fat she brought a spoon to the super bowl!!",
+        reoccuring: true
+    }
+    ]
 }];
 
 module.exports = activitySeeder;

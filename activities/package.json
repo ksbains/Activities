@@ -9,6 +9,7 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "goosestrap": "^1.0.0",
+    "jquery": "^3.2.1",
     "mongoose": "^5.0.0-rc1",
     "mongoose-seed": "^0.4.1",
     "morgan": "^1.9.0",

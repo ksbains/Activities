@@ -2,22 +2,28 @@ import React, { Component } from "react";
 import "./Setting.css";
 import Navbar from "../../components/Navbar/Navbar.js";
 
+function submit(){
+	console.log("bro this is the submit function fam");
+}
+
 class Setting extends Component {
+
 render() {
 	return(
 		<div>
 			<Navbar />
 			<div className="container">
-				<div className="row">
-					<div className="col-sm-2 m-auto text-center"></div>
-					<div className="col-sm-8 m-auto text-center">
-						<h2>Account Set-Up</h2>
-						<div className="divider"></div>
-						<h4>Set User details</h4>
-					</div>
-					<div className="col-sm-2 m-auto text-center"></div>
+			<div className="row">
+				<div className="col-sm-2 m-auto text-center"></div>
+				<div className="col-sm-8 m-auto text-center">
+					<h2>Account Set-Up</h2>
+					<div className="divider"></div>
+					<h4>Set User details</h4>
 				</div>
+				<div className="col-sm-2 m-auto text-center"></div>
+			</div>
 				<form action="cards.html" className="contact-form mt-4">
+					
 					<div className="row formQuestion">
 						<div className="col-md-12">
 							<div className="text-left">
@@ -92,7 +98,7 @@ render() {
 
 					<div className="row formQuestion">
 						<div className="col-md-12 mt-5">
-							<button type="submit" className="btn btn-success btn-lg mb-2 mr-2 ml-2 pill-btn">Set-up Account</button>
+							<button onClick="submit()" className="btn btn-success btn-lg mb-2 mr-2 ml-2 pill-btn">Set-up Account</button>
 						</div> 
 					</div>
 				</form>

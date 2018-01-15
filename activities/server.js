@@ -55,7 +55,7 @@ app.use(passport.session());
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/activities", {
+mongoose.connect("mongodb://localhost/activitiesdb", {
   useMongoClient: true
 }).then(function(){
 	activitySeeder;
