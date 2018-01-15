@@ -1,7 +1,7 @@
 var seeder = require('mongoose-seed');
 
 
-var userSeeder = seeder.connect('mongodb://localhost/activities', () => {
+var userSeeder = seeder.connect('mongodb://localhost/activitiesdb', () => {
     seeder.loadModels([
         './models/User.js'
     ]);

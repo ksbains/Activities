@@ -1,6 +1,6 @@
 var seeder = require('mongoose-seed');
 
-var activitySeeder = seeder.connect('mongodb://localhost/activities', () => {
+var activitySeeder = seeder.connect('mongodb://localhost/activitiesdb', () => {
     seeder.loadModels([
         './models/Activity.js'
     ]);
