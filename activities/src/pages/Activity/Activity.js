@@ -78,6 +78,7 @@ class ActivitySignUp extends Component {
     console.log("the state after the push is", this.state);
     this.pushActivities(this.state);
   }
+  
 
 render() {
 	return(
@@ -198,15 +199,20 @@ render() {
 					<div className="row formQuestion">
 						<div className="col-md-12">
 							<div class="form-group">
-				                <div class='input-group date' id='datetimepicker1'>
-				                    <input type='text' class="form-control" />
-				                    <span class="input-group-addon">
-				                        <span class="glyphicon glyphicon-calendar"></span>
+				                <div className='input-group date' id='datetimepicker1'>
+				                    <input type='text' className="form-control" />
+				                    <span className="input-group-addon">
+				                        <span className="glyphicon glyphicon-calendar"></span>
 				                    </span>
 				                </div>
 			            	</div>
 			            </div>
 			        </div>
+			        <script type="text/javascript">
+			            $(function () {
+			                $('#datetimepicker1').datetimepicker()
+			            });
+			        </script>
 					
 					<div className="row formQuestion">
 						<div className="col-md-12">
