@@ -30,7 +30,7 @@ class Homepage extends Component {
 				console.log("After find()", res.data) 	
 				this.loadEvents.setState({ activities: res.data })
 			} )
-			.catch(err => console.log(err));
+			.catch(err => console.log("error", err));
 			// console.log(this.loadEvents.state)
 	};
 

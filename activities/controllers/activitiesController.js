@@ -8,7 +8,6 @@ module.exports = {
     console.log('FINDALL')
     db.Activity
       .find()
-      .sort({ date: -1 })
       .then(dbModel => {
         console.log('Data', dbModel);
         res.json(dbModel);
