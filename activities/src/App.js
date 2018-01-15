@@ -14,7 +14,6 @@ class App extends Component {
    return (
     <div>
      <div className="App">
-  		<ActivityForm/>
      </div>
      <div>
          <Switch>

@@ -16,6 +16,6 @@ export default  {
   },
   // Saves a activity to the database
   saveActivity: function(activityData) {
-    return axios.post("/api/activities", bookData);
+    return axios.post("/api/activities", activityData);
   }
 };

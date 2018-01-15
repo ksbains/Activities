@@ -58,10 +58,10 @@ mongoose.Promise = Promise;
 mongoose.connect("mongodb://localhost/activitiesdb", {
   useMongoClient: true
 }).then(function(){
-	console.log("connected to mongo");
 	activitySeeder;
 	commentSeeder;
 	userSeeder;
+}).then(function() {
 	app.listen(PORT, function() {
 		console.log("API Server Started on port:" + PORT);
 	});

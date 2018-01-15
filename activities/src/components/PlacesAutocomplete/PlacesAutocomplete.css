@@ -8,11 +8,12 @@ input {
     padding: 10px;
 }
 autocompleteContainer {
-    position: absolute;
+    position: relative;
     top: 100%;
     backgroundColor: white;
     border: 1px solid #555555;
     width: 100%;
+    overflow:visible;
 }
 autocompleteItem{
     backgroundColor: #ffffff;
