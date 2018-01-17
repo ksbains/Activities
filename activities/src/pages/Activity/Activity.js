@@ -2,9 +2,26 @@ import React, { Component } from "react";
 import "./Activity.css";
 import Navbar from "../../components/Navbar/Navbar.js";
 import SimpleAutocomplete from "../../components/PlacesAutocomplete/PlacesAutocomplete";
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import ActivityService from "../../providers/ActivityService.js";
 import $ from 'jquery'; 
 class ActivitySignUp extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            time: "April 20, 2018",
+            duration: "1 hour",
+            activityType: "Super Bowl",
+            fam: true,
+            maxPeople: 2,
+            description: "bring snacks",
+            reoccuring: true,
+            address: 'San Francisco, CA'
+        }
+        this.onChange = (address) => this.setState({ address })
+    }
+
 	activityTypes = [
 		"Basketball",
 		"Beer Die",
@@ -22,16 +39,6 @@ class ActivitySignUp extends Component {
 		"3 hours"
 	];
 	peopleTypes = [1,2,3,4,5,6,7,8,9];
-	state = {
-	    location: "UCSD",
-	    time: "April 20, 2018",
-	    duration: "1 hour",
-	    activityType: "Super Bowl",
-	    fam: true,
-	    maxPeople: 2,
-	    description: "bring snacks",
-	    reoccuring: true
-    }
     
     getActivityTypes = () => {
     	let opt = this.activityTypes.map(e => {
@@ -62,11 +69,17 @@ class ActivitySignUp extends Component {
 	    });
   	}
 
+
+
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("the state before push is ", this.state);
+      geocodeByAddress(this.state.address)
+          .then(results => getLatLng(results[0]))
+          .then(latLng => console.log('Success', latLng))
+          .catch(error => console.error('Error', error));
     this.setState({
-    	//location: $('#location').val(),
+    	address: $('#location').val(),
 	    time: $('#time').val(),
 	    duration: $('#duration').val(),
 	    activityType: $('#activity').val(),
@@ -79,7 +92,11 @@ class ActivitySignUp extends Component {
     this.pushActivities(this.state);
   }
 
-render() {
+render(){
+    const inputProps = {
+        value: this.state.address,
+        onChange: this.onChange,
+    }
 	return(
 		<div>
 			<Navbar />
@@ -230,7 +247,7 @@ render() {
 							<div className="text-left">
 				      	<label for="location">Location:</label>
 				      	<br/>
-								<SimpleAutocomplete />
+                                <PlacesAutocomplete inputProps={inputProps} />
 						</div>
 						</div>
 					</div>
