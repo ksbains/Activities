@@ -79,7 +79,6 @@ class ActivitySignUp extends Component {
     this.pushActivities(this.state);
   }
   
-
 render() {
 	return(
 		<div>

@@ -1,9 +1,12 @@
 const db = require("../models");
 //const db = require("../models/Activity");
 
+
 // Defining methods for the activitiesController
 // .Activity refers to the Activity collection within the Activities Database. 
 module.exports = {
+
+
   findAll: function(req, res) {
     console.log('FINDALL')
     db.Activity
