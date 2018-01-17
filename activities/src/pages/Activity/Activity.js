@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import "./Activity.css";
 import Navbar from "../../components/Navbar/Navbar.js";
 import SimpleAutocomplete from "../../components/PlacesAutocomplete/PlacesAutocomplete";
+// import Calendar from "../../components/DatePicker/DatePicker";
 import ActivityService from "../../providers/ActivityService.js";
 import $ from 'jquery'; 
+import DatePicker from 'react-date-picker';
+
 class ActivitySignUp extends Component {
 	activityTypes = [
 		"Basketball",
@@ -23,8 +26,9 @@ class ActivitySignUp extends Component {
 	];
 	peopleTypes = [1,2,3,4,5,6,7,8,9];
 	state = {
+		date:new Date(),
 	    location: "UCSD",
-	    time: "April 20, 2018",
+	    time: "1:20",
 	    duration: "1 hour",
 	    activityType: "Super Bowl",
 	    fam: true,
@@ -46,7 +50,6 @@ class ActivitySignUp extends Component {
     	return toReturn;
     }
 
-
 	pushActivities = (data) => {
 		ActivityService.saveActivity(data)
 			.then(res => {
@@ -66,7 +69,7 @@ class ActivitySignUp extends Component {
     event.preventDefault();
     console.log("the state before push is ", this.state);
     this.setState({
-    	//location: $('#location').val(),
+    	date: $('#date').val(),
 	    time: $('#time').val(),
 	    duration: $('#duration').val(),
 	    activityType: $('#activity').val(),
@@ -198,21 +201,17 @@ render() {
 
 					<div className="row formQuestion">
 						<div className="col-md-12">
-							<div class="form-group">
-				                <div className='input-group date' id='datetimepicker1'>
-				                    <input type='text' className="form-control" />
-				                    <span className="input-group-addon">
-				                        <span className="glyphicon glyphicon-calendar"></span>
-				                    </span>
-				                </div>
-			            	</div>
+							<div className="text-left">
+								<label for="Date">Date:</label>
+								<br/>
+								 <DatePicker
+								  name="date"
+						          onChange={this.handleInputChange}
+						          value={this.state.date}
+						    	/>	
+				            </div>	
 			            </div>
 			        </div>
-			        <script type="text/javascript">
-			            $(function () {
-			                $('#datetimepicker1').datetimepicker()
-			            });
-			        </script>
 					
 					<div className="row formQuestion">
 						<div className="col-md-12">
@@ -223,6 +222,7 @@ render() {
 								type="text" 
 								className="form-control-custom mb-4" 
 								id="time"
+								placeholder="8:00AM"
 								name="time"
 								value={this.state.time}
 								onChange={this.handleInputChange}
@@ -234,10 +234,10 @@ render() {
 					<div className="row formQuestion">
 						<div className="col-md-12">
 							<div className="text-left">
-				      	<label for="location">Location:</label>
-				      	<br/>
+						      	<label for="location">Location:</label>
+						      	<br/>
 								<SimpleAutocomplete />
-						</div>
+							</div>
 						</div>
 					</div>
 
