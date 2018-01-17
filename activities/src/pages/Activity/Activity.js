@@ -4,7 +4,21 @@ import Navbar from "../../components/Navbar/Navbar.js";
 import SimpleAutocomplete from "../../components/PlacesAutocomplete/PlacesAutocomplete";
 import ActivityService from "../../providers/ActivityService.js";
 import $ from 'jquery'; 
+import DatePicker from 'react-date-picker';
+
 class ActivitySignUp extends Component {
+	state = {
+		date:new Date(),
+	    location: "UCSD",
+	    time: "",
+	    duration: "1 hour",
+	    activityType: "Super Bowl",
+	    fam: true,
+	    maxPeople: 2,
+	    description: "bring snacks",
+	    reoccuring: true
+    }
+
 	activityTypes = [
 		"Basketball",
 		"Beer Die",
@@ -21,17 +35,9 @@ class ActivitySignUp extends Component {
 		"2 hour and 30 mins",
 		"3 hours"
 	];
+	
 	peopleTypes = [1,2,3,4,5,6,7,8,9];
-	state = {
-	    location: "UCSD",
-	    time: "April 20, 2018",
-	    duration: "1 hour",
-	    activityType: "Super Bowl",
-	    fam: true,
-	    maxPeople: 2,
-	    description: "bring snacks",
-	    reoccuring: true
-    }
+	
     
     getActivityTypes = () => {
     	let opt = this.activityTypes.map(e => {
@@ -45,7 +51,6 @@ class ActivitySignUp extends Component {
 		console.log("toReturn", toReturn);
     	return toReturn;
     }
-
 
 	pushActivities = (data) => {
 		ActivityService.saveActivity(data)
@@ -62,18 +67,21 @@ class ActivitySignUp extends Component {
 	    });
   	}
 
+  onChange = date => this.setState({ date })
+
+
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("the state before push is ", this.state);
     this.setState({
-    	//location: $('#location').val(),
+    	date: $('#date').val(),
 	    time: $('#time').val(),
 	    duration: $('#duration').val(),
 	    activityType: $('#activity').val(),
 	    fam: $('#fam').val(),
 	    maxPeople: $('#maxPeople').val(),
 	    description: $('#description').val(),
-	    reoccuring: $('#reoccur').val()
+	    reoccuring: $('#reoccuring').val()
     });
     console.log("the state after the push is", this.state);
     this.pushActivities(this.state);
@@ -177,8 +185,16 @@ render() {
 								<label for="fam">Family Friendly</label>
 								<br/>
 								<p>Is this Activity family friendly?</p>
-								<input type="radio" name="fam" value="value={this.state.fam}"/> Yes<br/>
-								<input type="radio" name="fam" value="{!this.state.fam}"/> No<br/>
+								<input 
+									type="radio" 
+									name="fam" 
+									value={this.state.fam} 
+									onChange={this.handleInputChange}/> Yes<br/>
+								<input 
+									type="radio" 
+									name="fam" 
+									value={!(this.state.fam)}
+									onChange={this.handleInputChange}/> No<br/>
 							</div>
 						</div>
 					</div>
@@ -189,29 +205,33 @@ render() {
 								<label for="reoccur">Reoccuring</label>
 								<br/>
 								<p>Is this Activity reoccuring?</p>
-								<input type="radio" name="reoccur" value="{this.state.reoccuring}"/> Yes<br/>
-								<input type="radio" name="reoccur" value="{!this.state.reoccuring}"/> No<br/>
+								<input 
+									type="radio" 
+									name="reoccuring" 
+									value={this.state.reoccuring} 
+									onChange={this.handleInputChange}/> Yes<br/>
+								<input 
+									type="radio" 
+									name="reoccuring" 
+									value={!(this.state.reoccuring)}
+									onChange={this.handleInputChange}/> No<br/>
 							</div>
 						</div>
 					</div>
 
 					<div className="row formQuestion">
 						<div className="col-md-12">
-							<div class="form-group">
-				                <div className='input-group date' id='datetimepicker1'>
-				                    <input type='text' className="form-control" />
-				                    <span className="input-group-addon">
-				                        <span className="glyphicon glyphicon-calendar"></span>
-				                    </span>
-				                </div>
-			            	</div>
+							<div className="text-left">
+								<label for="Date">Date:</label>
+								<br/>
+								 <DatePicker
+								  name="date"
+						          onChange={this.onChange}
+						          value={this.state.date}
+						    	/>	
+				            </div>	
 			            </div>
 			        </div>
-			        <script type="text/javascript">
-			            $(function () {
-			                $('#datetimepicker1').datetimepicker()
-			            });
-			        </script>
 					
 					<div className="row formQuestion">
 						<div className="col-md-12">
@@ -222,6 +242,7 @@ render() {
 								type="text" 
 								className="form-control-custom mb-4" 
 								id="time"
+								placeholder="8:00AM"
 								name="time"
 								value={this.state.time}
 								onChange={this.handleInputChange}
@@ -233,10 +254,10 @@ render() {
 					<div className="row formQuestion">
 						<div className="col-md-12">
 							<div className="text-left">
-				      	<label for="location">Location:</label>
-				      	<br/>
+						      	<label for="location">Location:</label>
+						      	<br/>
 								<SimpleAutocomplete />
-						</div>
+							</div>
 						</div>
 					</div>
 
