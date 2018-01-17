@@ -6,7 +6,7 @@ import ActivityForm from "./pages/Activity";
 import Setting from "./pages/Setting";
 import UserPage from "./pages/User";
 import LoginPage from "./pages/Login";
-
+import EventPage from "./pages/Event";
 
 
 class App extends Component {
@@ -22,6 +22,7 @@ class App extends Component {
              <Route exact path='/settings' component={Setting} />
              <Route exact path='/user' component={UserPage} />
              <Route exact path='/login' component={LoginPage} />
+             <Route exact path='/event' component={EventPage} />
          </Switch>
      </div>
     </div>

@@ -15,13 +15,13 @@ const UserSchema = new Schema({
     activitiesCreated: [
         {
             type: Schema.Types.ObjectId,
-            ref: "Activity"
+            ref: Activity
         }
     ],
     activitiesJoined: [
         {
             type: Schema.Types.ObjectId,
-            ref: "Activity"
+            ref: Activity
         }
     ],
     lastLogin: {type: Date}

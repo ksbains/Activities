@@ -68,7 +68,8 @@
 }
 
 .user-flake-score {
-    margin: 1rem auto 1rem auto;
+    margin: 3rem;
+    text-align: center;
     display: block;
 }
 

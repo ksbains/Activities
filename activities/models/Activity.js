@@ -11,9 +11,9 @@ const activitySchema = new Schema({
     maxPeople: { type: Number, required: true },
     description: {type: String, required: true},
     reoccuring: { type: Boolean, required: true },
-    creator: { type: Schema.Types.ObjectId, ref: "User"},
+    creator: { type: Schema.Types.ObjectId, ref: User},
     usersJoined: [
-    { type: Schema.Types.ObjectId, ref: "User"}
+    { type: Schema.Types.ObjectId, ref: User}
     ]
 });
 
