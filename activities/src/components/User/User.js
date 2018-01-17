@@ -2,12 +2,21 @@ import React from "react";
 import "./User.css";
 import picture from "./basketball.jpg";
 
+// const imageStyles = {
+//     width: '150px',
+//     height: '150px',
+//     display: 'block',
+//     margin: 'auto',
+//     verticalAlign: 'middle',
+//     borderRadius: '50%'
+// }
+
 const User = props => {
     return <div className="container user">
         <div className="row">
             <div className="profile">
                 <div className="wrapper">
-                    <img src={picture}/>
+                    <img src={picture} id='image'/>
                 </div>
             </div>
             <div className="info">
