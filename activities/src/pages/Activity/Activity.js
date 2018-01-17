@@ -2,12 +2,23 @@ import React, { Component } from "react";
 import "./Activity.css";
 import Navbar from "../../components/Navbar/Navbar.js";
 import SimpleAutocomplete from "../../components/PlacesAutocomplete/PlacesAutocomplete";
-// import Calendar from "../../components/DatePicker/DatePicker";
 import ActivityService from "../../providers/ActivityService.js";
 import $ from 'jquery'; 
 import DatePicker from 'react-date-picker';
 
 class ActivitySignUp extends Component {
+	state = {
+		date:new Date(),
+	    location: "UCSD",
+	    time: "",
+	    duration: "1 hour",
+	    activityType: "Super Bowl",
+	    fam: true,
+	    maxPeople: 2,
+	    description: "bring snacks",
+	    reoccuring: true
+    }
+
 	activityTypes = [
 		"Basketball",
 		"Beer Die",
@@ -24,18 +35,9 @@ class ActivitySignUp extends Component {
 		"2 hour and 30 mins",
 		"3 hours"
 	];
+	
 	peopleTypes = [1,2,3,4,5,6,7,8,9];
-	state = {
-		date:new Date(),
-	    location: "UCSD",
-	    time: "1:20",
-	    duration: "1 hour",
-	    activityType: "Super Bowl",
-	    fam: true,
-	    maxPeople: 2,
-	    description: "bring snacks",
-	    reoccuring: true
-    }
+	
     
     getActivityTypes = () => {
     	let opt = this.activityTypes.map(e => {
@@ -65,6 +67,9 @@ class ActivitySignUp extends Component {
 	    });
   	}
 
+  onChange = date => this.setState({ date })
+
+
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("the state before push is ", this.state);
@@ -76,7 +81,7 @@ class ActivitySignUp extends Component {
 	    fam: $('#fam').val(),
 	    maxPeople: $('#maxPeople').val(),
 	    description: $('#description').val(),
-	    reoccuring: $('#reoccur').val()
+	    reoccuring: $('#reoccuring').val()
     });
     console.log("the state after the push is", this.state);
     this.pushActivities(this.state);
@@ -180,8 +185,16 @@ render() {
 								<label for="fam">Family Friendly</label>
 								<br/>
 								<p>Is this Activity family friendly?</p>
-								<input type="radio" name="fam" value="value={this.state.fam}"/> Yes<br/>
-								<input type="radio" name="fam" value="{!this.state.fam}"/> No<br/>
+								<input 
+									type="radio" 
+									name="fam" 
+									value={this.state.fam} 
+									onChange={this.handleInputChange}/> Yes<br/>
+								<input 
+									type="radio" 
+									name="fam" 
+									value={!(this.state.fam)}
+									onChange={this.handleInputChange}/> No<br/>
 							</div>
 						</div>
 					</div>
@@ -192,8 +205,16 @@ render() {
 								<label for="reoccur">Reoccuring</label>
 								<br/>
 								<p>Is this Activity reoccuring?</p>
-								<input type="radio" name="reoccur" value="{this.state.reoccuring}"/> Yes<br/>
-								<input type="radio" name="reoccur" value="{!this.state.reoccuring}"/> No<br/>
+								<input 
+									type="radio" 
+									name="reoccuring" 
+									value={this.state.reoccuring} 
+									onChange={this.handleInputChange}/> Yes<br/>
+								<input 
+									type="radio" 
+									name="reoccuring" 
+									value={!(this.state.reoccuring)}
+									onChange={this.handleInputChange}/> No<br/>
 							</div>
 						</div>
 					</div>
@@ -205,7 +226,7 @@ render() {
 								<br/>
 								 <DatePicker
 								  name="date"
-						          onChange={this.handleInputChange}
+						          onChange={this.onChange}
 						          value={this.state.date}
 						    	/>	
 				            </div>	
