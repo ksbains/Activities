@@ -1,7 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import "./ActivityCard.css";
-import { ActivityCardEventInfo, ActivityCardUserInfo } from "./index.js";
-
 
 // TODO: CHANGE CSS FOR LINKS & LINKS HOVER ...ect
 
@@ -13,6 +11,7 @@ import { ActivityCardEventInfo, ActivityCardUserInfo } from "./index.js";
 export class ActivityCard extends React.Component{
   render() {
     return(
+    <div className="activity-card-area">
       <div className="activity-card-container container">
         <div className="row">
          {/*} <div className="col-sm-8 col-md-8 col-lg-8">
@@ -36,10 +35,10 @@ export class ActivityCard extends React.Component{
                 <strong>{this.props.flakeScore}</strong>
               </div>
           </div> */}
-
-          { this.props.children }
+            { this.props.children }
         </div>
       </div>
+    </div>
     )
   }
 }

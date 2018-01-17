@@ -18,7 +18,7 @@ var axios = require("axios");
 var db = require("./models");
 var routes = require('./routes');
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Initialize Express
 var app = express();
@@ -30,6 +30,7 @@ var app = express();
 app.use(logger("dev"));
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("build"));
 
@@ -57,14 +58,14 @@ app.use(passport.session());
 mongoose.Promise = Promise;
 mongoose.connect("mongodb://localhost/activitiesdb", {
   useMongoClient: true
-}).then(function(){
-	activitySeeder;
-	commentSeeder;
-	userSeeder;
-}).then(function() {
+	}).then(function() {
 	app.listen(PORT, function() {
+		activitySeeder;
+		commentSeeder;
+		userSeeder;
 		console.log("API Server Started on port:" + PORT);
 	});
+
 }).catch(function (err){
 	console.log("error connecting to mongo", err);
 });

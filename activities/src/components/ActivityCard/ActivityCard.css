@@ -1,7 +1,18 @@
+.activity-cards-wrapper {
+    width: auto;
+    text-align: center;
+}
+
+.activity-card-area {
+    position: relative;
+    display: inline;
+}
+
 .activity-card-container {
     display: inline-block;
     width: 40rem;
     height: 20rem;
+    margin: 2rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 225, 0.2);
     transition: 0.3s;
     background: whitesmoke;
@@ -27,7 +38,7 @@
     margin: 0;
     padding: 0;
     background: gainsboro;
-    height: fill-available;
+    height: stretch;
     border-radius: 10%;
 
     -webkit-transition: 0.3s;
@@ -77,6 +88,11 @@
     height: 100%;
     width: 100%;
     text-align: left;
+}
+.card-text {
+    height: 140px;
+    overflow: hidden;
+    padding: 1rem;
 }
 
 ul {

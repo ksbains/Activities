@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Navbar from "../../components/Navbar";
 import User from "../../components/User";
 import EventDescription from "../../components/EventDescription";
-import Chat from "../../components/Chat";
+import Comment from "../../components/Chat";
 import "./Event.css";
 
 class Event extends Component {
@@ -23,7 +23,7 @@ class Event extends Component {
 						</div>
 						<div className="row">
 							<div className="col-md-5">
-							<Chat/>
+							<Comment/>
 							</div>
 						</div>
 					</div>
