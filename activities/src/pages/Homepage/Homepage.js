@@ -16,24 +16,16 @@ class Homepage extends Component {
 		activities: []
 	};
 
-	eventUserInfo = [
-	{ activityType: "Basketball", description: "At the Park", username: "userone", flakeScore: "3.01" },
-	{ activityType: "Beer Die", description: "At the House", username: "usertwo", flakeScore: "2.02" },
-	{ activityType: "Slosh Ball", description: "Let's get sloshed, ya'll!", username: "userthree", flakeScore: "8.03" },
-	{ activityType: "Spike Ball", description: "Don't get tagged!", username: "userfour", flakeScore: "1.04" },
-	{ activityType: "Soccer", description: `We need more friends! Bring Food! WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST 
-	WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTESTWORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST 
-	WORD WRAPTEST WORD WRAPTEST WORD WRAPTESTWORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST 
-	WORD WRAPTESTWORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST`, 
-	username: "userfive", flakeScore: ".05" }
-	]
-
-	// userInfo = [
-	// { username: "userone", flakeScore: ".01" },
-	// { username: "usertwo", flakeScore: ".02" },
-	// { username: "userthree", flakeScore: ".03" },
-	// { username: "userfour", flakeScore: ".04" },
-	// { username: "userfive", flakeScore: ".05" }
+	// eventUserInfo = [
+	// { activityType: "Basketball", description: "At the Park", username: "userone", flakeScore: "3.01" },
+	// { activityType: "Beer Die", description: "At the House", username: "usertwo", flakeScore: "2.02" },
+	// { activityType: "Slosh Ball", description: "Let's get sloshed, ya'll!", username: "userthree", flakeScore: "8.03" },
+	// { activityType: "Spike Ball", description: "Don't get tagged!", username: "userfour", flakeScore: "1.04" },
+	// { activityType: "Soccer", description: `We need more friends! Bring Food! WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST 
+	// WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTESTWORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST 
+	// WORD WRAPTEST WORD WRAPTEST WORD WRAPTESTWORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST 
+	// WORD WRAPTESTWORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST WORD WRAPTEST`, 
+	// username: "userfive", flakeScore: ".05" }
 	// ]
 
 
@@ -56,7 +48,7 @@ class Homepage extends Component {
 				<div>
 					<Navbar/>
 					<ActivityCardWrapper>
-					{this.eventUserInfo.map(activity => {
+					{this.state.activities.map(activity => {
 						console.log("activityMap", activity)
 						return(
 								<ActivityCard
