@@ -15,15 +15,15 @@ const MyMapComponent = compose(
       "https://maps.googleapis.com/maps/api/js?key=AIzaSyC2QMuOhfc0txDC0c2VoVI60SU-3JEjw04&v=3.exp&libraries=geometry,drawing,places",
 
 
-    loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `300px`, width:`40%`, float:`right` }} />,
-    mapElement: <div style={{ height: `100%` }} />
+    loadingElement: <div style={{ height: `100%`, width:`100%`}} />,
+    containerElement: <div style={{ height: `400px`, width:`100%`, float:`right` }} />,
+    mapElement: <div style={{ height: `100%`, width:`100%` }} />
   }),
   withScriptjs,
   withGoogleMap
 )(props => (
-  <GoogleMap defaultZoom={3} defaultCenter={{ lat: 32.715736, lng: -117.161087 }}>
-      <Marker position={{ lat: 32.715736, lng: -117.161087 }} />
+  <GoogleMap defaultZoom={3} defaultCenter={{ lat: 37.615223, lng: -122.389977 }}>
+      <Marker position={{ lat: 37.615223, lng: -122.389977 }} />
     
   </GoogleMap>
 ));
