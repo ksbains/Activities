@@ -1,6 +1,10 @@
 .activity-cards-wrapper {
+    min-height: 700px;
+    max-height: 1000px;
     width: auto;
+    margin: 5rem;
     text-align: center;
+    
 }
 
 .activity-card-area {
