@@ -2,21 +2,27 @@ import React, { Component } from "react";
 import "./Activity.css";
 import Navbar from "../../components/Navbar/Navbar.js";
 import SimpleAutocomplete from "../../components/PlacesAutocomplete/PlacesAutocomplete";
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import ActivityService from "../../providers/ActivityService.js";
 import $ from 'jquery'; 
 import DatePicker from 'react-date-picker';
 
 class ActivitySignUp extends Component {
-	state = {
-		date:new Date(),
-	    location: "UCSD",
-	    time: "",
-	    duration: "1 hour",
-	    activityType: "Super Bowl",
-	    fam: true,
-	    maxPeople: 2,
-	    description: "bring snacks",
-	    reoccuring: true
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            date: new Date(),
+        	time: "April 20, 2018",
+            duration: "1 hour",
+            activityType: "Super Bowl",
+            fam: true,
+            maxPeople: 2,
+            description: "bring snacks",
+            reoccuring: true,
+            address: 'San Francisco, CA'
+        }
+        this.onChange = (address) => this.setState({ address })
     }
 
 	activityTypes = [
@@ -37,8 +43,7 @@ class ActivitySignUp extends Component {
 	];
 	
 	peopleTypes = [1,2,3,4,5,6,7,8,9];
-	
-    
+
     getActivityTypes = () => {
     	let opt = this.activityTypes.map(e => {
     		return '<option value="' + e + '">' + e + '</option>'; 
@@ -67,14 +72,20 @@ class ActivitySignUp extends Component {
 	    });
   	}
 
+
   onChange = date => this.setState({ date })
 
 
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("the state before push is ", this.state);
+      geocodeByAddress(this.state.address)
+          .then(results => getLatLng(results[0]))
+          .then(latLng => console.log('Success', latLng))
+          .catch(error => console.error('Error', error));
     this.setState({
     	date: $('#date').val(),
+    	address: $('#location').val(),
 	    time: $('#time').val(),
 	    duration: $('#duration').val(),
 	    activityType: $('#activity').val(),
@@ -86,8 +97,13 @@ class ActivitySignUp extends Component {
     console.log("the state after the push is", this.state);
     this.pushActivities(this.state);
   }
-  
-render() {
+
+
+render(){
+    const inputProps = {
+        value: this.state.address,
+        onChange: this.onChange,
+    }
 	return(
 		<div>
 			<Navbar />
@@ -254,10 +270,10 @@ render() {
 					<div className="row formQuestion">
 						<div className="col-md-12">
 							<div className="text-left">
-						      	<label for="location">Location:</label>
-						      	<br/>
-								<SimpleAutocomplete />
-							</div>
+				      	<label for="location">Location:</label>
+				      	<br/>
+                                <PlacesAutocomplete inputProps={inputProps} />
+						</div>
 						</div>
 					</div>
 
