@@ -2,14 +2,14 @@
 import React, { Component } from 'react';
 import './Chat.css';
 
-export class Comment extends React.Component {
+export class Comment extends Component {
 	return() {
 		return (
 		<div className="comment-wrapper">
-			{this.children}
+			{this.props.children}
 		</div>
-	 );
- };
+	 	);
+ 	};
 };
 
 export default Comment;
