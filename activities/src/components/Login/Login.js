@@ -59,7 +59,7 @@ class Login extends Component {
               type="password"
             />
           </FormGroup>
-          <Button type="button" className="btn btn-success"
+          <Button className="btn btn-success"
             block
             bsSize="large"
             disabled={!this.validateForm()}
