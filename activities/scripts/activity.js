@@ -7,7 +7,7 @@ var activitySeeder = seeder.connect('mongodb://localhost/activitiesdb', () => {
 
     seeder.clearModels(['Activity'], () => {
         seeder.populateModels(activitySeed, () => {
-            seeder.disconnect();
+            console.log("activity populated")
         });
     });
 });
@@ -16,7 +16,7 @@ var activitySeed = [{
     'model': 'Activity',
     'documents': [
     {
-        location: "Petco Park",
+        address: "Petco Park",
         time: "March 24, 2018",
         duration: "1 hour",
         activityType: "Padres Game",
@@ -26,7 +26,7 @@ var activitySeed = [{
         reoccuring: true
     },
     {
-        location: "Yo Mama's House",
+        address: "Yo Mama's House",
         time: "April 20, 2018",
         duration: "1 hour",
         activityType: "Super bowl",
