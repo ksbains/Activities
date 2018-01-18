@@ -16,17 +16,21 @@ const MyMapComponent = compose(
 
 
     loadingElement: <div style={{ height: `100%`, width:`100%`}} />,
-    containerElement: <div style={{ height: `400px`, width:`100%`, float:`right` }} />,
+    containerElement: <div style={{ height: `300px`, width:`100%`, margin:`1%`}} />,
     mapElement: <div style={{ height: `100%`, width:`100%` }} />
   }),
   withScriptjs,
   withGoogleMap
-)(props => (
-  <GoogleMap defaultZoom={3} defaultCenter={{ lat: 37.615223, lng: -122.389977 }}>
-      <Marker position={{ lat: 37.615223, lng: -122.389977 }} />
-    
-  </GoogleMap>
-));
+  )(props => (
+    <GoogleMap 
+      defaultZoom={20} 
+      defaultCenter={{ lat: 32.706996, lng: -117.1628108 }}
+      mapTypeId={'hybrid'}
+    >
+    <Marker position={ { lat: 32.706996, lng: -117.1628108 }} />
+      
+    </GoogleMap>
+  ));
 
 
 ReactDOM.render(<MyMapComponent isMarkerShown />, document.getElementById("root"));

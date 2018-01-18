@@ -7,15 +7,12 @@ class EventDescription extends React.Component{
 
 	render(){
 		return(
-		<div className = "description">
-			 
-				<ul className="events"> <h4>Event</h4></ul>
-					<ul>Soccer</ul>
-					<ul>Location</ul>
-					<ul>Time</ul>
-					<ul>Duration</ul>	
-				
-		</div>
+		<div className="col-md-12">
+           <div className="panel panel-blue">
+            <div className="panel-heading">Event Description</div>
+            <div className="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta varius enim, ut lacinia nisl bibendum ut. Donec viverra sodales.</div>
+          </div>
+        </div>
 		)
 
 	}
