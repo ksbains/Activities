@@ -10,17 +10,17 @@ input {
 autocompleteContainer {
     position: relative;
     top: 100%;
-    background-color: blue;
+    backgroundColor: white;
     border: 1px solid #555555;
     width: 100%;
     overflow:visible;
 }
 autocompleteItem{
-    background-color: #ffffff;
+    backgroundColor: #ffffff;
     padding: 10px;
     color: #555555;
     cursor: pointer;
 }
 autocompleteItemActive{
-    background-color: #fafafa;
+    backgroundColor: #fafafa;
 }

@@ -43,4 +43,3 @@ export class ActivityCard extends React.Component{
   }
 }
 
-export default ActivityCard;

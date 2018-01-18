@@ -12,7 +12,6 @@
     "goosestrap": "^1.0.0",
     "jquery": "^3.2.1",
     "material-ripple": "^0.2.5",
-    "lodash": "^4.17.4",
     "mongoose": "^5.0.0-rc1",
     "mongoose-seed": "^0.4.1",
     "morgan": "^1.9.0",
@@ -24,11 +23,9 @@
     "react-bootstrap-date-picker": "^5.1.0",
     "react-date-picker": "^6.7.0",
     "react-dom": "^16.2.0",
-    "react-google-maps": "^9.4.5",
     "react-places-autocomplete": "^5.4.3",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17",
-    "recompose": "0.26.0"
+    "react-scripts": "1.0.17"
   },
   "scripts": {
     "start": "node server.js",
