@@ -12,7 +12,7 @@ export class ActivityCardUserInfo extends React.Component {
             <div className="user-profile-picture">
               <img src="https://thumbs.dreamstime.com/b/little-female-pomeranian-pet-show-dog-22237703.jpg" className="user-profile-picture img-circle" alt="user-prof-pic"></img>
             </div>
-            <div className="user-flake-score">
+            <div  className="user-flake-score">
               <strong className="flakeScore"> [{this.props.flakeScore}] </strong>
             </div></span>
        	</div>
