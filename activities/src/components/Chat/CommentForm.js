@@ -1,9 +1,8 @@
-//CommentForm.js
 import React, { Component } from 'react';
 import './Chat.css';
 
-
 export class CommentForm extends Component {
+	
 	 constructor(props) {
 		 super(props);
 				 this.state = { author: '', text: '' };
@@ -19,20 +18,18 @@ export class CommentForm extends Component {
 			 }
 			 	handleSubmit(e) {
 			 	e.preventDefault();
-			 	console.log(`${this.state.author} said ${this.state.text}`)
-			 	//we will be tying this into the POST method in a bit
 			 }
 			 	render() {
 			 		return (
 			 			<form onSubmit={ this.handleSubmit }>
 							 <input
 							 type='text'
-							 placeholder='Your name…'
+							 placeholder='user_name'
 							 value={ this.state.author }
 							 onChange={ this.handleAuthorChange } />
 							 <input
 							 type='text'
-							 placeholder='Say something…'
+							 placeholder='user_comment'
 							 value={ this.state.text }
 							 onChange={ this.handleTextChange } />
 							 <input

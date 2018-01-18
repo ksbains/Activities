@@ -1,1 +1,1 @@
-export { default} from "./EventDescription.jsx";
+export { default } from "./EventDescription.jsx";

@@ -3,6 +3,7 @@ import "./Setting.css";
 import Navbar from "../../components/Navbar/Navbar.js";
 import UserService from "../../providers/UserService.js";
 import $ from 'jquery'; 
+
 class Setting extends Component {
 	state = {
 	    first: "",
