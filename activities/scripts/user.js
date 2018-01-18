@@ -8,7 +8,7 @@ var userSeeder = seeder.connect('mongodb://localhost/activitiesdb', () => {
 
     seeder.clearModels(['User'], () => {
         seeder.populateModels(userSeed, () => {
-            seeder.disconnect();
+            console.log("user populated")
         });
     });
 });

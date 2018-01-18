@@ -7,7 +7,7 @@ var activitySeeder = seeder.connect('mongodb://localhost/activitiesdb', () => {
 
     seeder.clearModels(['Activity'], () => {
         seeder.populateModels(activitySeed, () => {
-            seeder.disconnect();
+            console.log("activity populated")
         });
     });
 });
