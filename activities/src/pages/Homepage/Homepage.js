@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import "./Homepage.css";
 import Navbar from "../../components/Navbar/Navbar.js";
+
 import { ActivityCard, ActivityCardUserInfo, ActivityCardEventInfo, ActivityCardWrapper } from "../../components/ActivityCard";
+
+import { ActivityCard } from "../../components/ActivityCard/ActivityCard.js";
+>>>>>>> franny
 import ActivityService from "../../providers/ActivityService.js";
 
 // TODO: CHANGE LOOP LENGTH TO NUBER OF EVENTS IN DATABASE. 

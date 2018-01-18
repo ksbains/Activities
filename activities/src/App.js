@@ -8,10 +8,10 @@ import UserPage from "./pages/User";
 import LoginPage from "./pages/Login";
 import EventPage from "./pages/Event";
 
-
 class App extends Component {
  render() {
    return (
+
     <div>
      <div className="App">
      </div>
@@ -26,8 +26,13 @@ class App extends Component {
          </Switch>
      </div>
     </div>
+
+    
    );
  }
 }
+
+
+
 
 export default App;
