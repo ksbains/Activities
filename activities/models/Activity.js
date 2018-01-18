@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const User = require("./User");
 
 const activitySchema = new Schema({
-    location: {type: String, required: true},
+    address: {type: String, required: true},
     time: {type: String, required: true},
     duration: {type: String, required: true},
     activityType: { type: String, required: true },
