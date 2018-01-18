@@ -24,7 +24,7 @@ export class CommentForm extends Component {
 			 }
 			 	render() {
 			 		return (
-			 			<form style={ style.commentForm } onSubmit={ this.handleSubmit }>
+			 			<form onSubmit={ this.handleSubmit }>
 							 <input
 							 type='text'
 							 placeholder='Your name…'
@@ -42,3 +42,5 @@ export class CommentForm extends Component {
 		 		)
 		}
 	}
+
+export default CommentForm;

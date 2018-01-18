@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import Comment from './Comment';
-import from './Chat.css';
+import './Chat.css';
 
 export class CommentList extends Component {
 	 render() {
@@ -14,9 +14,11 @@ export class CommentList extends Component {
 		 );
 	 })
  	return (
-	 	<div style={ style.commentList }>
+ 		<div>
 	 		{ commentNodes }
 	 	</div>
 		 )
 	}
 }
+
+export default CommentList;

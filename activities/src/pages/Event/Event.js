@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Navbar from "../../components/Navbar";
 import User from "../../components/User";
 import EventDescription from "../../components/EventDescription";
-import Comment from "../../components/Chat";
+import { Comment, CommentBox, CommentForm, CommentList, Data } from "../../components/Chat";
 import "./Event.css";
 
-class Event extends Component {
+export class Event extends Component {
 	render(){
 		return (
 			<div>
@@ -32,4 +32,3 @@ class Event extends Component {
 	}
 }
 
-export default Event;

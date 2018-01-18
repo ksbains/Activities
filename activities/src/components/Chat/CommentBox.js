@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
 import DATA from './data';
-import from './Chat.css';
+import './Chat.css';
 
 export class CommentBox extends Component {
      constructor(props) {
@@ -13,7 +13,7 @@ export class CommentBox extends Component {
          }
          render() {
              return (
-                 <div style={ style.commentBox }>
+                <div>
                     <h2>Comments:</h2>
                     <CommentList data={ DATA }/>
                     <CommentForm />
@@ -21,3 +21,5 @@ export class CommentBox extends Component {
              )
          }
 }
+
+export default CommentBox;
