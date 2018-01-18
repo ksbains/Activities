@@ -4,8 +4,7 @@ import Navbar from "../../components/Navbar/Navbar.js";
 
 import { ActivityCard, ActivityCardUserInfo, ActivityCardEventInfo, ActivityCardWrapper } from "../../components/ActivityCard";
 
-import { ActivityCard } from "../../components/ActivityCard/ActivityCard.js";
->>>>>>> franny
+// import { ActivityCard } from "../../components/ActivityCard/ActivityCard.js";
 import ActivityService from "../../providers/ActivityService.js";
 
 // TODO: CHANGE LOOP LENGTH TO NUBER OF EVENTS IN DATABASE. 
