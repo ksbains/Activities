@@ -73,7 +73,7 @@ class ActivitySignUp extends Component {
   	}
 
 
-  onChangeDate = date => this.setState({ date })
+  onChange = date => this.setState({ date })
 
 
   handleFormSubmit = event => {
@@ -242,7 +242,7 @@ render(){
 								<br/>
 								 <DatePicker
 								  name="date"
-						          onChange={this.onChangeDate}
+						          onChange={this.onChange}
 						          value={this.state.date}
 						    	/>	
 				            </div>	
