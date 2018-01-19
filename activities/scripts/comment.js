@@ -7,7 +7,7 @@ var commentSeeder = seeder.connect('mongodb://localhost/activitiesdb', () => {
 
     seeder.clearModels(['Comment'], () => {
         seeder.populateModels(commentSeed, () => {
-            console.log("comment populated")
+            console.log("db.Comment seeded")
         });
     });
 });

@@ -7,7 +7,7 @@ var activitySeeder = seeder.connect('mongodb://localhost/activitiesdb', () => {
 
     seeder.clearModels(['Activity'], () => {
         seeder.populateModels(activitySeed, () => {
-            console.log("activity populated")
+            console.log("db.Activity seeded")
         });
     });
 });
@@ -30,48 +30,48 @@ var activitySeed = [{
             duration: "1 hour",
             activityType: "Party",
             fam: true,
-            maxPeople: 2,
+            maxPeople: 10,
             description: "Yo mama so fat she brought a spoon to the super bowl!!",
             reoccuring: true
         },
         {
-            address: "Yo Mama's House",
-            time: "April 20, 2018",
-            duration: "1 hour",
+            address: "Central Park",
+            time: "April 20, 2015",
+            duration: "6 hours",
             activityType: "Baseball",
             fam: true,
-            maxPeople: 2,
-            description: "Yo mama so fat she brought a spoon to the super bowl!!",
+            maxPeople: 17,
+            description: "The American Past Time!!",
             reoccuring: true
         },
         {
-            address: "Yo Mama's House",
+            address: "Larry's Crib",
             time: "April 20, 2018",
             duration: "1 hour",
-            activityType: "Slosh ball",
+            activityType: "Drinking and Thats it!",
             fam: true,
-            maxPeople: 2,
-            description: "Yo mama so fat she brought a spoon to the super bowl!!",
+            maxPeople: 9,
+            description: "Bring Individuals of the fun variety!!",
             reoccuring: true,
         },
         {
-            address: "Yo Mama's House",
+            address: "Downtown, SD - Whaley House",
             time: "April 20, 2018",
             duration: "1 hour",
-            activityType: "spike ball",
+            activityType: "Movie Night!",
             fam: true,
-            maxPeople: 2,
-            description: "Yo mama so fat she brought a spoon to the super bowl!!",
+            maxPeople: 5,
+            description: "Whoo Baby! This is gonna be scary as *heck*!",
             reoccuring: true
         },
         {
-            address: "Yo Mama's House",
+            address: "4432 UTC Mall - Ice Rink",
             time: "April 20, 2018",
             duration: "1 hour",
-            activityType: "Super bowl",
+            activityType: "Ice Skating",
             fam: true,
             maxPeople: 2,
-            description: "Yo mama so fat she brought a spoon to the super bowl!!",
+            description: "Dont forget your ice skates ; )!",
             reoccuring: true
         }
     ]

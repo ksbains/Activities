@@ -2,7 +2,12 @@ import React from 'react';
 import "./ActivityCard.css";
 
 export class ActivityCardUserInfo extends React.Component {
-  render() {
+  constructor(props){
+  super(props);
+  this.username = props.username;
+  this.flakeScore = props.flakeScore;
+}
+render() {
 	return(
 		  <div>
         <div className="user-creator-info col-sm-4 col-md-4 col-lg-4 .material-ripple">
