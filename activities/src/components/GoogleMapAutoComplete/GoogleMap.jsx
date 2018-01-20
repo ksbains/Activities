@@ -16,7 +16,7 @@ const MapWithASearchBox = compose(
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC2QMuOhfc0txDC0c2VoVI60SU-3JEjw04&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `300px`, width:`40%`, float:`right`, margin: `1%` }} />,
+    containerElement: <div style={{ height: `300px`, width:`100%`, margin: `1%` }} />,
     mapElement: <div style={{ height: `100%` }} />,
   }),
   lifecycle({
@@ -71,7 +71,7 @@ const MapWithASearchBox = compose(
 )(props =>
   <GoogleMap
     ref={props.onMapMounted}
-    defaultZoom={5}
+    defaultZoom={20}
     center={props.center}
     onBoundsChanged={props.onBoundsChanged}
   >

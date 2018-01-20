@@ -18,7 +18,7 @@ export class EventPage extends Component {
 				<Navbar/>
 				<div className="container">
 					<div className="row">
-						<div className="col-md-3"> 
+						<div className="col-md-12"> 
 						<User/>
 						</div>
 					</div>
@@ -29,14 +29,11 @@ export class EventPage extends Component {
 					</div>
 					
 					<div className="row">
-						<div className="col-md-3">
+						<div className="col-md-12">
 						<EventDescription/>
 						</div>
 					</div>
-					<div className="row">
-						<div className="col-md-3">
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		)

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { compose, withProps } from "recompose";
+import Activity from "../../pages/Activity";
 import {
   withScriptjs,
   withGoogleMap,
@@ -24,10 +25,12 @@ const MyMapComponent = compose(
   )(props => (
     <GoogleMap 
       defaultZoom={20} 
-      defaultCenter={{ lat: 32.706996, lng: -117.1628108 }}
+      defaultCenter={{ lat: 37.784172, lng: -122.401558  }}
       mapTypeId={'hybrid'}
     >
-    <Marker position={ { lat: 32.706996, lng: -117.1628108 }} />
+    <Marker position={{ lat: 37.784172, lng: -122.401558 }}
+
+    />
       
     </GoogleMap>
   ));

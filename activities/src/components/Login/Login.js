@@ -2,6 +2,7 @@ import React, { Component} from "react";
 import "./Login.css";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import picture from "./login12.jpg";
+import {Link} from "react-router-dom";
 
 
 
@@ -40,6 +41,9 @@ class Login extends Component {
 
   render() {
     return (
+     
+      <div className="" >
+      <Link className="home" to="/">Home</Link>
       <div className="Login" >
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="email" bsSize="medium">
@@ -64,10 +68,12 @@ class Login extends Component {
             bsSize="large"
             disabled={!this.validateForm()}
             type="submit"
+            
           >
             Login
           </Button>
         </form>
+        </div>
       </div>
     );
   }
