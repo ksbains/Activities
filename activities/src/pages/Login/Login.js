@@ -28,6 +28,10 @@ class Login extends Component {
                         <input id="signup-email" class="form-control" name="email" type="email" />
                     </div>
                     <div class="form-group">
+                        <label for="username">Username</label>
+                        <input class="form-control" name="username" type="text" />
+                    </div>
+                    <div class="form-group">
                         <label for="first">First name</label>
                         <input class="form-control" name="first" type="text" />
                     </div>
