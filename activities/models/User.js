@@ -10,8 +10,8 @@ const UserSchema = new Schema({
     email: { type: String, required: true},
     password: { type: String, required: true},
     phoneNumber: { type: String, required: true},
-    flakeScore: { type: String, required: true},
-    bio: { type: String, required: true},
+    flakeScore: { type: String},
+    bio: { type: String},
     activitiesCreated: [
         {
             type: Schema.Types.ObjectId,
@@ -31,6 +31,4 @@ const UserSchema = new Schema({
 
 UserSchema.plugin(passportLocalMongoose);
 
-const User = mongoose.model("User", UserSchema);
-
-module.exports = User;
+module.exports = mongoose.model("User", UserSchema);
