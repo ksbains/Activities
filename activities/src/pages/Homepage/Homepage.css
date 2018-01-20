@@ -1,5 +1,5 @@
 body {
-	height: -webkit-fill-available;
+	height: -webkit-stretch;
 	width: 100%;
 	background: radial-gradient(farthest-corner at 5% 5%, lightsteelblue, white, lightsteelblue)
 }
