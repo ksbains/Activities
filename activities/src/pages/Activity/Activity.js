@@ -71,39 +71,52 @@ class ActivitySignUp extends Component {
 
   	onChangeDate = date => this.setState({ date })
 
-	geocode = (addy, cb) =>{
+	geocode = (addy) =>{
 	  	console.log("we in the geocode");
-	  	var lats = 0;
-	  	var longs = 0;
 	  	geocodeByAddress( addy)
 	          .then(results => getLatLng(results[0]))
 	          .then(latLng => {
-	          	lats = latLng.lat;
-	          	longs = latLng.lng;
-	          	console.log('Success', latLng)})
-	      	.catch(error => console.error('Error', error));
-	    	cb({
-          		lat: lats,
-          		long: longs
-          	});	      	
+	          	var obj  = {
+	          		lat: latLng.lat,
+	          		long:latLng.lng
+	          	};
+
+	          	console.log("the obj is", latLng);
+	          	this.setState({
+	          		long:latLng.lng,
+	          		lat: latLng.lat
+	          	}, function (){
+	          		console.log('Success', this.state);
+	          	});
+	          })
+	          .catch(error => console.error('Error', error));
 	}
 
   	handleFormSubmit = event => {
 		event.preventDefault();
-		this.geocode(this.state.address, this.setState);
-		// this.setState({
-		// 	date: $('#date').val(),
-		// 	address: $('#location').val(),
-		   //  time: $('#time').val(),
-		   //  duration: $('#duration').val(),
-		   //  activityType: $('#activity').val(),
-		   //  fam: $('#fam').val(),
-		   //  maxPeople: $('#maxPeople').val(),
-		   //  description: $('#description').val(),
-		   //  reoccuring: $('#reoccuring').val(),
-		// });
-		console.log("the state after the push is", this.state);
-		this.pushActivities(this.state);
+		this.geocode(this.state.address);
+			//console.log("lat/long:" + lat + " " + lon);
+			// this.setState({
+			// 	obj
+			// });
+			//this.pushActivities(obj);
+			//console.log("the state after the push is", obj);
+			/*
+			var obj = {
+				date: $('#date').val(),
+				address: $('#location').val(),
+			    time: $('#time').val(),
+			    duration: $('#duration').val(),
+			    activityType: $('#activity').val(),
+			    fam: $('#fam').val(),
+			    maxPeople: $('#maxPeople').val(),
+			    description: $('#description').val(),
+			    reoccuring: $('#reoccuring').val(),
+			    lat: lat,
+			    long: lon
+			}
+			*/
+		
  	}
 
 
