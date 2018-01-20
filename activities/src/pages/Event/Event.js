@@ -2,35 +2,63 @@ import React, { Component } from "react";
 import Navbar from "../../components/Navbar";
 import User from "../../components/User";
 import EventDescription from "../../components/EventDescription";
-// import GoogleMap from "../../components/GoogleMap";
+//import { Comment, CommentBox, CommentForm, CommentList, Data } from "../../components/Chat";
 import "./Event.css";
-
+import GoogleMap from "../../components/GoogleMap";
+import ActivityService from "../../providers/ActivityService.js";
 export class EventPage extends Component {
 
-	state = {
-
+    state = {
+    	activity: {}
+    };
+    
+    componentDidMount = () => {
+		console.log("Load EventPage")
+		this.loadEvent();
 	};
 
-	render() {
-		return (
-			<div>
-				<Navbar/>
-				<div className="container">
-					<div className="row">
-						<div className="col-md-5"> 
-						<User />
-						</div>
-					</div>
+	loadEvent = () => {
+		 var str = window.location.search;
+		 var id = str.substring(4 , str.length);
+		 console.log("the id is", id);
+		 //pass the id
+		ActivityService.getActivity(id)
+			.then(res => {
+	          	console.log("the obj is", res.data);
+	          	this.setState({
+	          		activity: res.data
+	          	}, function (){
+	          		console.log('Success', this.state);
+	          	});
+			}).catch(err => console.log("error", err));
+	};
 
-					<div className="row">
-						<div className="col-md-5">
-						<EventDescription/>
-						</div>
-					</div>
-				</div>
-			</div>
-		)
-	}
+    render() {
+        return (
+            <div>
+                <Navbar/>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12"> 
+                        <User/>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-12"> 
+                        <GoogleMap />
+                        </div>
+                    </div>
+                    
+                    <div className="row">
+                        <div className="col-md-12">
+                        <EventDescription/>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        )
+    }
 }
 
 export default EventPage;

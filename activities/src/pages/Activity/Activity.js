@@ -99,7 +99,7 @@ class ActivitySignUp extends Component {
 			// this.setState({
 			// 	obj
 			// });
-			//this.pushActivities(obj);
+			this.pushActivities(this.state);
 			//console.log("the state after the push is", obj);
 			/*
 			var obj = {

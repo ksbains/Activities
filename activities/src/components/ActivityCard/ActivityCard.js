@@ -13,7 +13,7 @@ export class ActivityCard extends React.Component{
   render() {
     return(
     <div className="activity-card-area" id={this.props._id}>
-        <Link to='/event'>
+        <Link to={'/event?id=' + this.props.id}>
       <div className="activity-card-container container">
         <div className="row">
             { this.props.children }

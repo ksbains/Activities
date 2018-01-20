@@ -51,6 +51,7 @@ class Homepage extends Component {
 				{this.state.activities.map((activity, index) => {
 					return(
 						<ActivityCard
+						id = {activity._id}
 						activityType = {activity.activityType}
 						description = {activity.description}
 						username = {activity.username}
