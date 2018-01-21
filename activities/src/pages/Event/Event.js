@@ -68,7 +68,7 @@ export class EventPage extends Component {
                         <div className="col-md-12"> 
                         <GoogleMap 
                             lat={this.state.activity.lat}
-                            long={this.state.activity.long}/>
+                            lng={this.state.activity.long}/>
                         </div>
                     </div>
                     
