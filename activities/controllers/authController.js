@@ -32,7 +32,7 @@ authController.doRegister = function (req, res) {
         }
 
         passport.authenticate('local')(req, res, function () {
-            res.redirect('/');
+            res.redirect('/login');
             console.log("made it this far in doRegister");
         });
     });
@@ -47,15 +47,19 @@ authController.login = function(req, res) {
 authController.doLogin = function(req, res) {
     passport.authenticate('local')(req, res, function () {
         res.redirect('/');
-        console.log("logged in");
+        console.log("logged in", req.body);
     });
 };
 
 // logout
 authController.logout = function(req, res) {
-    req.logout();
-    res.redirect('/');
-    console.logt("logged out");
+    req.session.destroy((err) => {
+        if(err) return next(err);
+
+        req.logout();
+        res.redirect('/');
+        console.log("logged out", req.body);
+    })
 };
 
 module.exports = authController;

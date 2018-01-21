@@ -59,8 +59,8 @@ class Login extends Component {
                 <form id="login" name="login" method="post" action="login" aria-hidden="true">
                     <legend>Log in</legend>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input id="login-email" class="form-control" name="email" type="text" />
+                        <label for="username">Username</label>
+                        <input id="login-username" class="form-control" name="username" type="text" />
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
