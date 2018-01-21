@@ -14,10 +14,12 @@ export class EventPage extends Component {
     
     componentDidMount = () => {
 		console.log("Load EventPage")
-		this.loadEvent();
+		this.loadEvent(function () {
+            console.log("lemme see that good good",this.state.activity);
+        });
 	};
 
-	loadEvent = () => {
+	loadEvent = (cb) => {
 		 var str = window.location.search;
 		 var id = str.substring(4 , str.length);
 		 console.log("the id is", id);
@@ -27,11 +29,30 @@ export class EventPage extends Component {
 	          	console.log("the obj is", res.data);
 	          	this.setState({
 	          		activity: res.data
-	          	}, function (){
-	          		console.log('Success', this.state);
-	          	});
+	          	}, cb);
+	          	
 			}).catch(err => console.log("error", err));
 	};
+
+    /*geocode = (addy, cb) =>{
+        console.log("we in the geocode");
+        return geocodeByAddress( addy)
+          .then(results => getLatLng(results[0]))
+          .then(latLng => {
+            this.setState({
+                long:latLng.lng,
+                lat: latLng.lat
+            }, cb);
+          })
+          .catch(error => console.error('Error', error));
+    }
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        this.geocode(this.state.address, function (){
+            this.pushActivities(this.state);
+        });
+    }*/
 
     render() {
         return (
@@ -45,7 +66,9 @@ export class EventPage extends Component {
                     </div>
                     <div className="row">
                         <div className="col-md-12"> 
-                        <GoogleMap />
+                        <GoogleMap 
+                            lat={this.state.activity.lat}
+                            long={this.state.activity.long}/>
                         </div>
                     </div>
                     
