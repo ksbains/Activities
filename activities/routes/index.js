@@ -26,7 +26,7 @@ router.get('/login', auth.login);
 router.post('/login', auth.doLogin);
 
 // route for logout action
-router.get('/logout', auth.logout);
+router.post('/logout', auth.logout);
 
 // if no Api routes are hit, send the React app
 router.use(function(req,res) {
