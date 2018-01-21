@@ -1,6 +1,5 @@
 var seeder = require('mongoose-seed');
 
-
 var userSeeder = seeder.connect('mongodb://localhost/activitiesdb', () => {
     seeder.loadModels([
         './models/User.js'
@@ -8,7 +7,7 @@ var userSeeder = seeder.connect('mongodb://localhost/activitiesdb', () => {
 
     seeder.clearModels(['User'], () => {
         seeder.populateModels(userSeed, () => {
-            console.log("user populated")
+            console.log("db.User seeded")
         });
     });
 });

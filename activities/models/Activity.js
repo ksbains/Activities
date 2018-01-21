@@ -5,6 +5,8 @@ const User = require("./User");
 const activitySchema = new Schema({
     address: {type: String, required: true},
     time: {type: String, required: true},
+    lat: {type: String, required: false},
+    long: {type: String, required: false},
     duration: {type: String, required: true},
     activityType: { type: String, required: true },
     fam: { type: Boolean, required: true },

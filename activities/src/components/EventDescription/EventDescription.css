@@ -1,5 +1,18 @@
-.description{
-	float: left;
-	text-decoration-color: #dddddd;
-	color: #337AB7;
+.container {
+  margin-top: 10px;
+}
+
+.panel.panel-blue {
+  border-radius: 0px;
+  box-shadow: 0px 0px 10px #888;
+  border-color: #266590;
+}
+.panel.panel-blue .panel-heading {
+  border-radius: 0px;
+  color: #FFF;
+  background-color: #266590;
+}
+.panel.panel-blue .panel-body {
+  background-color: #F2F2F2;
+  color: #4D4D4D;
 }
