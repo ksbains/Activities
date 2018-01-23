@@ -1,6 +1,7 @@
 .user {
     border-style: solid;
     border-width: 4px;
+    width: 100%;
 }
 
 .profile {
@@ -51,8 +52,8 @@
 }
 
 .wrapper {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     vertical-align: middle;
     display: inline-block;
 }
