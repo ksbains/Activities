@@ -31,16 +31,12 @@ class Homepage extends Component {
 			.catch(err => console.log("error", err));
 	};
 
-	expandEventCard = (event, index) => {
-		console.log("this-expandEventCard", this.state.activities[event])
-		console.log('activity-event', event);
-		console.log("activity-index", index)
+	expandEventCard = (index) => {
+		console.log("this-expandEventCard", this.state.activities[index])
 	};
 
-	filterActivity = (event, index) => {
-		console.log("this-filterActivity", this.state.activities[event])
-		console.log('activity-event', event);
-		console.log("event-index", index)
+	filterActivity = (index) => {
+		console.log("this-filterActivity", this.state.activities[index])
 	};
 
 	render() {
