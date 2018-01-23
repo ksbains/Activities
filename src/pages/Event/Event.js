@@ -17,6 +17,7 @@ export class EventPage extends Component {
 		this.loadEvent(function () {
             console.log("lemme see that good good",this.state.activity);
         });
+        document.location.reload();
 	};
 
 	loadEvent = (cb) => {
@@ -54,7 +55,7 @@ export class EventPage extends Component {
                     
                     <div className="row">
                         <div className="col-md-12">
-                        <EventDescription/>
+                        <EventDescription description={this.state.activity.description}/>
                         </div>
                     </div>
                     

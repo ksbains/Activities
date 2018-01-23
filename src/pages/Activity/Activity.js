@@ -14,7 +14,7 @@ class ActivitySignUp extends Component {
             date: new Date(),
         	time: "",
             duration: "1 hour",
-            activityType: "Super Bowl",
+            activityType: "Basketball",
             fam: true,
             maxPeople: 2,
             description: "",
