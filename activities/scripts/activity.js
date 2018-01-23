@@ -22,7 +22,9 @@ var activitySeed = [{
             fam: true,
             maxPeople: 6,
             description: "Bring the heat! Go Padres!!",
-            reoccuring: true
+            reoccuring: true,
+            lat: 37.784172,
+            long: -122.401558
         },
         {
             address: "Yo Mama's House",
@@ -32,7 +34,9 @@ var activitySeed = [{
             fam: true,
             maxPeople: 10,
             description: "Yo mama so fat she brought a spoon to the super bowl!!",
-            reoccuring: true
+            reoccuring: true,
+            lat: 37.784172,
+            long: -122.401558
         },
         {
             address: "Central Park",
@@ -42,7 +46,9 @@ var activitySeed = [{
             fam: true,
             maxPeople: 17,
             description: "The American Past Time!!",
-            reoccuring: true
+            reoccuring: true,
+            lat: 37.784172,
+            long: -122.401558
         },
         {
             address: "Larry's Crib",
@@ -53,6 +59,8 @@ var activitySeed = [{
             maxPeople: 9,
             description: "Bring Individuals of the fun variety!!",
             reoccuring: true,
+            lat: 37.784172,
+            long: -122.401558
         },
         {
             address: "Downtown, SD - Whaley House",
@@ -62,7 +70,9 @@ var activitySeed = [{
             fam: true,
             maxPeople: 5,
             description: "Whoo Baby! This is gonna be scary as *heck*!",
-            reoccuring: true
+            reoccuring: true,
+            lat: 37.784172,
+            long: -122.401558
         },
         {
             address: "4432 UTC Mall - Ice Rink",
@@ -72,7 +82,9 @@ var activitySeed = [{
             fam: true,
             maxPeople: 2,
             description: "Dont forget your ice skates ; )!",
-            reoccuring: true
+            reoccuring: true,
+            lat: 37.784172,
+            long: -122.401558
         }
     ]
 }];

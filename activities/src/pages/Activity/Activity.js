@@ -8,23 +8,23 @@ import $ from 'jquery';
 import DatePicker from 'react-date-picker';
 
 class ActivitySignUp extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
             date: new Date(),
-        	time: "April 20, 2018",
+        	time: "",
             duration: "1 hour",
             activityType: "Super Bowl",
             fam: true,
             maxPeople: 2,
-            description: "bring snacks",
+            description: "",
             reoccuring: true,
-            address: 'San Francisco, CA'
+            address: 'Las Vegas, NV',
+            long:"did not work",
+            lat: "did not work"
         }
         this.onChange = (address) => this.setState({ address })
     }
-
 	activityTypes = [
 		"Basketball",
 		"Beer Die",
@@ -32,7 +32,6 @@ class ActivitySignUp extends Component {
 		"Spike Ball",
 		"Soccer"
 	];
-
 	durationTypes = [
 		"30 mins",
 		"1 hour",
@@ -41,9 +40,7 @@ class ActivitySignUp extends Component {
 		"2 hour and 30 mins",
 		"3 hours"
 	];
-	
 	peopleTypes = [1,2,3,4,5,6,7,8,9];
-
     getActivityTypes = () => {
     	let opt = this.activityTypes.map(e => {
     		return '<option value="' + e + '">' + e + '</option>'; 
@@ -72,37 +69,33 @@ class ActivitySignUp extends Component {
 	    });
   	}
 
+  	onChangeDate = date => this.setState({ date })
 
-  onChangeDate = date => this.setState({ date })
-
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    console.log("the state before push is ", this.state);
-      geocodeByAddress(this.state.address)
+	geocode = (addy, cb) =>{
+	  	console.log("we in the geocode");
+	  	return geocodeByAddress( addy)
           .then(results => getLatLng(results[0]))
-          .then(latLng => console.log('Success', latLng))
+          .then(latLng => {
+          	this.setState({
+          		long:latLng.lng,
+          		lat: latLng.lat
+          	}, cb);
+          })
           .catch(error => console.error('Error', error));
-    this.setState({
-    	date: $('#date').val(),
-    	address: $('#location').val(),
-	    time: $('#time').val(),
-	    duration: $('#duration').val(),
-	    activityType: $('#activity').val(),
-	    fam: $('#fam').val(),
-	    maxPeople: $('#maxPeople').val(),
-	    description: $('#description').val(),
-	    reoccuring: $('#reoccuring').val()
-    });
-    console.log("the state after the push is", this.state);
-    this.pushActivities(this.state);
-  }
+	}
+
+  	handleFormSubmit = event => {
+		event.preventDefault();
+		this.geocode(this.state.address, function (){
+			this.pushActivities(this.state);
+		});
+ 	}
 
 
 render(){
     const inputProps = {
         value: this.state.address,
-        onChange: this.onChange,
+        onChange: this.onChange
     }
 	return(
 		<div>
@@ -258,7 +251,7 @@ render(){
 								type="text" 
 								className="form-control-custom mb-4" 
 								id="time"
-								placeholder="8:00AM"
+								placeholder="4:20PM"
 								name="time"
 								value={this.state.time}
 								onChange={this.handleInputChange}

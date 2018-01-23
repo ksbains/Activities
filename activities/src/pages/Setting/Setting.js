@@ -39,14 +39,14 @@ class Setting extends Component {
     event.preventDefault();
     //console.log("the state before push is ", this.state);
     this.setState({
-	    first: $('#firstName').val(),
-        last: $('#lastName').val(),
-        username: $('#userName').val(),
+	    first: $('#first').val(),
+        last: $('#last').val(),
+        username: $('#user').val(),
         email: $('#email').val(),
         password: $('#password').val(),
         phoneNumber: $('#phoneNumber').val(),
         flakeScore: "0.01",
-        bio: $('#firstName').val(),
+        bio: $('#bio').val(),
         activitiesCreated: [],
         activitiesJoined: [],
         lastLogin: "",
@@ -74,14 +74,14 @@ render() {
 				<div className="row formQuestion">
 					<div className="col-md-12">
 						<div className="text-left">
-			      	<label for="firstName">First Name </label>
+			      	<label for="first">First Name </label>
 			      	<br/>
 						<input 
 							type="text" 
 							className="form-control-custom mb-4" 
-							id="firstName" 
+							id="first" 
 							placeholder="John"
-							name="firstName"
+							name="first"
 							value={this.state.firstName} 
 							onChange={this.handleInputChange}
 						/>
@@ -92,13 +92,13 @@ render() {
 				<div className="row formQuestion">
 					<div className="col-md-12">
 						<div className="text-left">
-							<label for="lastName">Last Name:</label>
+							<label for="last">Last Name:</label>
 							<br/>
 						<input 
 							type="text" 
 							className="form-control-custom mb-4" 
-							id="lastName"
-							name="lastName"
+							id="last"
+							name="last"
 							placeholder="Smith"
 							value={this.state.lastName} 
 							onChange={this.handleInputChange}
@@ -110,15 +110,15 @@ render() {
 				<div className="row formQuestion">
 					<div className="col-md-12">
 						<div className="text-left">
-							<label for="userName">User Name:</label>
+							<label for="user">User Name:</label>
 							<br/>
 						<input 
 							type="text" 
 							className="form-control-custom mb-4" 
-							id="userName"
-							name="userName"
+							id="user"
+							name="username"
 							placeholder="johnsmith10"
-							value={this.state.userName} 
+							value={this.state.username} 
 							onChange={this.handleInputChange}
 						/>
 					</div>

@@ -2,6 +2,7 @@ const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
 var auth = require("../controllers/authController");
+var user = require("../controllers/usersController");
 
 
 //API Routes
@@ -25,7 +26,7 @@ router.get('/login', auth.login);
 router.post('/login', auth.doLogin);
 
 // route for logout action
-router.get('/logout', auth.logout);
+router.post('/logout', auth.logout);
 
 // if no Api routes are hit, send the React app
 router.use(function(req,res) {

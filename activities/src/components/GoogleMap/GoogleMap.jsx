@@ -18,20 +18,21 @@ const MyMapComponent = compose(
 
     loadingElement: <div style={{ height: `100%`, width:`100%`}} />,
     containerElement: <div style={{ height: `300px`, width:`100%`, margin:`1%`}} />,
-    mapElement: <div style={{ height: `100%`, width:`100%` }} />
+    mapElement: <div style={{ height: `100%`, width:`100%` }} />,
   }),
   withScriptjs,
   withGoogleMap
   )(props => (
+
     <GoogleMap 
       defaultZoom={20} 
-      defaultCenter={{ lat: 37.784172, lng: -122.401558  }}
+      defaultCenter={{ lat: parseFloat(props.lat), lng: parseFloat(props.lng)  }}
       mapTypeId={'hybrid'}
     >
-    <Marker position={{ lat: 37.784172, lng: -122.401558 }}
+    <Marker position={{ lat: parseFloat(props.lat), lng: parseFloat(props.lng) }}
 
     />
-      
+    {console.log(parseFloat(props.lat))}  
     </GoogleMap>
   ));
 
