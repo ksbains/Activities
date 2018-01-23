@@ -14,7 +14,7 @@ var bodyParser = require('body-parser');
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 if(process.env.NODE_ENV == "production"){
-    mongoose.connect("mongodb://johnsmith:password@ds111478.mlab.com:11478/heroku_gd98r6tf")
+    mongoose.connect("mongodb://john smith:password@ds111478.mlab.com:11478/heroku_gd98r6tf")
 }else {
     mongoose.connect("mongodb://localhost/activitiesdb", {
     useMongoClient: true
