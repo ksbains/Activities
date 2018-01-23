@@ -15,7 +15,18 @@ var bodyParser = require('body-parser');
 mongoose.Promise = Promise;
 //if(process.env.NODE_ENV == "production"){
     //mongodb://heroku_gd98r6tf:vroid29jdf95mlt7rt00vqr2r4@ds111478.mlab.com:11478/heroku_gd98r6tf
-    mongoose.connect("mongodb://admin:password@ds111478.mlab.com:11478/heroku_gd98r6tf")
+    mongoose.connect("mongodb://admin:password@ds111478.mlab.com:11478/heroku_gd98r6tf", {
+    useMongoClient: true
+    }).then(function() {
+    app.listen(PORT, function() {
+        activitySeeder;
+        commentSeeder;
+        userSeeder;
+        console.log("API Server Started on port:" + PORT);
+    });  
+}).catch(function (err){
+    console.log("error connecting to mongo", err);
+});
 // }else {
 //     mongoose.connect("mongodb://localhost/activitiesdb", {
 //     useMongoClient: true
