@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import "./ActivityCard.css";
 
 // TODO: CHANGE CSS FOR LINKS & LINKS HOVER ...ect
