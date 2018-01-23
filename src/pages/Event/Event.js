@@ -34,26 +34,6 @@ export class EventPage extends Component {
 			}).catch(err => console.log("error", err));
 	};
 
-    /*geocode = (addy, cb) =>{
-        console.log("we in the geocode");
-        return geocodeByAddress( addy)
-          .then(results => getLatLng(results[0]))
-          .then(latLng => {
-            this.setState({
-                long:latLng.lng,
-                lat: latLng.lat
-            }, cb);
-          })
-          .catch(error => console.error('Error', error));
-    }
-
-    handleFormSubmit = event => {
-        event.preventDefault();
-        this.geocode(this.state.address, function (){
-            this.pushActivities(this.state);
-        });
-    }*/
-
     render() {
         return (
             <div>

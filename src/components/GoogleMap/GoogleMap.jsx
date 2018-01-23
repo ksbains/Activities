@@ -24,7 +24,8 @@ const MyMapComponent = compose(
   withGoogleMap
   )(props => (
 
-    <GoogleMap 
+    <GoogleMap
+    
       defaultZoom={20} 
       defaultCenter={{ lat: parseFloat(props.lat), lng: parseFloat(props.lng)  }}
       mapTypeId={'hybrid'}
@@ -32,7 +33,7 @@ const MyMapComponent = compose(
     <Marker position={{ lat: parseFloat(props.lat), lng: parseFloat(props.lng) }}
 
     />
-    {console.log(parseFloat(props.lat))}  
+    
     </GoogleMap>
   ));
 
