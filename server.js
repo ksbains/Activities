@@ -14,7 +14,7 @@ var bodyParser = require('body-parser');
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 
-mongoose.connect(process.env.MONGO_URI || "mongodb://localhost/activitiesdb").then(function() {
+mongoose.connect(process.env.MONGOLAB_RED_URI || "mongodb://localhost/activitiesdb").then(function() {
     app.listen(PORT, function() {
         activitySeeder;
         commentSeeder;
