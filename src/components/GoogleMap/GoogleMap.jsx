@@ -17,7 +17,7 @@ const MyMapComponent = compose(
 
 
     loadingElement: <div style={{ height: `100%`, width:`100%`}} />,
-    containerElement: <div style={{ height: `300px`, width:`100%`, margin:`1%`}} />,
+    containerElement: <div style={{ height: `200px`, width:`100%`, margin:`1% 0% 1% 0%`, borderRadius: `0px`, boxShadow: `0px 0px 10px #888`, borderColor: `#266590` }} />,
     mapElement: <div style={{ height: `100%`, width:`100%` }} />,
   }),
   withScriptjs,
