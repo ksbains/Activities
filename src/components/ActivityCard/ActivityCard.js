@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import "./ActivityCard.css";
 
 // TODO: CHANGE CSS FOR LINKS & LINKS HOVER ...ect
@@ -12,14 +11,12 @@ import "./ActivityCard.css";
 export class ActivityCard extends React.Component{
   render() {
     return(
-    <div className="activity-card-area" id={this.props._id}>
-        <Link to={'/event?id=' + this.props.id}>
+    <div className="activity-card-area">
       <div className="activity-card-container container">
         <div className="row">
             { this.props.children }
         </div>
       </div>
-        </Link>
     </div>
     )
   }

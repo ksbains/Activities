@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./ActivityCard.css";
 
 export class ActivityCardUserInfo extends React.Component {
@@ -10,7 +11,11 @@ export class ActivityCardUserInfo extends React.Component {
 render() {
 	return(
 		  <div>
-        <div className="user-creator-info col-sm-4 col-md-4 col-lg-4 .material-ripple">
+        <div 
+        className="user-creator-info col-sm-4 col-md-4 col-lg-4"
+        onClick={this.props.onClickExpandUserInfo}
+        >
+          {/*<Link to={'/user?id=' + this.props.id}>*/}
             <span><div className="user-created">
               <strong><a href="#" className="username"> {this.props.username} </a></strong>
             </div>
@@ -20,6 +25,7 @@ render() {
             <div  className="user-flake-score">
               <strong className="flakeScore"> [{this.props.flakeScore}] </strong>
             </div></span>
+          {/*</Link>*/}
        	</div>
       </div>
 		);
