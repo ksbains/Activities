@@ -6,7 +6,17 @@ var authController = {};
 
 // Restrict access to root page
 authController.home = function(req, res) {
-    res.render('index', { user : req.user });
+    res.redirect('/', { user : req.user });
+};
+
+authController.user = function(req, res) {
+    console.log('===== user!!======')
+    console.log(req.user)
+    if (req.user) {
+        return res.json({ user: req.user })
+    } else {
+        return res.json({ user: null })
+    }
 };
 
 // Go to registration page
@@ -47,7 +57,6 @@ authController.login = function(req, res) {
 authController.doLogin = function(req, res) {
     passport.authenticate('local')(req, res, function () {
         res.redirect('/');
-        console.log("logged in", req.body);
     });
 };
 

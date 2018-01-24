@@ -13,6 +13,8 @@ router.use("/api", apiRoutes);
 // restrict index for logged in user only
 router.get('/', auth.home);
 
+router.get('/user', auth.user);
+
 // route to register page
 router.get('/register', auth.register);
 
