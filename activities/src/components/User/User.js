@@ -31,13 +31,12 @@ export class User extends React.Component {
                     <div className="userloc">
                         {this.props.location}
                     </div>
-
                 </div>
                 <div className="aboutme">
                     {this.props.bio}
                 </div>
                 <div className="flakescore">
-                    {this.props.flakescore}
+                    {this.props.flakeScore}
                 </div>
             </div>
         </div>

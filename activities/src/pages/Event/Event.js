@@ -6,34 +6,33 @@ import EventDescription from "../../components/EventDescription";
 import "./Event.css";
 import GoogleMap from "../../components/GoogleMap";
 import ActivityService from "../../providers/ActivityService.js";
+
+
+
 export class EventPage extends Component {
-
-    state = {
-    	activity: {}
+    constructor(props) {
+        super(props)
+        this.state = {
+            activity: []
+        };
     };
-    
+
     componentWillMount = () => {
-		console.log("Load EventPage")
-		this.loadEvent(function () {
-            console.log("lemme see that good good", this.state.activity);
+        console.log("Load EventPage")
+        this.loadEvent(function() {
+            console.log("EventObj: ", this.state.activity);
         });
-	};
+    };
 
-	loadEvent = (cb) => {
-		 var str = window.location.search;
-		 var id = str.substring(4 , str.length);
-		 console.log("the id is", id);
-		 //pass the id
-		ActivityService.getActivity(id)
-			.then(res => {
-	          	console.log("the obj is", res.data);
-	          	this.setState({
-	          		activity: res.data
-	          	}, cb);
-	          	
-			}).catch(err => console.log("error", err));
-	};
-
+    loadEvent = (cb) => {
+     var str = window.location.search;
+     var id = str.substring(4, str.length);
+     console.log('Event Str', str);
+     ActivityService.getActivity(id)
+         .then(res => {
+             this.setState({ activity: res.data}, cb);
+         }).catch(err => console.log("ActivityService error", err));
+ };
     /*geocode = (addy, cb) =>{
         console.log("we in the geocode");
         return geocodeByAddress( addy)
@@ -61,7 +60,8 @@ export class EventPage extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12"> 
-                        <User/>
+                        <User
+                        />
                         </div>
                     </div>
                     <div className="row">
@@ -74,10 +74,11 @@ export class EventPage extends Component {
                     
                     <div className="row">
                         <div className="col-md-12">
-                        <EventDescription/>
+                        <EventDescription
+                        description={this.state.activity.description}
+                        />
                         </div>
                     </div>
-                    
                 </div>
             </div>
         )

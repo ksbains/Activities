@@ -3,7 +3,6 @@ import axios from "axios";
 export default  {
   // Gets all activities
   getActivities: function() {
-    console.log("the getActivities function in the DB is bieng called");
     return axios.get("/api/activities");
   },
   // Gets the book with the given id

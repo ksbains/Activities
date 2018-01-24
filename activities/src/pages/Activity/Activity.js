@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import "./Activity.css";
 import Navbar from "../../components/Navbar/Navbar.js";
-import SimpleAutocomplete from "../../components/PlacesAutocomplete/PlacesAutocomplete";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import ActivityService from "../../providers/ActivityService.js";
-import $ from 'jquery'; 
 import DatePicker from 'react-date-picker';
 
 class ActivitySignUp extends Component {
@@ -181,7 +179,6 @@ render(){
 										onChange={this.handleInputChange}
 										id="bio"
 										value={this.state.description}
-										onChange={this.handleInputChange}
 									/>
 								</div>
 							</div>
