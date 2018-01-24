@@ -23,9 +23,9 @@ constructor(props){
             className="event-info"
             onClick={this.props.onClickExpandEventCard}
             >
-            {/*<Link to={'/event?id=' + this.props.id}>*/}
+            <Link to={'/event?id=' + this.props.id}>
               <p className="card-text">{this.props.description}</p>
-            {/*</Link>*/}
+            </Link>
             </div>
         </div>
       </div>

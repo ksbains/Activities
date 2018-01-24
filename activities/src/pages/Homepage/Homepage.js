@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./Homepage.css";
 import Navbar from "../../components/Navbar/Navbar.js";
 import { ActivityCard, ActivityCardUserInfo, ActivityCardEventInfo, ActivityCardWrapper } from "../../components/ActivityCard";
@@ -94,11 +95,13 @@ class Homepage extends Component {
 							activityType = {object.activity.activityType}
 							description = {object.activity.description}
 							/>
+          					<Link to={'/user?id=' + object.user._id}>
 							<ActivityCardUserInfo
 							onClickExpandUserInfo = {this.expandUserInfo.bind(this, index)}
 							username={object.user.username}
 							flakeScore={object.user.flakeScore}
 							/>							
+							</Link>
 						</ActivityCard>
 				);
 				})}

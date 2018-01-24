@@ -12,10 +12,10 @@ export class EventPage extends Component {
     	activity: {}
     };
     
-    componentDidMount = () => {
+    componentWillMount = () => {
 		console.log("Load EventPage")
 		this.loadEvent(function () {
-            console.log("lemme see that good good",this.state.activity);
+            console.log("lemme see that good good", this.state.activity);
         });
 	};
 
