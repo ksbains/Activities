@@ -13,7 +13,7 @@ var bodyParser = require('body-parser');
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/activitiesdb", {
+mongoose.connect(process.env.MONGOLAB_RED_URI || "mongodb://localhost/activitiesdb", {
     useMongoClient: true
 }).then(function() {
     app.listen(PORT, function() {
