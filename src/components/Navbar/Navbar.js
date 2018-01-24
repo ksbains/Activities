@@ -7,9 +7,18 @@ import { Link } from 'react-router-dom';
 // By importing the Header.css file, it is added to the DOM whenever this component loads
 //acces props via this.props
 class Navbar extends React.Component {
-	//Method declartion
-	//updateCount = (event) => {}
+
+	constructor(props) {
+		super(props);
+		// this.state = {
+		// 	user: req.user
+		// }
+	}
+
 	render () {
+
+        let button = null;
+
 		return (
 			<nav className="navbar ">
 			    <ul class="nav nav-pills">
@@ -33,6 +42,7 @@ class Navbar extends React.Component {
 			                <li><a href="#">Upcoming events</a></li>
 			                <li className="divider"></li>
 			                <li><Link to='/settings'>Settings</Link></li>
+
 							<li><form id="logout" name="logout" method="post" action="/logout" aria-hidden="false">
                                 <input class="btn btn-default" type="submit" value="Log Out" />
 							</form></li>

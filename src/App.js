@@ -7,10 +7,29 @@ import Setting from "./pages/Setting";
 import UserPage from "./pages/User";
 import LoginPage from "./pages/Login";
 import EventPage from "./pages/Event";
-
+import axios from "axios";
 
 
 class App extends Component {
+
+    componentDidMount() {
+        axios.get('/user').then(response => {
+            console.log(response.data);
+            // if (!!response.data.user) {
+            //     console.log('THERE IS A USER')
+            //     this.setState({
+            //         loggedIn: true,
+            //         user: response.data.user
+            //     })
+            // } else {
+            //     this.setState({
+            //         loggedIn: false,
+            //         user: null
+            //     })
+            // }
+        })
+    }
+
  render() {
    return (
     <div>
