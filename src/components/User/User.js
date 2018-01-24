@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import "./User.css";
 import picture from "./basketball.jpg";
 
@@ -11,31 +11,37 @@ import picture from "./basketball.jpg";
 //     borderRadius: '50%'
 // }
 
-const User = props => {
-    return <div className="container user">
-        <div className="row">
-            <div className="profile">
-                <div className="wrapper">
-                    <img src={picture} id='image'/>
-                </div>
-            </div>
-            <div className="info">
-                <div className="userloc">
-                    aaaaMatt
-                </div>
-                <div className="userloc">
-                    San Marcos, California
-                </div>
+export class User extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-            </div>
-            <div className="aboutme">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam turpis quis nisl dapibus, nec tincidunt ante finibus. Integer at ante et libero convallis posuere eu vitae nisi. Quisque metus odio, faucibus ac ultrices id, sodales ac lorem. Nam vel posuere magna. Aliquam pretium nisi a sollicitudin posuere. Nulla nec justo orci. Duis dapibus, nisi at semper egestas, risus enim ornare mi, vitae pharetra nunc nisi vestibulum ipsum. Praesent eu sollicitudin massa.
-            </div>
-            <div className="flakescore">
-                98
+    render(){
+    return ( <div className="container user">
+            <div className="row">
+                <div className="profile">
+                    <div className="wrapper">
+                        <img src={picture} id='image'/>
+                    </div>
+                </div>
+                <div className="info">
+                    <div className="userloc">
+                        {this.props.username}
+                    </div>
+                    <div className="userloc">
+                        {this.props.location}
+                    </div>
+                </div>
+                <div className="aboutme">
+                    {this.props.bio}
+                </div>
+                <div className="flakescore">
+                    {this.props.flakeScore}
+                </div>
             </div>
         </div>
-    </div>;
+        )
+    }
 };
 
 export default User;

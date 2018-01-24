@@ -15,7 +15,6 @@ render() {
         className="user-creator-info col-sm-4 col-md-4 col-lg-4"
         onClick={this.props.onClickExpandUserInfo}
         >
-          {/*<Link to={'/user?id=' + this.props.id}>*/}
             <span><div className="user-created">
               <strong><a href="#" className="username"> {this.props.username} </a></strong>
             </div>
@@ -25,7 +24,6 @@ render() {
             <div  className="user-flake-score">
               <strong className="flakeScore"> [{this.props.flakeScore}] </strong>
             </div></span>
-          {/*</Link>*/}
        	</div>
       </div>
 		);
