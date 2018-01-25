@@ -33,26 +33,6 @@ export class EventPage extends Component {
              this.setState({ activity: res.data}, cb);
          }).catch(err => console.log("ActivityService error", err));
  };
-    /*geocode = (addy, cb) =>{
-        console.log("we in the geocode");
-        return geocodeByAddress( addy)
-          .then(results => getLatLng(results[0]))
-          .then(latLng => {
-            this.setState({
-                long:latLng.lng,
-                lat: latLng.lat
-            }, cb);
-          })
-          .catch(error => console.error('Error', error));
-    }
-
-    handleFormSubmit = event => {
-        event.preventDefault();
-        this.geocode(this.state.address, function (){
-            this.pushActivities(this.state);
-        });
-    }*/
-
     render() {
         return (
             <div>
@@ -74,9 +54,9 @@ export class EventPage extends Component {
                     
                     <div className="row">
                         <div className="col-md-12">
-                        <EventDescription
-                        description={this.state.activity.description}
-                        />
+                            <EventDescription
+                            description={this.state.activity.description}
+                            />
                         </div>
                     </div>
                 </div>

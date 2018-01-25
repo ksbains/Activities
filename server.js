@@ -15,20 +15,6 @@ var bodyParser = require('body-parser');
 
 mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGOLAB_RED_URI || "mongodb://localhost/activitiesdb", {
-// mongoose.Promise = Promise;
-// mongoose.connect("mongodb://localhost/activitiesdb", {
-//     useMongoClient: true
-// }).then(function() {
-//     app.listen(PORT, function() {
-//         activitySeeder;
-//         commentSeeder;
-//         userSeeder;
-//         console.log("API Server Started on port:" + PORT);
-//     });
-
-
-mongoose.connect("mongodb://admin:password@ds111258.mlab.com:11258/project3", {
-
     useMongoClient: true
 }).then(function() {
     app.listen(PORT, function() {

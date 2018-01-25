@@ -21,6 +21,7 @@ class Login extends Component {
         return(
             <div>
                 <Navbar/>
+                <div className="container">
                 <form id="signup" data-name="signup" method="post" action="/register" aria-hidden="false">
                     <legend>Sign Up</legend>
                     <div class="form-group">
@@ -71,6 +72,7 @@ class Login extends Component {
                         <input class="btn btn-secondary" type="submit" value="Log In" />
                     </div>
                 </form>
+            </div>    
             </div>
         )
     }
