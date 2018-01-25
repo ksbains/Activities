@@ -19,14 +19,19 @@ class Homepage extends Component {
     this.state = {
 		activities: [],
 		users: [],
-		combined: []
+		combined: [],
+		user: this.props.user
 	};
   }
 
 	componentWillMount = () => {
-		console.log("Load Homepage")
 		this.loadEvents();
+        console.log("Homepage state", this.state);
 	};
+
+ 	componentDidMount = () => {
+ 		console.log("homepage props",this.props);
+	}
 
 	loadEvents = () => {
 		var activitiesArray = [];
@@ -76,7 +81,7 @@ class Homepage extends Component {
 	render() {
 		return(
 			<div>
-				<Navbar/>
+				<Navbar user={this.state.user}/>
 				<ActivityCardWrapper>
 				{this.state.combined.map((object, index) => {
 					return(

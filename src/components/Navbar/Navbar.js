@@ -10,14 +10,16 @@ class Navbar extends React.Component {
 
 	constructor(props) {
 		super(props);
-		// this.state = {
-		// 	user: req.user
-		// }
+		this.state = {
+			user: this.props.user
+		}
+	}
+
+	componentDidMount() {
+		console.log("navbar state", this.state);
 	}
 
 	render () {
-
-        let button = null;
 
 		return (
 			<nav className="navbar ">
@@ -36,7 +38,7 @@ class Navbar extends React.Component {
 			            </ul>
 			        </li>
 			        <li className="dropdown pull-right">
-			            <a href="#" data-toggle="dropdown" className="dropdown-toggle"><img src="http://placehold.it/18x18" className="profile-image img-circle"/> UserName <b className="caret"></b></a>
+			            <a href="#" data-toggle="dropdown" className="dropdown-toggle"><img src="http://placehold.it/18x18" className="profile-image img-circle"/> {this.state.user ? this.state.user.username : ''} <b className="caret"></b></a>
 			            <ul className="dropdown-menu">
 			                <li><Link to='/user'>Profile</Link></li>
 			                <li><a href="#">Upcoming events</a></li>

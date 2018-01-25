@@ -27,7 +27,7 @@ mongoose.connect(process.env.MONGOLAB_RED_URI || "mongodb://localhost/activities
 //     });
 
 
-mongoose.connect("mongodb://admin:password@ds111258.mlab.com:11258/project3", {
+// mongoose.connect("mongodb://admin:password@ds111258.mlab.com:11258/project3", {
 
     useMongoClient: true
 }).then(function() {
