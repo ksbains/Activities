@@ -12,19 +12,8 @@ var bodyParser = require('body-parser');
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
-// mongoose.Promise = Promise;
-// mongoose.connect("mongodb://localhost/activitiesdb", {
-//     useMongoClient: true
-// }).then(function() {
-//     app.listen(PORT, function() {
-//         activitySeeder;
-//         commentSeeder;
-//         userSeeder;
-//         console.log("API Server Started on port:" + PORT);
-//     });
-
-
-mongoose.connect("mongodb://admin:password@ds111258.mlab.com:11258/project3", {
+//mongoose.Promise = Promise;
+mongoose.connect("mongodb://localhost/activitiesdb", {
     useMongoClient: true
 }).then(function() {
     app.listen(PORT, function() {
@@ -33,6 +22,17 @@ mongoose.connect("mongodb://admin:password@ds111258.mlab.com:11258/project3", {
         userSeeder;
         console.log("API Server Started on port:" + PORT);
     });
+
+
+// mongoose.connect("mongodb://admin:password@ds111258.mlab.com:11258/project3", {
+//     useMongoClient: true
+// }).then(function() {
+//     app.listen(PORT, function() {
+//         activitySeeder;
+//         commentSeeder;
+//         userSeeder;
+//         console.log("API Server Started on port:" + PORT);
+//     });
 
 }).catch(function (err){
     console.log("error connecting to mongo", err);
