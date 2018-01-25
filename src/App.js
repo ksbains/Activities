@@ -12,42 +12,51 @@ import axios from "axios";
 
 class App extends Component {
 
-    componentDidMount() {
-        axios.get('/user').then(response => {
-            console.log(response.data);
-            // if (!!response.data.user) {
-            //     console.log('THERE IS A USER')
-            //     this.setState({
-            //         loggedIn: true,
-            //         user: response.data.user
-            //     })
-            // } else {
-            //     this.setState({
-            //         loggedIn: false,
-            //         user: null
-            //     })
-            // }
-        })
+    constructor() {
+        super()
+        this.state = {
+            loggedIn: false,
+            user: null
+        }
     }
 
- render() {
-   return (
-    <div>
-     <div className="App">
-     </div>
-     <div>
-         <Switch>
-             <Route exact path='/' component={Homepage} />
-             <Route exact path='/activity' component={ActivityForm} />
-             <Route exact path='/settings' component={Setting} />
-             <Route exact path='/user' component={UserPage} />
-             <Route exact path='/login' component={LoginPage} />
-             <Route exact path='/event' component={EventPage} />
-         </Switch>
-     </div>
-    </div>
-   );
- }
+    componentDidMount() {
+        // axios.get('/user').then(response => {
+        //     console.log("this is before the set State", response.data);
+        //     if (response.data.user) {
+        //         console.log('THERE IS A USER')
+        //         this.setState({
+        //             loggedIn: true,
+        //             user: response.data.user
+        //         }, function (){
+        //             console.log("this is call after the setState, going into render");
+        //             this.render();
+        //         });
+        //         // response.redirect('/')
+        //     } 
+        //     console.log("this is the username within willmount of route", response.data.user);
+        // })
+    }
+
+    
+     render() {
+       return (
+        <div>
+         <div className="App">
+         </div>
+         <div>
+             <Switch>
+                 <Route exact path='/' render={() => <Homepage user={this.state.user}/>} />
+                 <Route exact path='/activity' component={ActivityForm} />
+                 <Route exact path='/settings' component={Setting} />
+                 <Route exact path='/user' component={UserPage} />
+                 <Route exact path='/login' render={() => <LoginPage user={this.state.user}/>} />
+                 <Route exact path='/event' component={EventPage} />
+             </Switch>
+         </div>
+        </div>
+       );
+     }
 }
 
 export default App;

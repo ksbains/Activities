@@ -55,7 +55,8 @@ class ActivitySignUp extends Component {
 	pushActivities = (data) => {
 		ActivityService.saveActivity(data)
 			.then(res => {
-				console.log("it has been pushed to the DB successfully", )
+				console.log("it has been pushed to the DB successfully");
+				alert("You have added an Activity! Go to your hompage to see the newly added activity!");
 			}).catch(err => console.log(err));
 	}
 

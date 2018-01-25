@@ -21,7 +21,7 @@ authController.user = function(req, res) {
 
 // Go to registration page
 authController.register = function(req, res) {
-    res.redirect('/login');
+    res.redirect('/');
 };
 
 // Post registration
