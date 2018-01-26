@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar/Navbar.js";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import ActivityService from "../../providers/ActivityService.js";
 import DatePicker from 'react-date-picker';
+import axios from "axios/index";
 
 class ActivitySignUp extends Component {
     constructor(props) {
@@ -102,8 +103,8 @@ render(){
     }
 	return(
 		<div>
-			<Navbar user={this.state.user} />
 			<div className="container">
+                <Navbar user={this.state.user} />
 				<div className="row">
 					<div className="col-sm-2 m-auto text-center"></div>
 					<div className="col-sm-8 m-auto text-center">

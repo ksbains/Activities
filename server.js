@@ -15,7 +15,6 @@ var bodyParser = require('body-parser');
 
 mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGOLAB_RED_URI || "mongodb://localhost/activitiesdb", {
-    useMongoClient: true
 }).then(function() {
     app.listen(PORT, function() {
         activitySeeder;

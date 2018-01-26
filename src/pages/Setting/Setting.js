@@ -58,8 +58,8 @@ class Setting extends Component {
 render() {
 	return(
 		<div>
-			<Navbar user={this.state.username} />
 			<div className="container">
+                <Navbar user={this.state.username} />
 			<div className="row">
 				<div className="col-sm-2 m-auto text-center"></div>
 				<div className="col-sm-8 m-auto text-center">
