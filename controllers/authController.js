@@ -21,7 +21,7 @@ authController.user = function(req, res) {
 
 // Go to registration page
 authController.register = function(req, res) {
-    res.redirect('/');
+    res.redirect('/login');
 };
 
 // Post registration
@@ -50,7 +50,7 @@ authController.doRegister = function (req, res) {
 
 // Go to login page
 authController.login = function(req, res) {
-
+    res.redirect('/login');
 };
 
 // Post login
