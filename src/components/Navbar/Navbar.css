@@ -8,6 +8,14 @@
 	color: #848182;
 	
 }
+img {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: block;
+    margin: auto;
+    vertical-align: middle;
+}
 
 .btn-info{
 	margin-left: 20px;

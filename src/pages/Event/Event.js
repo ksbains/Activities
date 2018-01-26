@@ -6,6 +6,7 @@ import EventDescription from "../../components/EventDescription";
 import "./Event.css";
 import GoogleMap from "../../components/GoogleMap";
 import ActivityService from "../../providers/ActivityService.js";
+import UserService from "../../providers/ActivityService.js";
 
 
 
@@ -42,6 +43,11 @@ export class EventPage extends Component {
                     <div className="row">
                         <div className="col-md-12"> 
                         <User
+                        username = {this.state.user.username}
+                        location = {this.state.user.location}
+                        bio = {this.state.user.bio}
+                        pic = {this.state.user.pic}
+                        flakeScore = {this.state.user.flakeScore}
                         />
                         </div>
                     </div>

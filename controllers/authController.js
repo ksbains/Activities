@@ -31,8 +31,10 @@ authController.doRegister = function (req, res) {
         username: req.body.username,
         first: req.body.first,
         last: req.body.last,
+        pic: req.body.pic,
         bio: req.body.bio,
         email: req.body.email,
+        flakeScore: "92",
         phoneNumber: req.body.phoneNumber,
         password: req.body.password
     }), req.body.password, function (err, user) {
@@ -40,9 +42,8 @@ authController.doRegister = function (req, res) {
             console.log(err);
             return res.json({user: user, success: false});
         }
-
         passport.authenticate('local')(req, res, function () {
-            // res.redirect('/login');
+            res.redirect('/');
             console.log("made it this far in doRegister");
         });
     });

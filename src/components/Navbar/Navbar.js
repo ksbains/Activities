@@ -67,7 +67,7 @@ class Navbar extends React.Component {
 			            </ul>
 			        </li>
 			        <li className="dropdown pull-right">
-			            <a href="#" data-toggle="dropdown" className="dropdown-toggle"><img src="http://placehold.it/18x18" className="profile-image img-circle"/> {this.state.user ? this.state.user.username : ''} <b className="caret"></b></a>
+			            <a href="#" data-toggle="dropdown" className="dropdown-toggle"><img className="navbarPic" src={this.state.user ? this.state.user.pic :"http://placehold.it/18x18"} className="profile-image img-circle"/> {this.state.user ? this.state.user.username : ''} <b className="caret"></b></a>
 			            <ul className="dropdown-menu">
 			                <li><Link to='/user'>Profile</Link></li>
 			                <li><a href="#">Upcoming events</a></li>

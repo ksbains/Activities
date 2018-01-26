@@ -12,6 +12,7 @@ const UserSchema = new Schema({
     phoneNumber: { type: String, required: true},
     flakeScore: { type: String},
     bio: { type: String},
+    pic: { type: String},
     activitiesCreated: [
         {
             type: Schema.Types.ObjectId,

@@ -18,7 +18,8 @@ class Login extends Component {
         last: null,
         phoneNumber: null,
         bio: null,
-        password: null
+        password: null,
+        pic: "http://donatered-asset.s3.amazonaws.com/assets/default/default_user-884fcb1a70325256218e78500533affb.jpg"
     };
 
     componentDidMount = () => {
@@ -39,8 +40,8 @@ class Login extends Component {
         console.log(e);
         console.log('Magic!', this.state);
         axios.post('/register', this.state).then(response => {
-            console.log(response);
-            console.log("this is before the set State", response.data);
+            //console.log(response);
+            //console.log("this is before the set State", response.data);
             if (response.data.user) {
                 console.log('THERE IS A USER');
                 this.props.user = response.data.user;
@@ -54,6 +55,7 @@ class Login extends Component {
                 // response.redirect('/')
             } 
             console.log("this is the username within willmount of route", response.data.user);
+            alert("you have signed up! please login!")
         })
     }
 
@@ -87,6 +89,10 @@ class Login extends Component {
                     <div class="form-group">
                         <label for="bio">Bio</label>
                         <input class="form-control" name="bio" type="text" value={this.state.bio} onChange={this.handleInputChange}/>
+                    </div>
+                    <div class="form-group">
+                        <label for="pic">Picture (please paste a url of your profile photo, default is already set replace if desired)</label>
+                        <input placeholder="" class="form-control" name="pic" type="text" value={this.state.pic} onChange={this.handleInputChange}/>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
