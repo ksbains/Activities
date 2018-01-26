@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar/Navbar.js";
 // import ActivityCard from "../../components/ActivityCard";
 import User from "../../components/User";
 import UserService from "../../providers/UserService";
+import axios from "axios/index";
 
 class UserPage extends Component {
 	constructor(props) {
@@ -17,14 +18,16 @@ class UserPage extends Component {
 	render() {
 		return(
 			<div>
-                <Navbar user={this.state.user}/>
-                <User 
-                	username = {this.state.user.username}
-                	location = {this.state.user.location}
-                	bio = {this.state.user.bio}
-                	pic = {this.state.user.pic}
-                	flakeScore = {this.state.user.flakeScore}
-                />
+				<div className="container">
+					<Navbar user={this.state.user}/>
+					<User
+						username = {this.state.user.username}
+						location = {this.state.user.location}
+						bio = {this.state.user.bio}
+						flakeScore = {this.state.user.flakeScore}
+						pic = {this.state.user.pic}
+					/>
+				</div>
 			</div>
 		)}
 	}

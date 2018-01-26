@@ -22,7 +22,7 @@ class App extends Component {
 
     componentDidMount() {
         axios.get('/user').then(response => {
-            console.log("this is before the set State", response.data);
+            console.log("User Authentication check in app.js", response.data);
             if (response.data.user) {
                 console.log('THERE IS A USER');
                 this.setState({
@@ -30,6 +30,7 @@ class App extends Component {
                     user: response.data.user
                 }, function (){
                     console.log("this is call after the setState, going into render");
+                    this.render();
                 });
             }
             console.log("this is the username within willmount of route", response.data.user);
