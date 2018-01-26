@@ -17,7 +17,7 @@ class Homepage extends Component {
     super(props);
     this.expandEventCard = this.expandEventCard.bind(this);
     this.state = {
-		activities: [],
+		activitiesCards: [],
 		user: this.props.user
 	};
   }
@@ -32,14 +32,26 @@ class Homepage extends Component {
 	}
 
 	loadEvents = () => {
+		let tempAct = [];
+		let tempUser = [];
+		let combinedArray = [];
 		ActivityService.getActivities()
-			.then(res => {
-				this.setState({ activities: res.data })
-				
-		
-	};
-
-
+			.then(actRes => {
+				tempAct.push(actRes.data)
+				for (i = 0; i < actRes.data.length; i++){
+					UserService.getUser(actRes.data[i]._id)
+						.then(userRes => {
+							tempUser.push(userRes.data)
+						
+						for (j = 0; j < tempAct.length; j++){
+							let tempObject = {};
+							tempObject.activity = tempAct[j]
+							tempUser.user = tempUser[j]
+							combinedArray.push(tempObject)
+						}
+						}).catch(err => console.log('err', err);)}
+			}).catch(err => console.log('err', err))
+		};
 
 	expandEventCard = (index) => {
 		// console.log("this-expandEventCard", this.state.activities[index])

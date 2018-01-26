@@ -5,11 +5,11 @@ export default  {
   getActivities: function() {
     return axios.get("/api/activities");
   },
-  // Gets the book with the given id
+  // Gets the activity with the given id
   getActivity: function(id) {
     return axios.get("/api/activities/" + id);
   },
-  // Deletes the book with the given id
+  // Deletes the activity with the given id
   deleteActivity: function(id) {
     return axios.delete("/api/activities/" + id);
   },
