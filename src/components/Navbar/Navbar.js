@@ -10,7 +10,8 @@ class Navbar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			user: this.props.user
+			user: this.props.user,
+			activityType: this.props.activityType
 		}
 	}
 

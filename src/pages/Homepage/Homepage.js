@@ -38,18 +38,18 @@ class Homepage extends Component {
 		ActivityService.getActivities()
 			.then(actRes => {
 				tempAct.push(actRes.data)
-				for (i = 0; i < actRes.data.length; i++){
+				for (let i = 0; i < actRes.data.length; i++){
 					UserService.getUser(actRes.data[i]._id)
 						.then(userRes => {
 							tempUser.push(userRes.data)
 						
-						for (j = 0; j < tempAct.length; j++){
+						for (let j = 0; j < tempAct.length; j++){
 							let tempObject = {};
 							tempObject.activity = tempAct[j]
 							tempUser.user = tempUser[j]
 							combinedArray.push(tempObject)
 						}
-						}).catch(err => console.log('err', err);)}
+						}).catch(err => console.log('err', err))}
 			}).catch(err => console.log('err', err))
 		};
 
