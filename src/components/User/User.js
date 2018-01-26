@@ -21,7 +21,7 @@ export class User extends React.Component {
             <div className="row">
                 <div className="profile">
                     <div className="wrapper">
-                        <img src={picture} id='image'/>
+                        <img src={this.props.pic} id='image'/>
                     </div>
                 </div>
                 <div className="info">

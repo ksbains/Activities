@@ -12,11 +12,10 @@ class ActivitySignUp extends Component {
             date: new Date(),
         	time: "",
             duration: "1 hour",
-            activityType: "Super Bowl",
+            activityType: "Basketball",
             fam: true,
             maxPeople: 2,
             description: "",
-            reoccuring: true,
             address: 'Las Vegas, NV',
             long:"did not work",
             lat: "did not work",
@@ -40,6 +39,7 @@ class ActivitySignUp extends Component {
 		"2 hour and 30 mins",
 		"3 hours"
 	];
+	times = ["12:00AM", "12:30AM", "1:00AM", "1:30AM", "2:00AM", "2:30AM", "3:00AM", "3:30AM", "4:00AM", "4:30AM", "5:00AM", "5:30AM", "6:00AM", "6:30AM", "7:00AM", "7:30AM", "8:00AM", "8:30AM", "9:00AM", "9:30AM", "10:00AM", "10:30AM", "11:00AM", "11:30AM", "12:00PM", "12:30PM", "1:00PM", "1:30PM", "2:00PM", "2:30PM", "3:00PM", "3:30PM", "4:00PM", "4:30PM", "5:00PM", "5:30PM", "6:00PM", "6:30PM", "7:00PM", "7:30PM", "8:00PM", "8:30PM", "9:00PM", "9:30PM", "10:00PM", "10:30PM", "11:00PM", "11:30PM"]
 	peopleTypes = [1,2,3,4,5,6,7,8,9];
     getActivityTypes = () => {
     	let opt = this.activityTypes.map(e => {
@@ -59,7 +59,10 @@ class ActivitySignUp extends Component {
 			.then(res => {
 				console.log("it has been pushed to the DB successfully");
 				alert("You have added an Activity! Go to your hompage to see the newly added activity!");
-			}).catch(err => console.log(err));
+			}).catch(err => {
+				console.log(err);
+				alert("thre was an error, please check you fields and resubmit");
+			});
 	}
 
 	handleInputChange = (event) => {
@@ -73,7 +76,6 @@ class ActivitySignUp extends Component {
   	onChangeDate = date => this.setState({ date })
 
 	geocode = (addy, cb) =>{
-	  	console.log("we in the geocode");
 	  	return geocodeByAddress( addy)
           .then(results => getLatLng(results[0]))
           .then(latLng => {
@@ -211,26 +213,6 @@ render(){
 					<div className="row formQuestion">
 						<div className="col-md-12">
 							<div className="text-left">
-								<label for="reoccur">Reoccuring</label>
-								<br/>
-								<p>Is this Activity reoccuring?</p>
-								<input 
-									type="radio" 
-									name="reoccuring" 
-									value={this.state.reoccuring} 
-									onChange={this.handleInputChange}/> Yes<br/>
-								<input 
-									type="radio" 
-									name="reoccuring" 
-									value={!(this.state.reoccuring)}
-									onChange={this.handleInputChange}/> No<br/>
-							</div>
-						</div>
-					</div>
-
-					<div className="row formQuestion">
-						<div className="col-md-12">
-							<div className="text-left">
 								<label for="Date">Date:</label>
 								<br/>
 								 <DatePicker
@@ -242,21 +224,39 @@ render(){
 			            </div>
 			        </div>
 					
+					{/*// <div className="row formQuestion">
+					// 	<div className="col-md-12">
+					// 		<div className="text-left">
+					// 			<label for="time">Time:</label>
+					// 			<br/>
+					// 		<input 
+					// 			type="text" 
+					// 			className="form-control-custom mb-4" 
+					// 			id="time"
+					// 			placeholder="4:20PM"
+					// 			name="time"
+					// 			value={this.state.time}
+					// 			onChange={this.handleInputChange}
+					// 		/>
+					// 	</div>
+					// 	</div>
+					// </div>*/}
+
 					<div className="row formQuestion">
 						<div className="col-md-12">
-							<div className="text-left">
-								<label for="time">Time:</label>
-								<br/>
-							<input 
-								type="text" 
-								className="form-control-custom mb-4" 
-								id="time"
-								placeholder="4:20PM"
-								name="time"
-								value={this.state.time}
-								onChange={this.handleInputChange}
-							/>
-						</div>
+							<div className="form-group text-left">
+							  <label for="time">Time</label>
+							  <select 
+							  	className="form-control"
+							  	id="time"
+							  	name="time"
+							  	value={this.state.time} 
+							  	onChange={this.handleInputChange}>  
+							   { this.times.map(e => { return (
+							   		<option value={e}>{e}</option>
+							   	); })}
+							  </select>
+							</div>
 						</div>
 					</div>
 
