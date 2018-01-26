@@ -24,11 +24,11 @@ class Homepage extends Component {
 
 	componentWillMount = () => {
 		this.loadEvents();
-        console.log("Homepage state", this.state);
+        // console.log("Homepage state", this.state);
 	};
 
  	componentDidMount = () => {
- 		console.log("homepage props",this.props);
+ 		// console.log("homepage props",this.props);
 	}
 
 	loadEvents = () => {

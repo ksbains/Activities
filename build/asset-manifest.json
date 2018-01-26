@@ -1,7 +1,14 @@
 {
+<<<<<<< Updated upstream
   "main.css": "static/css/main.72bb7dcc.css",
   "main.css.map": "static/css/main.72bb7dcc.css.map",
   "main.js": "static/js/main.effe3a76.js",
   "main.js.map": "static/js/main.effe3a76.js.map",
+=======
+  "main.css": "static/css/main.b5081379.css",
+  "main.css.map": "static/css/main.b5081379.css.map",
+  "main.js": "static/js/main.d81fb26c.js",
+  "main.js.map": "static/js/main.d81fb26c.js.map",
+>>>>>>> Stashed changes
   "static\\media\\basketball.jpg": "static/media/basketball.7554347a.jpg"
 }

@@ -5,11 +5,19 @@ export default  {
   getActivities: function() {
     return axios.get("/api/activities");
   },
-  // Gets the activity with the given id
+
+  // Gets the book with the given id
   getActivity: function(id) {
     return axios.get("/api/activities/" + id);
   },
-  // Deletes the activity with the given id
+
+  //Gets Activities with the given activityType
+  getActivityTypes: function(activityType) {
+    console.log('Activity Service w/ request: ', activityType)
+    return axios.get("/api/activities/" + activityType);
+  },
+
+  // Deletes the book with the given id
   deleteActivity: function(id) {
     return axios.delete("/api/activities/" + id);
   },
