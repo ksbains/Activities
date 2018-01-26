@@ -60,8 +60,8 @@ class Login extends Component {
     render() {
         return(
             <div>
-                <Navbar/>
                 <div className="container">
+                    <Navbar/>
                 <form id="signup" data-name="signup" aria-hidden="false" onSubmit={this.handleSubmit}>
                     <legend>Sign Up</legend>
                     <div class="form-group">

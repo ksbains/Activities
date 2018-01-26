@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar/Navbar.js";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import ActivityService from "../../providers/ActivityService.js";
 import DatePicker from 'react-date-picker';
+import axios from "axios/index";
 
 class ActivitySignUp extends Component {
     constructor(props) {
@@ -55,11 +56,19 @@ class ActivitySignUp extends Component {
     }
 
 	pushActivities = (data) => {
-		ActivityService.saveActivity(data)
-			.then(res => {
-				console.log("it has been pushed to the DB successfully");
-				alert("You have added an Activity! Go to your hompage to see the newly added activity!");
-			}).catch(err => console.log(err));
+        axios.get('/user').then(response => {
+            console.log("User Authentication check in app.js", response.data);
+            if (response.data.user) {
+                console.log('THERE IS A USER');
+                ActivityService.saveActivity(data)
+                    .then(res => {
+                        console.log("it has been pushed to the DB successfully");
+                        alert("You have added an Activity! Go to your hompage to see the newly added activity!");
+                    }).catch(err => console.log(err));
+            }
+            console.log("this is the username within willmount of route", response.data.user);
+            this.render();
+        })
 	}
 
 	handleInputChange = (event) => {
@@ -100,8 +109,8 @@ render(){
     }
 	return(
 		<div>
-			<Navbar user={this.state.user} />
 			<div className="container">
+                <Navbar user={this.state.user} />
 				<div className="row">
 					<div className="col-sm-2 m-auto text-center"></div>
 					<div className="col-sm-8 m-auto text-center">

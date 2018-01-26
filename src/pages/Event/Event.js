@@ -37,8 +37,8 @@ export class EventPage extends Component {
     render() {
         return (
             <div>
-                <Navbar user={this.state.user}/>
                 <div className="container">
+                    <Navbar user={this.state.user}/>
                     <div className="row">
                         <div className="col-md-12"> 
                         <User
