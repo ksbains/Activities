@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 
@@ -20,13 +21,39 @@ class Navbar extends React.Component {
 
 	}
 
+    handleLogout = () => {
+        axios.post('logout').then(res => {
+            console.log("handleLogout()");
+            this.setState({
+				user: null
+			})
+        })
+    }
+
+    handleLogin = () => {
+        axios.get('register').then(res => {
+            console.log("handleLogin()");
+        })
+    }
 
 	render () {
+
+		let createActivity = null;
+		let logout = null;
+		let login = null;
+
+		if(this.state.user) {
+			createActivity = <li className="active"> <Link to='/activity'>Create an Activity!</Link> </li>;
+			logout = <li><button onClick={this.handleLogout.bind(this)}>Log Out</button></li>;
+		} else {
+			login = <li><Link to='/login'><button>Log In</button></Link></li>
+		}
+
 		return (
 			<nav className="navbar ">
 			    <ul className="nav nav-pills">
                     <li className="btn-info"> <Link to='/'>Homepage</Link> </li>
-                    <li className="active"> <Link to='/activity'>Create an Activity!</Link> </li>
+					{createActivity}
 			        <li className="dropdown">
 			            <a href="#" data-toggle="dropdown" className="dropdown-toggle">Activities <b className="caret"></b></a>
 			            <ul className="dropdown-menu">
@@ -46,10 +73,8 @@ class Navbar extends React.Component {
 			                <li><a href="#">Upcoming events</a></li>
 			                <li className="divider"></li>
 			                <li><Link to='/settings'>Settings</Link></li>
-
-							<li><form id="logout" name="logout" method="post" action="/logout" aria-hidden="false">
-                                <input class="btn btn-default" type="submit" value="Log Out" />
-							</form></li>
+							{login}
+							{logout}
 			            </ul>
 			        </li>
 			    </ul>

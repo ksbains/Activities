@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar/Navbar.js";
 import { ActivityCard, ActivityCardUserInfo, ActivityCardEventInfo, ActivityCardWrapper } from "../../components/ActivityCard";
 import ActivityService from "../../providers/ActivityService.js";
 import UserService from "../../providers/UserService.js";
+import axios from "axios";
 
 // TODO: CHANGE LOOP LENGTH TO NUBER OF EVENTS IN DATABASE. 
 // USE .MAP HIGH FUNCTIONS
@@ -26,7 +27,6 @@ class Homepage extends Component {
 
 	componentWillMount = () => {
 		this.loadEvents();
-        console.log("Homepage state", this.state);
 	};
 
  	componentDidMount = () => {

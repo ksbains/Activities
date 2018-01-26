@@ -13,7 +13,7 @@ import axios from "axios";
 class App extends Component {
 
     constructor() {
-        super()
+        super();
         this.state = {
             loggedIn: false,
             user: null
@@ -24,17 +24,16 @@ class App extends Component {
         axios.get('/user').then(response => {
             console.log("this is before the set State", response.data);
             if (response.data.user) {
-                console.log('THERE IS A USER')
+                console.log('THERE IS A USER');
                 this.setState({
                     loggedIn: true,
                     user: response.data.user
                 }, function (){
                     console.log("this is call after the setState, going into render");
-                    this.render();
                 });
-                // response.redirect('/')
             }
             console.log("this is the username within willmount of route", response.data.user);
+            this.render();
         })
     }
 
