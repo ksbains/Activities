@@ -15,38 +15,17 @@ class UserPage extends Component {
 	    };
 	};
 
-	componentWillMount = () => {
-        axios.get('/user').then(response => {
-            console.log("User Authentication check in app.js", response.data);
-            if (response.data.user) {
-                console.log('THERE IS A USER');
-                this.loadEvent((req, res) => {
-                    console.log('UserObj', this.state.user);
-                });
-            }
-            console.log("this is the username within willmount of route", response.data.user);
-            this.render();
-        });
-	};
-
-	loadEvent = (cb) => {
-	    var str = window.location.search;
-	    var id = str.substring(4, str.length);
-	    UserService.getUser(id)
-	        .then(res => {
-	            this.setState({ user: res.data }, cb);
-	        }).catch(err => console.log('UserService error', err));
-	};
 	render() {
 		return(
 			<div>
 				<div className="container">
 					<Navbar user={this.state.user}/>
 					<User
-						username = {this.state.users.username}
-						location = {this.state.users.location}
-						bio = {this.state.users.bio}
-						flakeScore = {this.state.users.flakeScore}
+						username = {this.state.user.username}
+						location = {this.state.user.location}
+						bio = {this.state.user.bio}
+						flakeScore = {this.state.user.flakeScore}
+						pic = {this.state.user.pic}
 					/>
 				</div>
 			</div>
