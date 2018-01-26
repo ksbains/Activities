@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21e928d6-3b5c-4ebf-89a9-9f3d08f1e588" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" afterPath="$PROJECT_DIR$/build/asset-manifest.json" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" afterPath="$PROJECT_DIR$/build/index.html" />
-      <change beforePath="$PROJECT_DIR$/build/service-worker.js" afterPath="$PROJECT_DIR$/build/service-worker.js" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.6da7b057.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.6da7b057.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.e77a28b7.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.e77a28b7.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/controllers/authController.js" afterPath="$PROJECT_DIR$/controllers/authController.js" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.js" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Activity/Activity.js" afterPath="$PROJECT_DIR$/src/pages/Activity/Activity.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Event/Event.js" afterPath="$PROJECT_DIR$/src/pages/Event/Event.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Homepage/Homepage.js" afterPath="$PROJECT_DIR$/src/pages/Homepage/Homepage.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/Login.js" afterPath="$PROJECT_DIR$/src/pages/Login/Login.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Setting/Setting.js" afterPath="$PROJECT_DIR$/src/pages/Setting/Setting.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/User/User.js" afterPath="$PROJECT_DIR$/src/pages/User/User.js" />
+      <change beforePath="$PROJECT_DIR$/activities/build/static/js/main.9f352917.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/activities/build/static/js/main.9f352917.js.map" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -354,12 +339,12 @@
       <option name="presentableId" value="Default" />
       <updated>1516855435829</updated>
       <workItem from="1516855443496" duration="3509000" />
-      <workItem from="1516891449846" duration="17373000" />
+      <workItem from="1516891449846" duration="17465000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20882000" />
+    <option name="totallyTimeSpent" value="20974000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="723" extended-state="0" />
