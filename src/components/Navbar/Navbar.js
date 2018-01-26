@@ -25,8 +25,8 @@ class Navbar extends React.Component {
 		return (
 			<nav className="navbar ">
 			    <ul className="nav nav-pills">
-			    <li className="btn-info"> <Link to='/'>Homepage</Link> </li>
-			        <li className="active"> <Link to='/activity'>Create an Activity!</Link> </li>
+                    <li className="btn-info"> <Link to='/'>Homepage</Link> </li>
+                    <li className="active"> <Link to='/activity'>Create an Activity!</Link> </li>
 			        <li className="dropdown">
 			            <a href="#" data-toggle="dropdown" className="dropdown-toggle">Activities <b className="caret"></b></a>
 			            <ul className="dropdown-menu">

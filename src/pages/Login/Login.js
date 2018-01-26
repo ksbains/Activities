@@ -37,7 +37,7 @@ class Login extends Component {
     handleSubmit(e) {
         e.preventDefault();
         console.log(e);
-        console.log('Magic!');
+        console.log('Magic!', this.state);
         axios.post('/register', this.state).then(response => {
             console.log(response);
             console.log("this is before the set State", response.data);

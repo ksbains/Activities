@@ -19,7 +19,9 @@ class ActivitySignUp extends Component {
             reoccuring: true,
             address: 'Las Vegas, NV',
             long:"did not work",
-            lat: "did not work"
+            lat: "did not work",
+			creator: this.props.user._id,
+            user: this.props.user
         }
         this.onChange = (address) => this.setState({ address })
     }
@@ -98,7 +100,7 @@ render(){
     }
 	return(
 		<div>
-			<Navbar />
+			<Navbar user={this.state.user} />
 			<div className="container">
 				<div className="row">
 					<div className="col-sm-2 m-auto text-center"></div>
