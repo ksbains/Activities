@@ -21,21 +21,21 @@ class App extends Component {
     }
 
     componentDidMount() {
-        // axios.get('/user').then(response => {
-        //     console.log("this is before the set State", response.data);
-        //     if (response.data.user) {
-        //         console.log('THERE IS A USER')
-        //         this.setState({
-        //             loggedIn: true,
-        //             user: response.data.user
-        //         }, function (){
-        //             console.log("this is call after the setState, going into render");
-        //             this.render();
-        //         });
-        //         // response.redirect('/')
-        //     } 
-        //     console.log("this is the username within willmount of route", response.data.user);
-        // })
+        axios.get('/user').then(response => {
+            console.log("this is before the set State", response.data);
+            if (response.data.user) {
+                console.log('THERE IS A USER')
+                this.setState({
+                    loggedIn: true,
+                    user: response.data.user
+                }, function (){
+                    console.log("this is call after the setState, going into render");
+                    this.render();
+                });
+                // response.redirect('/')
+            }
+            console.log("this is the username within willmount of route", response.data.user);
+        })
     }
 
     
@@ -47,11 +47,11 @@ class App extends Component {
          <div>
              <Switch>
                  <Route exact path='/' render={() => <Homepage user={this.state.user}/>} />
-                 <Route exact path='/activity' component={ActivityForm} />
-                 <Route exact path='/settings' component={Setting} />
-                 <Route exact path='/user' component={UserPage} />
+                 <Route exact path='/activity' render={() => <ActivityForm user={this.state.user}/>} />
+                 <Route exact path='/settings' render={() => <Setting user={this.state.user}/>} />
+                 <Route exact path='/user' render={() => <UserPage user={this.state.user}/>} />
                  <Route exact path='/login' render={() => <LoginPage user={this.state.user}/>} />
-                 <Route exact path='/event' component={EventPage} />
+                 <Route exact path='/event' render={() => <EventPage user={this.state.user}/>} />
              </Switch>
          </div>
         </div>

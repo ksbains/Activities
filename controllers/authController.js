@@ -42,7 +42,7 @@ authController.doRegister = function (req, res) {
         }
 
         passport.authenticate('local')(req, res, function () {
-            res.redirect('/login');
+            // res.redirect('/login');
             console.log("made it this far in doRegister");
         });
     });
@@ -50,7 +50,7 @@ authController.doRegister = function (req, res) {
 
 // Go to login page
 authController.login = function(req, res) {
-    res.redirect('/login');
+
 };
 
 // Post login

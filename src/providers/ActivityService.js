@@ -15,6 +15,7 @@ export default  {
   },
   // Saves a activity to the database
   saveActivity: function(activityData) {
+    console.log(activityData);
     return axios.post("/api/activities", activityData);
   }
 };

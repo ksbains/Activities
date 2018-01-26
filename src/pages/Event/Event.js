@@ -13,7 +13,8 @@ export class EventPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            activity: []
+            activity: [],
+            user: this.props.user
         };
     };
 
@@ -36,7 +37,7 @@ export class EventPage extends Component {
     render() {
         return (
             <div>
-                <Navbar/>
+                <Navbar user={this.state.user}/>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12"> 

@@ -9,7 +9,8 @@ class UserPage extends Component {
 	constructor(props) {
 	    super(props)
 	    this.state = {
-	        user: []
+	        users: [],
+			user: this.props.user
 	    };
 	};
 
@@ -32,12 +33,12 @@ class UserPage extends Component {
 	render() {
 		return(
 			<div>
-                <Navbar/>
+                <Navbar user={this.state.user}/>
                 <User 
-                	username = {this.state.user.username}
-                	location = {this.state.user.location}
-                	bio = {this.state.user.bio}
-                	flakeScore = {this.state.user.flakeScore}
+                	username = {this.state.users.username}
+                	location = {this.state.users.location}
+                	bio = {this.state.users.bio}
+                	flakeScore = {this.state.users.flakeScore}
                 />
 			</div>
 		)}
