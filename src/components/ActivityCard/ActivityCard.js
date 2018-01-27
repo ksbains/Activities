@@ -25,8 +25,6 @@ export class ActivityCard extends React.Component{
     componentWillMount = () => {
         console.log("Load ActivityCard")
         this.loadEvent(function() {
-            console.log("EventObj: ", this.state.activity);
-            console.log("the creatorId is...", this.state.activity.creator);
             this.loadCreator(this.state.activity.creator)
         });
         //this.state.activity?this.loadCreator(this.state.activity.creator):console.log("is has not yet loaded the creator");
@@ -34,7 +32,6 @@ export class ActivityCard extends React.Component{
     };
 
     loadCreator = (creator) => {
-        console.log("this value of the creator inside loadCreator is...", creator);
         UserService.getUser(creator)
             .then(res => {
                 this.setState({owner: res.data});
@@ -71,6 +68,7 @@ export class ActivityCard extends React.Component{
           <ActivityCardUserInfo 
             username = {this.state.owner?this.state.owner.username:""}
             flakeScore = {this.state.owner?this.state.owner.flakeScore:""}
+            pic = {this.state.owner?this.state.owner.pic:""}
           />
         </Link>
         </div>

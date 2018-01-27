@@ -11,27 +11,27 @@ class UserPage extends Component {
 	    super(props)
 	    this.state = {
 	        users: [],
-			user: this.props.user
+			user: this.props.user,
+			owner: null
 	    };
 	};
 
-	componentDidMount() {
-        axios.get('/user').then(response => {
-            console.log("User Authentication check in app.js", response.data);
-            if (response.data.user) {
-                console.log('THERE IS A USER');
-                this.setState({
-                    loggedIn: true,
-                    user: response.data.user
-                }, function (){
-                    console.log("this is call after the setState, going into render");
-                    this.render();
-                });
-            }
-            console.log("this is the username within willmount of route", response.data.user);
-            this.render();
-        })
-	}
+	componentWillMount = () => {
+        console.log("Load UserPage");
+        this.loadOwner(function() {
+            console.log("UserObj: ", this.state.user);
+        });
+	};
+
+    loadOwner = (cb) => {
+	    var str = window.location.search;
+	    var id = str.substring(4, str.length);
+	    console.log('Owner Str', str);
+	    UserService.getUser(id)
+			       .then(res => {
+			           this.setState({ owner: res.data}, cb);
+			       }).catch(err => console.log("UserService error", err));
+ 	};
 
 	render() {
 		return(
@@ -39,11 +39,10 @@ class UserPage extends Component {
 				<div className="container">
 					<Navbar user={this.state.user}/>
 					<User
-						username = {this.state.user.username}
-						location = {this.state.user.location}
-						bio = {this.state.user.bio}
-						flakeScore = {this.state.user.flakeScore}
-						pic = {this.state.user.pic}
+						username = {this.state.owner?this.state.owner.username:""}
+						bio = {this.state.owner?this.state.owner.bio:""}
+						flakeScore = {this.state.owner?this.state.owner.flakeScore:""}
+						pic = {this.state.owner?this.state.owner.pic:""}
 					/>
 				</div>
 			</div>
