@@ -21,20 +21,18 @@ export class User extends React.Component {
             <div className="row">
                 <div className="profile">
                     <div className="wrapper">
-                        <img src={this.props.pic} id='image'/>
+                        <img className="profilePic"src={this.props.pic} id='image'/>
                     </div>
                 </div>
-                <div className="info">
-                    <div className="userloc">
+
+                <div className="username">
                         {this.props.username}
-                    </div>
-                    <div className="userloc">
-                        {this.props.location}
-                    </div>
                 </div>
+
                 <div className="aboutme">
                     {this.props.bio}
                 </div>
+                
                 <div className="flakescore">
                     {this.props.flakeScore}
                 </div>

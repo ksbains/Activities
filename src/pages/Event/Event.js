@@ -6,7 +6,7 @@ import EventDescription from "../../components/EventDescription";
 import "./Event.css";
 import GoogleMap from "../../components/GoogleMap";
 import ActivityService from "../../providers/ActivityService.js";
-import UserService from "../../providers/ActivityService.js";
+import UserService from "../../providers/UserService.js";
 
 
 
@@ -16,7 +16,8 @@ export class EventPage extends Component {
         this.state = {
             activity: {},
             owner: null,
-            user: this.props.user
+            user: this.props.user,
+            attendance: []
         };
     };
 
@@ -24,8 +25,20 @@ export class EventPage extends Component {
         console.log("Load EventPage")
         this.loadEvent(function() {
             console.log("EventObj: ", this.state.activity);
+            console.log("the creatorId is...", this.state.activity.creator);
             this.loadCreator(this.state.activity.creator);
+            this.attendance();
         });
+        //this.state.activity?this.loadCreator(this.state.activity.creator):console.log("is has not yet loaded the creator");
+
+    };
+
+    loadCreator = (creator) => {
+        console.log("this value of the creator inside loadCreator is...", creator);
+        UserService.getUser(creator)
+            .then(res => {
+                this.setState({owner: res.data});
+            }).catch(err => console.log("USERSERVICE ERROR !!!!!!!", err));
     };
 
     loadCreator = (creator) => {
@@ -43,8 +56,41 @@ export class EventPage extends Component {
          .then(res => {
              this.setState({ activity: res.data}, cb);
          }).catch(err => console.log("ActivityService error", err));
- };
-    render() {
+    };
+
+
+    handleRSVP = () => {
+        ActivityService.pushUserToActivity(this.state.activity._id, { $push: {usersJoined: this.state.user._id}}).then(res => {
+            console.log("successful push to users joined");
+        }).catch(err => console.log(err));
+    };
+
+    attendance = () => {
+        if(this.state.activity.usersJoined) {
+            console.log(this.state.activity.usersJoined);
+            this.state.activity.usersJoined.map((users, index) => {
+                UserService.getUser(users).then(res => {
+                    console.log(res.data.username);
+                    this.setState({attendance:[...this.state.attendance, res.data.username]});
+                    console.log("rendering");
+                    this.render();
+                });
+            })
+        };
+    }
+
+    render()
+    {
+        let button = null;
+        let RSVPers = null;
+
+        if(this.state.user) {
+            button = <button onClick={this.handleRSVP}>RSVP</button>;
+        } else {
+            <h1>Log in to RSVP!</h1>
+        };
+
+
         return (
             <div>
                 <div className="container">
@@ -55,7 +101,7 @@ export class EventPage extends Component {
                         username = {this.state.owner?this.state.owner.username:""}
                         bio = {this.state.owner?this.state.owner.bio:""}
                         pic = {this.state.owner?this.state.owner.pic:""}
-                        flakeScore = {this.state.owner?this.state.owner.username:""}
+                        flakeScore = {this.state.owner?this.state.owner.flakeScore:""}
                         />
                         </div>
                     </div>
@@ -68,10 +114,16 @@ export class EventPage extends Component {
                     </div>
                     
                     <div className="row">
-                        <div className="col-md-12">
+                        <div className="col-md-10">
                             <EventDescription
                             description={this.state.activity.description}
                             />
+                        </div>
+                        <div className="col-md-2">
+                            {button}
+                            {this.state.attendance.map((users, index) => {
+                                <h1>users</h1>
+                            })}
                         </div>
                     </div>
                 </div>
