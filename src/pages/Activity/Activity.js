@@ -5,6 +5,7 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 import ActivityService from "../../providers/ActivityService.js";
 import DatePicker from 'react-date-picker';
 import axios from "axios/index";
+import { Link } from 'react-router-dom';
 
 class ActivitySignUp extends Component {
     constructor(props) {
@@ -111,6 +112,18 @@ class ActivitySignUp extends Component {
 		event.preventDefault();
 		this.geocode(this.state.address, function (){
 			this.pushActivities(this.state);
+			this.setState({date: new Date(),
+                time: "",
+                duration: "",
+                activityType: "",
+                fam: true,
+                maxPeople: 2,
+                description: "",
+                address: '',
+                long:"did not work",
+                lat: "did not work",
+                creator: this.props.user._id,
+                user: this.props.user})
 		});
  	}
 
@@ -289,10 +302,9 @@ render(){
 						</div>
 						</div>
 					</div>
-
 					<div className="row formQuestion">
 						<div className="col-md-12 mt-5">
-							<button onClick={this.handleFormSubmit} className="btn btn-success btn-lg mb-2 mr-2 ml-2 pill-btn">Create a Game</button>
+                            <Link to='/'><button onClick={this.handleFormSubmit} className="btn btn-success btn-lg mb-2 mr-2 ml-2 pill-btn">Create a Game</button></Link>
 						</div> 
 					</div>
 
