@@ -24,13 +24,14 @@ export class EventPage extends Component {
         console.log("Load EventPage")
         this.loadEvent(function() {
             console.log("EventObj: ", this.state.activity);
+            console.log("the creatorId is...", this.state.activity.creator);
             this.loadCreator(this.state.activity.creator);
         });
 
     };
 
     loadCreator = (creator) => {
-        console.log("this value of the creator at this time is...", creator);
+        console.log("this value of the creator inside loadCreator is...", creator);
         UserService.getUser(creator)
             .then(res => {
                 this.setState({owner: res.data});
