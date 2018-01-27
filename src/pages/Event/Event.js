@@ -6,7 +6,7 @@ import EventDescription from "../../components/EventDescription";
 import "./Event.css";
 import GoogleMap from "../../components/GoogleMap";
 import ActivityService from "../../providers/ActivityService.js";
-import UserService from "../../providers/ActivityService.js";
+import UserService from "../../providers/UserService.js";
 
 
 
@@ -14,8 +14,9 @@ export class EventPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            activity: [],
-            user: this.props.user
+            activity: {},
+            user: this.props.user,
+            owner: null
         };
     };
 
@@ -23,7 +24,19 @@ export class EventPage extends Component {
         console.log("Load EventPage")
         this.loadEvent(function() {
             console.log("EventObj: ", this.state.activity);
+            console.log("the creatorId is...", this.state.activity.creator);
+            this.loadCreator(this.state.activity.creator)
         });
+        //this.state.activity?this.loadCreator(this.state.activity.creator):console.log("is has not yet loaded the creator");
+
+    };
+
+    loadCreator = (creator) => {
+        console.log("this value of the creator inside loadCreator is...", creator);
+        UserService.getUser(creator)
+            .then(res => {
+                this.setState({owner: res.data});
+            }).catch(err => console.log("USERSERVICE ERROR !!!!!!!", err));
     };
 
     loadEvent = (cb) => {
@@ -43,11 +56,10 @@ export class EventPage extends Component {
                     <div className="row">
                         <div className="col-md-12"> 
                         <User
-                        username = {this.state.user.username}
-                        location = {this.state.user.location}
-                        bio = {this.state.user.bio}
-                        pic = {this.state.user.pic}
-                        flakeScore = {this.state.user.flakeScore}
+                        username = {this.state.owner?this.state.owner.username:"private user"}
+                        bio = {this.state.owner?this.state.owner.bio:"this is a private user, you can not get thier biodata"}
+                        pic = {this.state.owner?this.state.owner.pic:"http://pocketnow.com/wp-content/uploads/2014/09/incognito-mode.jpg"}
+                        flakeScore = {this.state.owner?this.state.owner.flakeScore:69}
                         />
                         </div>
                     </div>

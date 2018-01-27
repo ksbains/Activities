@@ -1,9 +1,9 @@
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-var activitySeeder = require("./seeds/activity.js")
-var commentSeeder = require("./seeds/comment.js")
-var userSeeder = require("./seeds/user.js")
+// var activitySeeder = require("./seeds/activity.js")
+// var commentSeeder = require("./seeds/comment.js")
+// var userSeeder = require("./seeds/user.js")
 var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
 var path = require("path");
@@ -17,9 +17,9 @@ mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGOLAB_RED_URI || "mongodb://localhost/activitiesdb", {
 }).then(function() {
     app.listen(PORT, function() {
-        activitySeeder;
-        commentSeeder;
-        userSeeder;
+        // activitySeeder;
+        // commentSeeder;
+        // userSeeder;
         console.log("API Server Started on port:" + PORT);
     });
 
