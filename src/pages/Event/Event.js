@@ -128,15 +128,18 @@ export class EventPage extends Component {
                     </div>
                     
                     <div className="row">
-                        <div className="col-md-10">
+                        <div className="col-md-12">
                             <EventDescription
                             description={this.state.activity.description}
                             />
                         </div>
-                        <div className="col-md-2">
+                    </div>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <h1>Attendance</h1>
                             {button}
                             {this.state.attendance.map((users, index) => {
-                                <h1>users</h1>
+                                return( <p>{users}</p> )
                             })}
                         </div>
                     </div>

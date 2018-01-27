@@ -17,7 +17,7 @@ export class User extends React.Component {
     }
 
     render(){
-    return ( <div className="container user">
+    return ( <div className="user">
             <div className="row">
                 <div className="profile">
                     <div className="wrapper">
