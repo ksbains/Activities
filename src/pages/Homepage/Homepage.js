@@ -39,8 +39,9 @@ class Homepage extends Component {
 
 	render() {
 		return(
-			<div>
+			<div className="container">
 				<Navbar user={this.state.user}/>
+
 				<ActivityCardWrapper>
 				{this.state.activities.map((activity, index) => {
 					return(

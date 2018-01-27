@@ -25,18 +25,20 @@ export class EventPage extends Component {
         this.loadEvent(function() {
             console.log("EventObj: ", this.state.activity);
             console.log("the creatorId is...", this.state.activity.creator);
-            this.loadCreator(this.state.activity.creator)
+            this.loadCreator(this.state.activity.creator, function (){
+                console.log("we are in callback hell", this.state.owner);
+            })
         });
         //this.state.activity?this.loadCreator(this.state.activity.creator):console.log("is has not yet loaded the creator");
 
     };
 
-    loadCreator = (creator) => {
+    loadCreator = (creator, cb) => {
         console.log("this value of the creator inside loadCreator is...", creator);
         UserService.getUser(creator)
             .then(res => {
-                console.log('load Creator res: ', res.data);
-                this.setState({owner: res.data});
+                console.log("The value of the load creator is..", res.data);
+                this.setState({owner: res.data}, cb);
             }).catch(err => console.log("USERSERVICE ERROR !!!!!!!", err));
     };
 
