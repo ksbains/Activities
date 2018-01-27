@@ -131,6 +131,9 @@ export class EventPage extends Component {
                         <div className="col-md-12">
                             <EventDescription
                             description={this.state.activity.description}
+                            activityType={this.state.activity.activityType}
+                            time={this.state.activity.time}
+                            duration={this.state.activity.duration}
                             />
                         </div>
                     </div>
