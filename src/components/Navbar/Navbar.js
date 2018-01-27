@@ -22,19 +22,11 @@ class Navbar extends React.Component {
 	}
 
     handleLogout = () => {
-        axios.get('/user').then(response => {
-            console.log("User Authentication check in app.js", response.data);
-            if (response.data.user) {
-                console.log('THERE IS A USER');
-                axios.post('logout').then(res => {
-                    console.log("handleLogout()");
-                    this.setState({
-                        user: null
-                    })
-					res.redirect('/');
-                })
-            }
-            console.log("this is the username after logout", response.data.user);
+		axios.post('logout').then(res => {
+			console.log("handleLogout()");
+			this.setState({
+				user: null
+			})
         })
     }
 

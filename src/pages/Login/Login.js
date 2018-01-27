@@ -25,6 +25,21 @@ class Login extends Component {
     componentDidMount = () => {
         console.log("Load Login");
         this.handleSubmit = this.handleSubmit.bind(this);
+        axios.get('/user').then(response => {
+            console.log("User Authentication check in app.js", response.data);
+            if (response.data.user) {
+                console.log('THERE IS A USER');
+                this.setState({
+                    loggedIn: true,
+                    user: response.data.user
+                }, function (){
+                    console.log("this is call after the setState, going into render");
+                    this.render();
+                });
+            }
+            console.log("this is the username within willmount of route", response.data.user);
+            this.render();
+        })
     };
 
     handleInputChange = (event) => {
