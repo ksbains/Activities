@@ -13,8 +13,9 @@ module.exports = {
       .catch(err => res.status(420).json(err));
   },
   findById: function(req, res) {
+    console.log('findbyid', req.params.id);
     db.User
-      .findById(req.params.id)
+      .find({id: req.params.id})
       .then(dbModel =>{
        res.json(dbModel)
     })

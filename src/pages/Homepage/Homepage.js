@@ -38,17 +38,17 @@ class Homepage extends Component {
 		ActivityService.getActivities()
 			.then(actRes => {
 				tempAct.push(actRes.data)
-				for (let i = 0; i < actRes.data.length; i++){
+				console.log('actRes', tempAct);
+				for (let i = 0; i < tempAct.length; i++) {
+					console.log('actRes.data[i]._id', actRes.data[i]._id);
 					UserService.getUser(actRes.data[i]._id)
 						.then(userRes => {
+							console.log('userRes', userRes);
 							tempUser.push(userRes.data)
-						
-						for (let j = 0; j < tempAct.length; j++){
 							let tempObject = {};
-							tempObject.activity = tempAct[j]
-							tempUser.user = tempUser[j]
+							tempObject.activity = tempAct[i]
+							tempUser.user = tempUser[i]
 							combinedArray.push(tempObject)
-						}
 						}).catch(err => console.log('err', err))}
 			}).catch(err => console.log('err', err))
 		};
@@ -70,7 +70,8 @@ class Homepage extends Component {
 			<div>
 				<Navbar user={this.state.user}/>
 				<ActivityCardWrapper>
-				{this.state.activities.map((activity, index) => {
+				{this.state.activitiesCards.map((activity, index) => {
+					console.log('USERNAME DEFINE: ', activity);
 					return(
 						<ActivityCard
 							id = {activity._id}
