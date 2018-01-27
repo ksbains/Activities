@@ -6,7 +6,7 @@ import EventDescription from "../../components/EventDescription";
 import "./Event.css";
 import GoogleMap from "../../components/GoogleMap";
 import ActivityService from "../../providers/ActivityService.js";
-import UserService from "../../providers/ActivityService.js";
+import UserService from "../../providers/UserService.js";
 
 
 
@@ -15,7 +15,7 @@ export class EventPage extends Component {
         super(props)
         this.state = {
             activity: {},
-            user: this.props.user
+            user: this.props.user,
             owner: {}
         };
     };
@@ -24,18 +24,19 @@ export class EventPage extends Component {
         console.log("Load EventPage")
         this.loadEvent(function() {
             console.log("EventObj: ", this.state.activity);
-            this.loadCreator(function () {
-                console.log("holy shit i am in call back hell", this.state.owner);
-            })
         });
+        this.loadCreator(function () {
+            console.log("holy shit i am in call back hell", this.state.owner);
+        })
 
     };
+    
     loadCreator = (cb) => {
         console.log(this.state.activity.creator);
         UserService.getUser(this.state.activity.creator)
             .then(res => {
                 this.setState({owner: res.data}, cb);
-            }).catch(err = > console.log("USERSERVICE ERROR !!!!!!!", err));
+            }).catch(err => console.log("USERSERVICE ERROR !!!!!!!", err));
     };
 
     loadEvent = (cb) => {
