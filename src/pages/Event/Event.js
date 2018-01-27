@@ -15,8 +15,9 @@ export class EventPage extends Component {
         super(props)
         this.state = {
             activity: {},
+            owner: null,
             user: this.props.user,
-            owner: null
+            attendance: []
         };
     };
 
@@ -25,9 +26,8 @@ export class EventPage extends Component {
         this.loadEvent(function() {
             console.log("EventObj: ", this.state.activity);
             console.log("the creatorId is...", this.state.activity.creator);
-            this.loadCreator(this.state.activity.creator, function (){
-                console.log("we are in callback hell", this.state.owner);
-            })
+            this.loadCreator(this.state.activity.creator);
+            this.attendance();
         });
         //this.state.activity?this.loadCreator(this.state.activity.creator):console.log("is has not yet loaded the creator");
 
@@ -42,6 +42,13 @@ export class EventPage extends Component {
             }).catch(err => console.log("USERSERVICE ERROR !!!!!!!", err));
     };
 
+    loadCreator = (creator) => {
+        UserService.getUser(creator)
+            .then(res => {
+                this.setState({owner: res.data});
+            }).catch(err => console.log("error"));
+    }
+
     loadEvent = (cb) => {
      var str = window.location.search;
      var id = str.substring(4, str.length);
@@ -50,8 +57,41 @@ export class EventPage extends Component {
          .then(res => {
              this.setState({ activity: res.data}, cb);
          }).catch(err => console.log("ActivityService error", err));
- };
-    render() {
+    };
+
+
+    handleRSVP = () => {
+        ActivityService.pushUserToActivity(this.state.activity._id, { $push: {usersJoined: this.state.user._id}}).then(res => {
+            console.log("successful push to users joined");
+        }).catch(err => console.log(err));
+    };
+
+    attendance = () => {
+        if(this.state.activity.usersJoined) {
+            console.log(this.state.activity.usersJoined);
+            this.state.activity.usersJoined.map((users, index) => {
+                UserService.getUser(users).then(res => {
+                    console.log(res.data.username);
+                    this.setState({attendance:[...this.state.attendance, res.data.username]});
+                    console.log("rendering");
+                    this.render();
+                });
+            })
+        };
+    }
+
+    render()
+    {
+        let button = null;
+        let RSVPers = null;
+
+        if(this.state.user) {
+            button = <button onClick={this.handleRSVP}>RSVP</button>;
+        } else {
+            <h1>Log in to RSVP!</h1>
+        };
+
+
         return (
             <div>
                 <div className="container">
@@ -75,10 +115,16 @@ export class EventPage extends Component {
                     </div>
                     
                     <div className="row">
-                        <div className="col-md-12">
+                        <div className="col-md-10">
                             <EventDescription
                             description={this.state.activity.description}
                             />
+                        </div>
+                        <div className="col-md-2">
+                            {button}
+                            {this.state.attendance.map((users, index) => {
+                                <h1>users</h1>
+                            })}
                         </div>
                     </div>
                 </div>

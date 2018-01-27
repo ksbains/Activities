@@ -25,5 +25,10 @@ export default  {
   saveActivity: function(activityData) {
     console.log(activityData);
     return axios.post("/api/activities", activityData);
+  },
+
+  pushUserToActivity: function(id, userToPush) {
+      console.log(userToPush);
+      return axios.put("/api/activities/" + id, userToPush);
   }
 };

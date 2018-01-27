@@ -50,7 +50,7 @@ class Navbar extends React.Component {
 
 		if(this.state.user) {
 			createActivity = <li className="active"> <Link to='/activity'>Create an Activity!</Link> </li>;
-            loginDropdown = <ul className="dropdown-menu"><li className="active"> <Link to='/activity'>Create an Activity!</Link> </li> <li><Link to={`/event?id=${this.state.user.id}`}>Profile</Link></li> <li><Link to='/settings'>Settings</Link></li><li><button style={style} onClick={this.handleLogout.bind(this)}>Log Out</button></li></ul>;
+            loginDropdown = <ul className="dropdown-menu"><li className="active"> <Link to='/activity'>Create an Activity!</Link> </li> <li><Link to={`/user?id=${this.state.user._id}`}>Profile</Link></li> <li><Link to='/settings'>Settings</Link></li><li><button style={style} onClick={this.handleLogout.bind(this)}>Log Out</button></li></ul>;
             user = <a href="#" data-toggle="dropdown" className="dropdown-toggle"><img className="navbarPic" src={this.state.user ? this.state.user.pic :"http://placehold.it/18x18"} className="profile-image img-circle"/> {this.state.user ? this.state.user.username : ''} <b className="caret"></b></a>;
 
         } else {
@@ -61,7 +61,7 @@ class Navbar extends React.Component {
 			<nav className="navbar">
 			    <ul className="nav nav-pills">
                     <li className="btn-info"> <Link to='/'>Homepage</Link> </li>
-                    <li className="active"> <Link to='/activity'>Create an Activity!</Link> </li>
+					{createActivity}
 			         	<Dropdown/>
 			        <li className="dropdown pull-right">
 						{login}
