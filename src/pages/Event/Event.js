@@ -14,7 +14,8 @@ export class EventPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            activity: [],
+            activity: {},
+            owner: null,
             user: this.props.user
         };
     };
@@ -23,8 +24,16 @@ export class EventPage extends Component {
         console.log("Load EventPage")
         this.loadEvent(function() {
             console.log("EventObj: ", this.state.activity);
+            this.loadCreator(this.state.activity.creator);
         });
     };
+
+    loadCreator = (creator) => {
+        UserService.getUser(creator)
+            .then(res => {
+                this.setState({owner: res.data});
+            }).catch(err => console.log("error"));
+    }
 
     loadEvent = (cb) => {
      var str = window.location.search;
@@ -43,11 +52,10 @@ export class EventPage extends Component {
                     <div className="row">
                         <div className="col-md-12"> 
                         <User
-                        username = {this.state.user.username}
-                        location = {this.state.user.location}
-                        bio = {this.state.user.bio}
-                        pic = {this.state.user.pic}
-                        flakeScore = {this.state.user.flakeScore}
+                        username = {this.state.owner?this.state.owner.username:""}
+                        bio = {this.state.owner?this.state.owner.bio:""}
+                        pic = {this.state.owner?this.state.owner.pic:""}
+                        flakeScore = {this.state.owner?this.state.owner.username:""}
                         />
                         </div>
                     </div>
