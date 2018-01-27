@@ -134,6 +134,7 @@ export class EventPage extends Component {
                             activityType={this.state.activity.activityType}
                             time={this.state.activity.time}
                             duration={this.state.activity.duration}
+                            date={this.state.activity.date}
                             />
                         </div>
                     </div>

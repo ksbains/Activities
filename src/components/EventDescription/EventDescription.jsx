@@ -9,6 +9,7 @@ export default class EventDescription extends React.Component {
   		<div className="container" id="eventDescription">
       <div className="col-md-12">
           <div><h1>{this.props.activityType}</h1></div>
+          <div><h3>{this.props.date.substring(0,10)}</h3></div>
           <div><h3>{this.props.time}</h3></div>
           <div><h3>{this.props.duration}</h3></div>
              <div className="panel panel-blue">

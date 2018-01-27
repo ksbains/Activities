@@ -13,6 +13,7 @@ const activitySchema = new Schema({
     maxPeople: { type: Number, required: true },
     description: {type: String, required: true},
     creator: { type: Schema.Types.ObjectId, ref: User},
+    date: { type: String},
     usersJoined: [
     { type: Schema.Types.ObjectId, ref: User}
     ]
