@@ -17,13 +17,17 @@ export class EventPage extends Component {
             activity: {},
             owner: null,
             user: this.props.user,
-            attendance: []
+            attendance: [],
+            retrieved: false
         };
     };
 
-    componentWillMount = () => {
+    componentDidMount = () => {
         console.log("Load EventPage")
         this.loadEvent(function() {
+            this.setState({
+                retrieved:false
+            })
             console.log("EventObj: ", this.state.activity);
             console.log("the creatorId is...", this.state.activity.creator);
             this.loadCreator(this.state.activity.creator);
@@ -55,6 +59,7 @@ export class EventPage extends Component {
      console.log('Event Str', str);
      ActivityService.getActivity(id)
          .then(res => {
+             console.log("get activity response", res.data);
              this.setState({ activity: res.data}, cb);
          }).catch(err => console.log("ActivityService error", err));
     };
@@ -67,16 +72,24 @@ export class EventPage extends Component {
     };
 
     attendance = () => {
-        if(this.state.activity.usersJoined) {
+        if(this.state.activity.usersJoined.length > 0) {
             console.log(this.state.activity.usersJoined);
             this.state.activity.usersJoined.map((users, index) => {
                 UserService.getUser(users).then(res => {
                     console.log(res.data.username);
-                    this.setState({attendance:[...this.state.attendance, res.data.username]});
+                    this.setState({attendance:[...this.state.attendance, res.data.username],
+                                    retrieved: true});
                     console.log("rendering");
                     this.render();
                 });
             })
+        }
+        else {
+            console.log("no attendance, going to set state and render");
+            this.setState({
+                retrieved: true
+            });
+            this.render();
         };
     }
 
@@ -91,7 +104,7 @@ export class EventPage extends Component {
             <h1>Log in to RSVP!</h1>
         };
 
-
+        if(!this.state.retrieved) return <div></div>;
         return (
             <div>
                 <div className="container">
