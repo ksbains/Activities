@@ -63,7 +63,7 @@ authController.doLogin = function(req, res) {
 // logout
 authController.logout = function(req, res) {
     req.session.destroy((err) => {
-        if(err) return next(err);
+        if(err) return (err);
 
         req.logout();
         res.redirect('/');
