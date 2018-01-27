@@ -24,15 +24,15 @@ export class EventPage extends Component {
         console.log("Load EventPage")
         this.loadEvent(function() {
             console.log("EventObj: ", this.state.activity);
-        });
-        this.loadCreator(function () {
+            this.loadCreator(function () {
             console.log("holy shit i am in call back hell", this.state.owner);
-        })
+            });
+        });
 
     };
-    
+
     loadCreator = (cb) => {
-        console.log(this.state.activity.creator);
+        console.log("this value of the creator at this time is...", this.state.activity.creator);
         UserService.getUser(this.state.activity.creator)
             .then(res => {
                 this.setState({owner: res.data}, cb);
