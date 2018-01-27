@@ -75,6 +75,11 @@ if(process.env.PORT) {
 
 app.use(routes);
 
+//Makes any route not defined mapped to SPA
+app.get('*', function(request, response) {
+    response.sendFile(path.resolve(__dirname, '/build', 'index.html'));
+});
+
 var User = require('./models/User');
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
