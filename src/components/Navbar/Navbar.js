@@ -27,6 +27,7 @@ class Navbar extends React.Component {
 			this.setState({
 				user: null
 			})
+			window.location.reload();
         })
     }
 
@@ -39,13 +40,20 @@ class Navbar extends React.Component {
 	render () {
 
 		let createActivity = null;
-		let logout = null;
 		let login = null;
+		let user = null;
+		let loginDropdown = null;
+
+		let style = {
+			margin: '0px 20px'
+		}
 
 		if(this.state.user) {
 			createActivity = <li className="active"> <Link to='/activity'>Create an Activity!</Link> </li>;
-			logout = <li><button onClick={this.handleLogout.bind(this)}>Log Out</button></li>;
-		} else {
+            loginDropdown = <ul className="dropdown-menu"><li className="active"> <Link to='/activity'>Create an Activity!</Link> </li> <li><Link to='/user'>Profile</Link></li> <li><Link to='/settings'>Settings</Link></li><li><button style={style} onClick={this.handleLogout.bind(this)}>Log Out</button></li></ul>;
+            user = <a href="#" data-toggle="dropdown" className="dropdown-toggle"><img className="navbarPic" src={this.state.user ? this.state.user.pic :"http://placehold.it/18x18"} className="profile-image img-circle"/> {this.state.user ? this.state.user.username : ''} <b className="caret"></b></a>;
+
+        } else {
 			login = <li><Link to='/login'><button>Log In</button></Link></li>
 		}
 
@@ -67,15 +75,9 @@ class Navbar extends React.Component {
 			            </ul>
 			        </li>
 			        <li className="dropdown pull-right">
-			            <a href="#" data-toggle="dropdown" className="dropdown-toggle"><img className="navbarPic" src={this.state.user ? this.state.user.pic :"http://placehold.it/18x18"} className="profile-image img-circle"/> {this.state.user ? this.state.user.username : ''} <b className="caret"></b></a>
-			            <ul className="dropdown-menu">
-			                <li><Link to='/user'>Profile</Link></li>
-			                <li><a href="#">Upcoming events</a></li>
-			                <li className="divider"></li>
-			                <li><Link to='/settings'>Settings</Link></li>
-							{login}
-							{logout}
-			            </ul>
+						{login}
+						{user}
+						{loginDropdown}
 			        </li>
 			    </ul>
 			</nav>
