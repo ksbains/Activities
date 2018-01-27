@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Router } from 'react-router-dom';
 import Homepage from "./pages/Homepage";
 import ActivityForm from "./pages/Activity";
 import Setting from "./pages/Setting";
@@ -45,14 +45,12 @@ class App extends Component {
          <div className="App">
          </div>
          <div>
-             <Switch>
                  <Route exact path='/' render={() => <Homepage user={this.state.user}/>} />
                  <Route exact path='/activity' render={() => <ActivityForm user={this.state.user}/>} />
                  <Route exact path='/settings' render={() => <Setting user={this.state.user}/>} />
                  <Route exact path='/user' render={() => <UserPage user={this.state.user}/>} />
                  <Route exact path='/login' render={() => <LoginPage user={this.state.user}/>} />
                  <Route exact path='/event' render={() => <EventPage user={this.state.user}/>} />
-             </Switch>
          </div>
         </div>
        );

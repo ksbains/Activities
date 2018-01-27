@@ -31,11 +31,10 @@ class Navbar extends React.Component {
                     this.setState({
                         user: null
                     })
-                    this.render();
+					res.redirect('/');
                 })
             }
-            console.log("this is the username within willmount of route", response.data.user);
-            this.render();
+            console.log("this is the username after logout", response.data.user);
         })
     }
 

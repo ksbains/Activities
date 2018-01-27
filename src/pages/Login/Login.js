@@ -41,9 +41,9 @@ class Login extends Component {
         console.log('Magic!', this.state);
         axios.post('/register', this.state).then(response => {
             //console.log(response);
-            //console.log("this is before the set State", response.data);
+            console.log("this is after axios.post(register)", response.data);
             if (response.data.user) {
-                console.log('THERE IS A USER');
+                console.log('THERE IS A USER', response.data.user);
                 this.props.user = response.data.user;
                 // this.setState({
                 //     loggedIn: true,
