@@ -67,7 +67,11 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 // Use express.static to serve the public folder as a static directory
-app.use(express.static(path.join(__dirname, "build")));
+if(process.env.PORT) {
+    app.use(express.static(path.join("client/build")));
+} else {
+    app.use(express.static(path.join(__dirname, "build")));
+}
 
 app.use(routes);
 
