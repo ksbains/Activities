@@ -15,10 +15,9 @@ import UserService from "../../providers/UserService.js";
 class Homepage extends Component {
  constructor(props) {
     super(props);
-    this.expandEventCard = this.expandEventCard.bind(this);
     this.state = {
-		activitiesCards: [],
-		user: this.props.user
+		user: this.props.user,
+		activities: []
 	};
   }
 
@@ -29,77 +28,28 @@ class Homepage extends Component {
 
  	componentDidMount = () => {
  		// console.log("homepage props",this.props);
-	}
+	};
 
 	loadEvents = () => {
-		let tempAct = [];
-		let tempUser = [];
-		let combinedArray = [];
 		ActivityService.getActivities()
 			.then(actRes => {
-				tempAct.push(actRes.data)
-				console.log('actRes', tempAct);
-				for (let i = 0; i < tempAct.length; i++) {
-					console.log('actRes.data[i]._id', actRes.data[i]._id);
-					UserService.getUser(actRes.data[i]._id)
-						.then(userRes => {
-							console.log('userRes', userRes);
-							tempUser.push(userRes.data)
-							let tempObject = {};
-							tempObject.activity = tempAct[i]
-							tempUser.user = tempUser[i]
-							combinedArray.push(tempObject)
-						}).catch(err => console.log('err', err))}
+				this.setState({activities: actRes.data});
 			}).catch(err => console.log('err', err))
 		};
-
-	expandEventCard = (index) => {
-		// console.log("this-expandEventCard", this.state.activities[index])
-	};
-
-	expandUserInfo = (index) => {
-		// console.log("this-expandUserCard", this.state.users[index])
-	};
-
-	filterActivity = (index) => {
-		// console.log("this-filterActivity", this.state.activities[index])
-	};
 
 	render() {
 		return(
 			<div>
 				<Navbar user={this.state.user}/>
 				<ActivityCardWrapper>
-				{this.state.activitiesCards.map((activity, index) => {
-					console.log('USERNAME DEFINE: ', activity);
+				{this.state.activities.map((activity, index) => {
 					return(
 						<ActivityCard
-							id = {activity._id}
-							activityType = {activity.activityType}
-							description = {activity.description}
-							username = {activity.creator.username}
-							flakeScore = {activity.creator.flakeScore}
-						>
-            				<Link to={'/event?id=' + activity._id}>
-								<ActivityCardEventInfo
-									onClickExpandEventCard = {this.expandEventCard.bind(this, index)}
-									onClickFilterActivity = {this.filterActivity.bind(this, index)}
-									activityType = {activity.activityType}
-									description = {activity.description}
-								/>
-							</Link>
-          					<Link to={'/user?id=' + activity.creator._id}>
-								<ActivityCardUserInfo
-									onClickExpandUserInfo = {this.expandUserInfo.bind(this, index)}
-									username = {activity.creator.username}
-									flakeScore = {activity.creator.flakeScore}
-								/>							
-							</Link>
-						</ActivityCard>
+							activityId={activity._id}
+						/>
 					);
 				})}
 				</ActivityCardWrapper>
-
 			</div>
 		);
 	}

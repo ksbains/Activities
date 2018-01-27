@@ -35,6 +35,7 @@ export class EventPage extends Component {
         console.log("this value of the creator inside loadCreator is...", creator);
         UserService.getUser(creator)
             .then(res => {
+                console.log('load Creator res: ', res.data);
                 this.setState({owner: res.data});
             }).catch(err => console.log("USERSERVICE ERROR !!!!!!!", err));
     };
@@ -56,10 +57,10 @@ export class EventPage extends Component {
                     <div className="row">
                         <div className="col-md-12"> 
                         <User
-                        username = {this.state.owner?this.state.owner.username:"private user"}
-                        bio = {this.state.owner?this.state.owner.bio:"this is a private user, you can not get thier biodata"}
-                        pic = {this.state.owner?this.state.owner.pic:"http://pocketnow.com/wp-content/uploads/2014/09/incognito-mode.jpg"}
-                        flakeScore = {this.state.owner?this.state.owner.flakeScore:69}
+                        username = {this.state.owner?this.state.owner.username:""}
+                        bio = {this.state.owner?this.state.owner.bio:""}
+                        pic = {this.state.owner?this.state.owner.pic:""}
+                        flakeScore = {this.state.owner?this.state.owner.flakeScore:""}
                         />
                         </div>
                     </div>
