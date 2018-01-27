@@ -16,7 +16,7 @@ export class EventPage extends Component {
         this.state = {
             activity: {},
             user: this.props.user,
-            owner: {}
+            owner: null
         };
     };
 
@@ -25,8 +25,9 @@ export class EventPage extends Component {
         this.loadEvent(function() {
             console.log("EventObj: ", this.state.activity);
             console.log("the creatorId is...", this.state.activity.creator);
-            this.loadCreator(this.state.activity.creator);
+            this.loadCreator(this.state.activity.creator)
         });
+        //this.state.activity?this.loadCreator(this.state.activity.creator):console.log("is has not yet loaded the creator");
 
     };
 
